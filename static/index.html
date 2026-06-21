@@ -1,0 +1,1107 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Лиза Ефремова — монтаж Reels, TikTok, YouTube</title>
+    <meta
+      name="description"
+      content="Монтаж Reels, TikTok, YouTube и контент-менеджмент для блогеров, экспертов и брендов."
+    />
+    <style>
+      :root {
+        --bg: #090a0c;
+        --bg-2: #0f1115;
+        --panel: #151820;
+        --panel-2: #1b1f2a;
+        --text: #f7f7f2;
+        --muted: #b4b8c2;
+        --dim: #7e8492;
+        --line: rgba(255, 255, 255, 0.12);
+        --line-strong: rgba(255, 255, 255, 0.2);
+        --accent: #78e08f;
+        --accent-2: #b9ff66;
+        --accent-dark: #1f7a3b;
+        --danger: #ff7a7a;
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+        --radius: 12px;
+        --max: 1160px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 70% 0%, rgba(120, 224, 143, 0.12), transparent 34rem),
+          linear-gradient(180deg, #050607 0%, var(--bg) 42%, #050607 100%);
+        color: var(--text);
+        font-family:
+          Inter, Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 16px;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      summary {
+        font: inherit;
+      }
+
+      video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .wrap {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(9, 10, 12, 0.82);
+        backdrop-filter: blur(16px);
+      }
+
+      .header-inner {
+        display: grid;
+        grid-template-columns: minmax(190px, 1fr) auto auto;
+        align-items: center;
+        gap: 24px;
+        min-height: 68px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #071007;
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      .brand strong,
+      .brand span {
+        display: block;
+      }
+
+      .brand strong {
+        font-size: 14px;
+        line-height: 1.1;
+      }
+
+      .brand span {
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .site-nav a:hover {
+        color: var(--text);
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        cursor: pointer;
+        font-weight: 850;
+        transition:
+          transform 160ms ease,
+          border-color 160ms ease,
+          background 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+        border-color: var(--line-strong);
+      }
+
+      .button-primary {
+        border-color: transparent;
+        background: var(--accent);
+        color: #061006;
+      }
+
+      .button-secondary {
+        border-color: transparent;
+        background: transparent;
+        color: var(--text);
+        padding-inline: 4px;
+      }
+
+      .header-button {
+        min-height: 36px;
+        padding-inline: 16px;
+        font-size: 13px;
+      }
+
+      .section {
+        padding: 96px 0;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(420px, 0.95fr);
+        gap: 56px;
+        align-items: center;
+        min-height: calc(100vh - 68px);
+        padding: 72px 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        margin-bottom: 18px;
+        padding: 0 12px;
+        border: 1px solid rgba(120, 224, 143, 0.32);
+        border-radius: 999px;
+        color: var(--accent);
+        background: rgba(120, 224, 143, 0.08);
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 720px;
+        margin-bottom: 22px;
+        font-size: clamp(44px, 6.8vw, 84px);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
+      }
+
+      h2 {
+        margin-bottom: 18px;
+        font-size: clamp(34px, 4.4vw, 58px);
+        line-height: 1;
+        letter-spacing: -0.035em;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 20px;
+        line-height: 1.25;
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .lead {
+        max-width: 610px;
+        margin-bottom: 30px;
+        font-size: 20px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .video-shell {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background:
+          linear-gradient(135deg, rgba(120, 224, 143, 0.2), transparent 45%),
+          #050607;
+        box-shadow: var(--shadow);
+      }
+
+      .video-shell.ratio-16x9 {
+        aspect-ratio: 16 / 9;
+      }
+
+      .video-shell.ratio-9x16 {
+        aspect-ratio: 9 / 16;
+      }
+
+      .showreel {
+        min-height: 310px;
+      }
+
+      .video-placeholder {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        pointer-events: none;
+        text-align: center;
+      }
+
+      .play {
+        display: grid;
+        width: 72px;
+        height: 72px;
+        place-items: center;
+        margin: 0 auto 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+      }
+
+      .play::before {
+        width: 0;
+        height: 0;
+        margin-left: 5px;
+        border-top: 13px solid transparent;
+        border-bottom: 13px solid transparent;
+        border-left: 19px solid var(--accent);
+        content: "";
+      }
+
+      .video-placeholder strong {
+        display: block;
+        color: var(--text);
+      }
+
+      .video-placeholder span {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .section-head {
+        max-width: 760px;
+        margin: 0 auto 36px;
+        text-align: center;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .trigger-card,
+      .value-card,
+      .service-card,
+      .step-card {
+        padding: 24px;
+      }
+
+      .icon {
+        display: inline-grid;
+        width: 42px;
+        height: 42px;
+        margin-bottom: 18px;
+        place-items: center;
+        border-radius: 12px;
+        background: rgba(120, 224, 143, 0.12);
+        font-size: 22px;
+      }
+
+      .italic-note {
+        margin: 28px 0 0;
+        color: var(--muted);
+        font-style: italic;
+        text-align: center;
+      }
+
+      .cases {
+        overflow-x: auto;
+        display: grid;
+        grid-auto-columns: minmax(300px, 380px);
+        grid-auto-flow: column;
+        gap: 18px;
+        padding: 3px 3px 18px;
+        scroll-snap-type: x mandatory;
+      }
+
+      .case-card {
+        overflow: hidden;
+        scroll-snap-align: start;
+        transition:
+          transform 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .case-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+      }
+
+      .case-button {
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .case-video {
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .case-body {
+        padding: 18px;
+      }
+
+      .badge {
+        display: inline-flex;
+        min-height: 26px;
+        align-items: center;
+        margin-bottom: 14px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(120, 224, 143, 0.12);
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .case-body dl {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+      }
+
+      .case-body div {
+        display: grid;
+        gap: 2px;
+      }
+
+      .case-body dt {
+        color: var(--dim);
+        font-size: 12px;
+      }
+
+      .case-body dd {
+        margin: 0;
+        color: var(--text);
+        font-size: 14px;
+      }
+
+      .value-card strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 19px;
+      }
+
+      .service-card em {
+        display: block;
+        margin-top: 16px;
+        color: var(--accent);
+        font-style: normal;
+        line-height: 1.5;
+      }
+
+      .process {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .step-card {
+        position: relative;
+      }
+
+      .step-number {
+        display: inline-grid;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 36px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #061006;
+        font-weight: 950;
+      }
+
+      .step-card:not(:last-child)::after {
+        position: absolute;
+        top: 40px;
+        right: -21px;
+        color: var(--accent);
+        content: "→";
+        font-size: 24px;
+        font-weight: 900;
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      details {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      summary {
+        display: flex;
+        min-height: 66px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 0 22px;
+        cursor: pointer;
+        color: var(--text);
+        font-weight: 850;
+        list-style: none;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary::after {
+        color: var(--accent);
+        content: "+";
+        font-size: 24px;
+      }
+
+      details[open] summary::after {
+        content: "−";
+      }
+
+      details p {
+        margin: 0;
+        padding: 0 22px 22px;
+      }
+
+      .final-cta {
+        margin-bottom: 80px;
+      }
+
+      .cta-panel {
+        padding: clamp(34px, 7vw, 72px);
+        border: 1px solid rgba(120, 224, 143, 0.24);
+        border-radius: 24px;
+        background:
+          radial-gradient(circle at 100% 0%, rgba(185, 255, 102, 0.16), transparent 28rem),
+          var(--panel-2);
+        text-align: center;
+      }
+
+      .cta-panel p {
+        max-width: 680px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .cta-panel .button {
+        min-height: 56px;
+        margin-top: 14px;
+        padding-inline: 28px;
+        font-size: 17px;
+      }
+
+      .microcopy {
+        margin-top: 16px;
+        color: var(--dim);
+        font-size: 13px;
+      }
+
+      .site-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 24px 0 40px;
+        border-top: 1px solid var(--line);
+        color: var(--dim);
+        font-size: 13px;
+      }
+
+      dialog {
+        width: min(920px, calc(100% - 32px));
+        padding: 0;
+        border: 1px solid var(--line-strong);
+        border-radius: 18px;
+        background: #050607;
+        color: var(--text);
+        box-shadow: var(--shadow);
+      }
+
+      dialog::backdrop {
+        background: rgba(0, 0, 0, 0.78);
+      }
+
+      .dialog-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .dialog-head strong {
+        display: block;
+      }
+
+      .dialog-head span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .dialog-close {
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--text);
+        cursor: pointer;
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .dialog-body {
+        padding: 18px;
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 500ms ease,
+          transform 500ms ease;
+      }
+
+      .fade-in.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 960px) {
+        .header-inner {
+          grid-template-columns: 1fr auto;
+        }
+
+        .site-nav {
+          display: none;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .showreel {
+          min-height: 240px;
+        }
+
+        .grid-2,
+        .grid-3,
+        .process {
+          grid-template-columns: 1fr;
+        }
+
+        .step-card:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          bottom: -26px;
+          left: 28px;
+          transform: rotate(90deg);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .wrap {
+          width: min(100% - 28px, var(--max));
+        }
+
+        .brand span,
+        .header-button {
+          display: none;
+        }
+
+        .section {
+          padding: 70px 0;
+        }
+
+        .hero {
+          padding-top: 48px;
+        }
+
+        .lead {
+          font-size: 17px;
+        }
+
+        .actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .cases {
+          display: grid;
+          grid-auto-flow: row;
+          grid-auto-columns: unset;
+        }
+
+        .site-footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner wrap">
+        <a class="brand" href="#top" aria-label="К началу страницы">
+          <span class="brand-mark">ЛЕ</span>
+          <span>
+            <strong>Лиза Ефремова</strong>
+            <span>Монтаж видео · Контент-менеджмент</span>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Навигация">
+          <a href="#cases">Работы</a>
+          <a href="#services">Услуги</a>
+          <a href="#process">Процесс</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <!-- ЗАМЕНИТЬ: https://t.me/username -->
+        <a class="button button-primary header-button" href="https://t.me/username">Написать</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero wrap">
+        <div class="fade-in">
+          <span class="eyebrow">Портфолио фрилансера</span>
+          <h1>Твой контент будет выходить стабильно — ты занимаешься делом, Лиза занимается видео</h1>
+          <p class="lead">Монтаж Reels, TikTok, YouTube и контент-менеджмент для блогеров, экспертов и брендов</p>
+          <div class="actions">
+            <!-- ЗАМЕНИТЬ: https://t.me/username -->
+            <a class="button button-primary" href="https://t.me/username">Написать в Telegram</a>
+            <a class="button button-secondary" href="#cases">Смотреть работы ↓</a>
+          </div>
+        </div>
+
+        <div class="video-shell showreel ratio-16x9 fade-in">
+          <video autoplay muted loop playsinline poster="poster.jpg" aria-label="Шоурил Лизы Ефремовой">
+            <!-- ЗАМЕНИТЬ: showreel.mp4 -->
+            <!-- ЗАМЕНИТЬ: poster.jpg -->
+            <source src="showreel.mp4" type="video/mp4" />
+          </video>
+          <div class="video-placeholder" aria-hidden="true">
+            <div>
+              <span class="play"></span>
+              <strong>Showreel</strong>
+              <span>Заглушка: заменить на showreel.mp4</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap fade-in" id="trigger">
+        <div class="section-head">
+          <span class="eyebrow">Узнай себя</span>
+          <h2>Это твоя ситуация?</h2>
+        </div>
+        <div class="grid grid-2">
+          <article class="card trigger-card">
+            <span class="icon">📱</span>
+            <p>Видео снято, но лежит в черновиках — некогда монтировать или непонятно кому отдать</p>
+          </article>
+          <article class="card trigger-card">
+            <span class="icon">😤</span>
+            <p>Монтажёр подвёл: пропал, сдал не то, пришлось переделывать самому</p>
+          </article>
+          <article class="card trigger-card">
+            <span class="icon">📅</span>
+            <p>Контент выходит хаотично — то три поста за неделю, то тишина на месяц</p>
+          </article>
+          <article class="card trigger-card">
+            <span class="icon">🎬</span>
+            <p>Хочешь запустить YouTube или Reels, но производство тормозит всё остальное</p>
+          </article>
+        </div>
+        <p class="italic-note">Если хотя бы один пункт — про тебя, дальше будет полезно.</p>
+      </section>
+
+      <section class="section wrap fade-in" id="cases">
+        <div class="section-head">
+          <span class="eyebrow">Портфолио</span>
+          <h2>Работы</h2>
+          <p>Видео — главный элемент, а контекст под каждым кейсом объясняет задачу и результат.</p>
+        </div>
+
+        <div class="cases" aria-label="Видеокейсы">
+          <article class="card case-card">
+            <button
+              class="case-button"
+              type="button"
+              data-video="case_1.mp4"
+              data-title="Reels для эксперта"
+              data-type="Reels"
+            >
+              <div class="video-shell case-video ratio-9x16">
+                <video muted playsinline preload="none" poster="poster.jpg">
+                  <!-- ЗАМЕНИТЬ: case_1.mp4 -->
+                  <!-- ЗАМЕНИТЬ: poster.jpg -->
+                  <source src="case_1.mp4" type="video/mp4" />
+                </video>
+                <div class="video-placeholder" aria-hidden="true">
+                  <div><span class="play"></span><strong>Case 1</strong><span>9:16 Reels</span></div>
+                </div>
+              </div>
+            </button>
+            <div class="case-body">
+              <span class="badge">Reels</span>
+              <!-- ЗАМЕНИТЬ: контекст кейса 1 — тип/задача/что сделано -->
+              <dl>
+                <div>
+                  <dt>Задача</dt>
+                  <dd>запустить Reels с нуля</dd>
+                </div>
+                <div>
+                  <dt>Что сделано</dt>
+                  <dd>монтаж + субтитры + план на месяц</dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="card case-card">
+            <button
+              class="case-button"
+              type="button"
+              data-video="case_2.mp4"
+              data-title="TikTok для малого бизнеса"
+              data-type="TikTok"
+            >
+              <div class="video-shell case-video ratio-9x16">
+                <video muted playsinline preload="none" poster="poster.jpg">
+                  <!-- ЗАМЕНИТЬ: case_2.mp4 -->
+                  <!-- ЗАМЕНИТЬ: poster.jpg -->
+                  <source src="case_2.mp4" type="video/mp4" />
+                </video>
+                <div class="video-placeholder" aria-hidden="true">
+                  <div><span class="play"></span><strong>Case 2</strong><span>9:16 TikTok</span></div>
+                </div>
+              </div>
+            </button>
+            <div class="case-body">
+              <span class="badge">TikTok</span>
+              <dl>
+                <div>
+                  <dt>Задача</dt>
+                  <dd>упаковать короткие ролики для регулярного выхода</dd>
+                </div>
+                <div>
+                  <dt>Что сделано</dt>
+                  <dd>динамичный монтаж + музыка + оформление</dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="card case-card">
+            <button
+              class="case-button"
+              type="button"
+              data-video="case_3.mp4"
+              data-title="YouTube-видео"
+              data-type="YouTube"
+            >
+              <div class="video-shell case-video ratio-16x9">
+                <video muted playsinline preload="none" poster="poster.jpg">
+                  <!-- ЗАМЕНИТЬ: case_3.mp4 -->
+                  <!-- ЗАМЕНИТЬ: poster.jpg -->
+                  <source src="case_3.mp4" type="video/mp4" />
+                </video>
+                <div class="video-placeholder" aria-hidden="true">
+                  <div><span class="play"></span><strong>Case 3</strong><span>16:9 YouTube</span></div>
+                </div>
+              </div>
+            </button>
+            <div class="case-body">
+              <span class="badge">YouTube</span>
+              <dl>
+                <div>
+                  <dt>Задача</dt>
+                  <dd>собрать длинное экспертное видео</dd>
+                </div>
+                <div>
+                  <dt>Что сделано</dt>
+                  <dd>нарезка + цвет + графика + обложка</dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap fade-in" id="value">
+        <div class="section-head">
+          <span class="eyebrow">Ценность</span>
+          <h2>Что происходит, когда ты работаешь с Лизой</h2>
+        </div>
+        <div class="grid grid-2">
+          <article class="card value-card">
+            <strong>📤 Контент выходит по плану — без твоего участия в монтаже</strong>
+            <p>Ты присылаешь исходники — Лиза делает всё остальное: монтаж, субтитры, обложки, публикацию. Время на правки и переписку с фрилансерами — ноль.</p>
+          </article>
+          <article class="card value-card">
+            <strong>🎨 Единый стиль на всех платформах</strong>
+            <p>Reels, YouTube, TikTok, Stories — один визуальный голос, без разнобоя. Аудитория узнаёт тебя с первого кадра.</p>
+          </article>
+          <article class="card value-card">
+            <strong>🗓️ Контент-план на месяц вперёд</strong>
+            <p>Больше нет вопроса «что сегодня постить». Лиза планирует темы и форматы под твои цели — охваты, продажи, подписчики.</p>
+          </article>
+          <article class="card value-card">
+            <strong>⚡ Первый результат — за 48 часов</strong>
+            <p>С момента брифа до готового ролика — двое суток. Без «жди неделю».</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap fade-in" id="services">
+        <div class="section-head">
+          <span class="eyebrow">Услуги</span>
+          <h2>Что именно делает Лиза</h2>
+        </div>
+        <div class="grid grid-3">
+          <article class="card service-card">
+            <span class="icon">🎬</span>
+            <h3>Монтаж Reels / TikTok / YouTube Shorts</h3>
+            <p>Вертикальный формат до 90 секунд. Динамика, субтитры, музыка, переходы. Готово к публикации.</p>
+            <em>Для блогеров, экспертов и брендов, которым нужен стабильный поток коротких видео.</em>
+          </article>
+          <article class="card service-card">
+            <span class="icon">📹</span>
+            <h3>Монтаж YouTube-видео</h3>
+            <p>Полный монтаж: нарезка, цветокоррекция, графика, субтитры, обложка.</p>
+            <em>Для экспертов и блогеров, строящих канал на YouTube.</em>
+          </article>
+          <article class="card service-card">
+            <span class="icon">📋</span>
+            <h3>Контент-менеджмент</h3>
+            <p>Контент-план + монтаж + публикации + оформление. Ты снимаешь — Лиза ведёт всё остальное.</p>
+            <em>Для тех, кто хочет делегировать соцсети целиком.</em>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap fade-in" id="process">
+        <div class="section-head">
+          <span class="eyebrow">Процесс</span>
+          <h2>Как начать работу</h2>
+        </div>
+        <div class="process">
+          <article class="card step-card">
+            <span class="step-number">1</span>
+            <h3>Бриф — 15 минут</h3>
+            <p>Пишешь в Telegram, Лиза задаёт 5–7 вопросов: про стиль, аудиторию, примеры что нравится. Никаких длинных ТЗ.</p>
+          </article>
+          <article class="card step-card">
+            <span class="step-number">2</span>
+            <h3>Присылаешь исходники</h3>
+            <p>Сырое видео, фото, голосовые — всё что есть. Лиза сама разбирается что с этим делать.</p>
+          </article>
+          <article class="card step-card">
+            <span class="step-number">3</span>
+            <h3>Получаешь готовый контент</h3>
+            <p>Через 48 часов — смонтированный ролик или первая неделя постов. Одна итерация правок включена.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap fade-in" id="faq">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Частые вопросы</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>А вдруг стиль не совпадёт?</summary>
+            <p>Перед стартом Лиза делает тестовый монтаж одного ролика — ты смотришь, решаешь. Никаких обязательств до «окей, поехали».</p>
+          </details>
+          <details>
+            <summary>Нужно долго объяснять, что хочу?</summary>
+            <p>Нет. Бриф — 15 минут в переписке. Если есть 2–3 референса — отлично, если нет — Лиза предложит варианты сама.</p>
+          </details>
+          <details>
+            <summary>Я не знаю, сколько это стоит.</summary>
+            <p>Стоимость зависит от объёма — обсуждается индивидуально. Напиши в Telegram, Лиза ответит с конкретными цифрами под твою задачу за 2 часа.</p>
+          </details>
+          <details>
+            <summary>Я уже работал с монтажёрами — всегда приходилось всё переделывать.</summary>
+            <p>Включена одна итерация правок. Если после неё что-то не так — разберём почему и исправим.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="final-cta wrap fade-in" id="contact">
+        <div class="cta-panel">
+          <span class="eyebrow">Бесплатный разбор</span>
+          <h2>Разберём твою задачу — бесплатно</h2>
+          <p>Напиши Лизе в Telegram — она спросит про твои задачи и скажет, можно ли помочь. Без презентаций и менеджеров по продажам.</p>
+          <!-- ЗАМЕНИТЬ: https://t.me/username -->
+          <a class="button button-primary" href="https://t.me/username">Написать Лизе в Telegram →</a>
+          <div class="microcopy">Отвечу за 2 часа · Без обязательств · Первый ролик — тестовый</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <span>Лиза Ефремова</span>
+      <span>Монтаж Reels / TikTok / YouTube · Контент-менеджмент</span>
+    </footer>
+
+    <dialog id="videoDialog" aria-label="Просмотр видео">
+      <div class="dialog-head">
+        <div>
+          <strong id="dialogTitle">Видео</strong>
+          <span id="dialogType">Кейс</span>
+        </div>
+        <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
+      </div>
+      <div class="dialog-body">
+        <div class="video-shell ratio-16x9">
+          <video id="dialogVideo" controls playsinline preload="metadata" poster="poster.jpg"></video>
+          <div class="video-placeholder" aria-hidden="true">
+            <div>
+              <span class="play"></span>
+              <strong>Видео скоро</strong>
+              <span>Заменить src на реальный файл кейса</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.14 },
+      );
+
+      document.querySelectorAll(".fade-in").forEach((element) => observer.observe(element));
+
+      const dialog = document.querySelector("#videoDialog");
+      const dialogVideo = document.querySelector("#dialogVideo");
+      const dialogTitle = document.querySelector("#dialogTitle");
+      const dialogType = document.querySelector("#dialogType");
+      const closeButton = document.querySelector(".dialog-close");
+
+      document.querySelectorAll(".case-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          dialogTitle.textContent = button.dataset.title || "Видео";
+          dialogType.textContent = button.dataset.type || "Кейс";
+          dialogVideo.innerHTML = "";
+          const source = document.createElement("source");
+          source.src = button.dataset.video;
+          source.type = "video/mp4";
+          dialogVideo.appendChild(source);
+          dialogVideo.load();
+          document.body.classList.add("modal-open");
+          dialog.showModal();
+        });
+      });
+
+      function closeDialog() {
+        dialogVideo.pause();
+        dialog.close();
+        document.body.classList.remove("modal-open");
+      }
+
+      closeButton.addEventListener("click", closeDialog);
+
+      dialog.addEventListener("click", (event) => {
+        const rect = dialog.getBoundingClientRect();
+        const clickedOutside =
+          event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+
+        if (clickedOutside) {
+          closeDialog();
+        }
+      });
+
+      dialog.addEventListener("close", () => {
+        document.body.classList.remove("modal-open");
+      });
+    </script>
+  </body>
+</html>

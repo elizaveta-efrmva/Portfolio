@@ -1,28 +1,21 @@
 {
-  "name": "portfolio",
+  "name": "video-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare:landing": "node scripts/prepare-landing.mjs",
-    "predev": "npm run prepare:landing",
-    "dev": "next dev",
-    "prebuild": "npm run prepare:landing",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "node scripts/build-static.mjs",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "next": "16.1.6",
-    "notion-client": "^7.7.3",
-    "prismjs": "^1.30.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-notion-x": "^7.7.3"
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/prismjs": "^1.26.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
