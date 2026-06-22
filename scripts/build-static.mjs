@@ -25,7 +25,21 @@ if (existsSync(posterSrcDir)) {
   }
 }
 
-for (const asset of ["showreel.mp4", "author-liza.png", "poster.jpg", "file.svg", "globe.svg", "next.svg", "vercel.svg", "window.svg", ".nojekyll"]) {
+for (const asset of [
+  "showreel.mp4",
+  "case-ai-illustrations.mp4",
+  "case-dentists.mp4",
+  "case-typography.mp4",
+  "case-talking-head.mp4",
+  "author-liza.png",
+  "poster.jpg",
+  "file.svg",
+  "globe.svg",
+  "next.svg",
+  "vercel.svg",
+  "window.svg",
+  ".nojekyll",
+]) {
   const src = join(root, "public", asset);
   if (existsSync(src)) {
     console.log(`copy asset ${asset}`);

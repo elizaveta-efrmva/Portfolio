@@ -634,16 +634,21 @@
 
       .cases {
         display: grid;
-        overflow: visible;
-        grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.74fr);
-        align-items: start;
-        gap: 18px;
-        padding: 3px 0 0;
+        overflow-x: auto;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        padding: 3px 0 10px;
         scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
       }
 
-      .case-card:first-child {
-        grid-row: span 2;
+      .cases::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .cases::-webkit-scrollbar-thumb {
+        border-radius: 999px;
+        background: rgba(246, 244, 238, 0.18);
       }
 
       .case-card {
@@ -662,6 +667,8 @@
       }
 
       .case-button {
+        position: relative;
+        display: block;
         width: 100%;
         padding: 0;
         border: 0;
@@ -672,69 +679,54 @@
       }
 
       .case-video {
+        aspect-ratio: 9 / 16;
         border-radius: 0;
         box-shadow: none;
       }
 
-      .case-video.ratio-9x16 {
-        height: 360px;
-        aspect-ratio: auto;
-      }
-
-      .case-card:first-child .case-video {
-        height: auto;
-        aspect-ratio: 16 / 9;
-      }
-
-      .case-card:first-child .case-body {
+      .case-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 3;
         display: grid;
-        grid-template-columns: 150px minmax(0, 1fr);
-        gap: 20px;
+        width: 52px;
+        height: 52px;
+        place-items: center;
+        border: 1px solid rgba(246, 244, 238, 0.28);
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.34);
+        transform: translate(-50%, -50%);
+        backdrop-filter: blur(10px);
       }
 
-      .case-card:first-child .badge {
-        align-self: start;
+      .case-play::before {
+        width: 0;
+        height: 0;
+        margin-left: 4px;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        border-left: 15px solid var(--accent);
+        content: "";
       }
 
-      .case-body {
-        padding: 20px;
-      }
-
-      .badge {
-        display: inline-flex;
-        min-height: 26px;
+      .case-caption {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        display: flex;
+        min-height: 52px;
         align-items: center;
-        margin-bottom: 14px;
-        padding: 0 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(72, 178, 76, 0.28);
-        background: rgba(72, 178, 76, 0.08);
-        color: var(--accent);
-        font-size: 12px;
+        justify-content: center;
+        padding: 12px 14px;
+        background: var(--accent);
+        color: #061006;
+        font-size: 13px;
         font-weight: 900;
-      }
-
-      .case-body dl {
-        display: grid;
-        gap: 10px;
-        margin: 0;
-      }
-
-      .case-body div {
-        display: grid;
-        gap: 2px;
-      }
-
-      .case-body dt {
-        color: var(--dim);
-        font-size: 12px;
-      }
-
-      .case-body dd {
-        margin: 0;
-        color: var(--text);
-        font-size: 14px;
-        line-height: 1.45;
+        line-height: 1.2;
+        text-align: center;
       }
 
       .service-card h3 {
@@ -943,7 +935,13 @@
       }
 
       .dialog-body {
+        display: grid;
+        justify-items: center;
         padding: 18px;
+      }
+
+      .dialog-body .video-shell {
+        width: min(100%, 420px);
       }
 
       .fade-in {
@@ -1003,7 +1001,7 @@
         }
 
         .cases {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(4, minmax(210px, 1fr));
         }
 
         .author-section {
@@ -1013,14 +1011,6 @@
 
         .author-copy {
           padding-top: 22px;
-        }
-
-        .case-card:first-child {
-          grid-row: auto;
-        }
-
-        .case-card:first-child .case-body {
-          grid-template-columns: 1fr;
         }
 
         .grid-2,
@@ -1083,14 +1073,8 @@
 
         .cases {
           display: grid;
-          overflow-x: visible;
-          grid-auto-columns: unset;
-          grid-auto-flow: row;
-        }
-
-        .case-video.ratio-9x16 {
-          height: auto;
-          aspect-ratio: 9 / 16;
+          overflow-x: auto;
+          grid-template-columns: repeat(4, minmax(220px, 78vw));
         }
 
         .site-footer {
@@ -1235,140 +1219,80 @@
       <section class="section wrap fade-in" id="cases">
         <div class="section-head">
           <h2>Работы</h2>
-          <p>Видео — главное доказательство. Контекст под каждым кейсом показывает задачу, работу и результат.</p>
+          <p>Четыре вертикальных ролика в формате Reels. Нажмите на любой, чтобы открыть просмотр.</p>
         </div>
 
-        <div class="cases" aria-label="Видеокейсы">
+        <div class="cases" aria-label="Карусель видеоработ">
           <article class="card case-card">
             <button
               class="case-button"
               type="button"
-              data-video="case_1.mp4"
-              data-title="Reels: запуск с нуля"
-              data-type="Reels"
+              data-video="case-ai-illustrations.mp4"
+              data-title="Обучающее видео с ИИ-иллюстрациями"
+              data-type="9:16 / обучение / AI"
             >
-              <div class="video-shell case-video ratio-16x9">
-                <video muted playsinline preload="none" loading="lazy" poster="poster.jpg">
-                  <!-- ЗАМЕНИТЬ: case_1.mp4 -->
-                  <!-- ЗАМЕНИТЬ: poster.jpg -->
-                  <source src="case_1.mp4" type="video/mp4" />
+              <div class="video-shell case-video ratio-9x16">
+                <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Обучающее видео с ИИ-иллюстрациями">
+                  <source src="case-ai-illustrations.mp4" type="video/mp4" />
                 </video>
-                <div class="video-placeholder" aria-hidden="true">
-                  <div><span class="play"></span><strong>Case 1</strong><span>Reels / launch</span></div>
-                </div>
+                <span class="case-play" aria-hidden="true"></span>
+                <span class="case-caption">Обучающее видео с AI-иллюстрациями</span>
               </div>
             </button>
-            <div class="case-body">
-              <span class="badge">Reels</span>
-              <!-- ЗАМЕНИТЬ: case_1.mp4 | Тип: Reels | Задача: запустить Reels с нуля | Что сделано: монтаж + субтитры + план на 4 недели | Результат: ... -->
-              <!-- ЗАМЕНИТЬ: контекст кейса 1: тип / задача / что сделано / результат -->
-              <dl>
-                <div>
-                  <dt>Тип</dt>
-                  <dd>Reels</dd>
-                </div>
-                <div>
-                  <dt>Задача</dt>
-                  <dd>запустить Reels с нуля</dd>
-                </div>
-                <div>
-                  <dt>Что сделано</dt>
-                  <dd>монтаж + субтитры + план на 4 недели</dd>
-                </div>
-                <div>
-                  <dt>Результат</dt>
-                  <dd>регулярный выпуск коротких видео без ручного монтажа клиента</dd>
-                </div>
-              </dl>
-            </div>
           </article>
 
           <article class="card case-card">
             <button
               class="case-button"
               type="button"
-              data-video="case_2.mp4"
-              data-title="YouTube: экспертный выпуск"
-              data-type="YouTube"
+              data-video="case-dentists.mp4"
+              data-title="Стоматологи — тестовый дизайн"
+              data-type="9:16 / промо / дизайн"
             >
               <div class="video-shell case-video ratio-9x16">
-                <video muted playsinline preload="none" loading="lazy" poster="poster.jpg">
-                  <!-- ЗАМЕНИТЬ: case_2.mp4 -->
-                  <!-- ЗАМЕНИТЬ: poster.jpg -->
-                  <source src="case_2.mp4" type="video/mp4" />
+                <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Стоматологи — тестовый дизайн">
+                  <source src="case-dentists.mp4" type="video/mp4" />
                 </video>
-                <div class="video-placeholder" aria-hidden="true">
-                  <div><span class="play"></span><strong>Case 2</strong><span>YouTube / expert</span></div>
-                </div>
+                <span class="case-play" aria-hidden="true"></span>
+                <span class="case-caption">Стоматологи — тестовый дизайн</span>
               </div>
             </button>
-            <div class="case-body">
-              <span class="badge">YouTube</span>
-              <!-- ЗАМЕНИТЬ: case_2.mp4 | Тип: YouTube | Задача: ... | Что сделано: ... | Результат: ... -->
-              <!-- ЗАМЕНИТЬ: контекст кейса 2: тип / задача / что сделано / результат -->
-              <dl>
-                <div>
-                  <dt>Тип</dt>
-                  <dd>YouTube</dd>
-                </div>
-                <div>
-                  <dt>Задача</dt>
-                  <dd>собрать длинное экспертное видео в понятный выпуск</dd>
-                </div>
-                <div>
-                  <dt>Что сделано</dt>
-                  <dd>нарезка, цветокоррекция, графика, субтитры, обложка</dd>
-                </div>
-                <div>
-                  <dt>Результат</dt>
-                  <dd>готовый выпуск 5–30 минут с оформлением под канал</dd>
-                </div>
-              </dl>
-            </div>
           </article>
 
           <article class="card case-card">
             <button
               class="case-button"
               type="button"
-              data-video="case_3.mp4"
-              data-title="TikTok: регулярная лента"
-              data-type="TikTok"
+              data-video="case-typography.mp4"
+              data-title="Типографика Reels"
+              data-type="9:16 / subtitles / rhythm"
             >
               <div class="video-shell case-video ratio-9x16">
-                <video muted playsinline preload="none" loading="lazy" poster="poster.jpg">
-                  <!-- ЗАМЕНИТЬ: case_3.mp4 -->
-                  <!-- ЗАМЕНИТЬ: poster.jpg -->
-                  <source src="case_3.mp4" type="video/mp4" />
+                <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Типографика Reels">
+                  <source src="case-typography.mp4" type="video/mp4" />
                 </video>
-                <div class="video-placeholder" aria-hidden="true">
-                  <div><span class="play"></span><strong>Case 3</strong><span>9:16 TikTok</span></div>
-                </div>
+                <span class="case-play" aria-hidden="true"></span>
+                <span class="case-caption">Типографика Reels</span>
               </div>
             </button>
-            <div class="case-body">
-              <span class="badge">TikTok</span>
-              <!-- ЗАМЕНИТЬ: case_3.mp4 | Тип: TikTok | Задача: ... | Что сделано: ... | Результат: ... -->
-              <!-- ЗАМЕНИТЬ: контекст кейса 3: тип / задача / что сделано / результат -->
-              <dl>
-                <div>
-                  <dt>Тип</dt>
-                  <dd>TikTok</dd>
-                </div>
-                <div>
-                  <dt>Задача</dt>
-                  <dd>упаковать короткие ролики для регулярного выхода</dd>
-                </div>
-                <div>
-                  <dt>Что сделано</dt>
-                  <dd>динамичный монтаж, субтитры, музыка, переходы</dd>
-                </div>
-                <div>
-                  <dt>Результат</dt>
-                  <dd>единый визуальный ритм и ролики, готовые к публикации</dd>
-                </div>
-              </dl>
-            </div>
+          </article>
+
+          <article class="card case-card">
+            <button
+              class="case-button"
+              type="button"
+              data-video="case-talking-head.mp4"
+              data-title="Говорящая голова + ИИ-вставки"
+              data-type="9:16 / talking head / AI"
+            >
+              <div class="video-shell case-video ratio-9x16">
+                <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Говорящая голова плюс ИИ-вставки">
+                  <source src="case-talking-head.mp4" type="video/mp4" />
+                </video>
+                <span class="case-play" aria-hidden="true"></span>
+                <span class="case-caption">Говорящая голова + AI-вставки</span>
+              </div>
+            </button>
           </article>
         </div>
       </section>
@@ -1506,13 +1430,13 @@
         <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
       </div>
       <div class="dialog-body">
-        <div class="video-shell ratio-16x9">
+        <div class="video-shell ratio-9x16">
           <video id="dialogVideo" controls playsinline preload="metadata" poster="poster.jpg"></video>
           <div class="video-placeholder" aria-hidden="true">
             <div>
               <span class="play"></span>
-              <strong>Видео скоро</strong>
-              <span>Заменить src на реальный файл кейса</span>
+              <strong>Работа Лизы</strong>
+              <span>9:16 / reel</span>
             </div>
           </div>
         </div>
