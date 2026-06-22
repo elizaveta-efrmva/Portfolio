@@ -439,6 +439,86 @@
         font-size: 13px;
       }
 
+      .author-section {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1fr);
+        align-items: end;
+        gap: 58px;
+      }
+
+      .author-media h2 {
+        max-width: 520px;
+        margin-bottom: 28px;
+      }
+
+      .author-photo {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface-2);
+        aspect-ratio: 1 / 1;
+      }
+
+      .author-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .author-photo::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        min-height: 48px;
+        align-items: center;
+        padding: 0 20px;
+        background: rgba(0, 0, 0, 0.74);
+        color: var(--text);
+        content: "portrait / author / 2026";
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .author-copy {
+        border-top: 1px solid var(--line);
+        padding-top: 28px;
+      }
+
+      .author-copy p {
+        max-width: 560px;
+        margin-bottom: 24px;
+        color: var(--text);
+        font-size: 22px;
+        line-height: 1.45;
+      }
+
+      .author-list {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .author-list li {
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 18px;
+        padding: 16px 0;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .author-list span {
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 950;
+      }
+
       .section-head {
         display: grid;
         grid-template-columns: minmax(0, 0.72fr) minmax(260px, 0.48fr);
@@ -929,6 +1009,15 @@
           grid-template-columns: 1fr;
         }
 
+        .author-section {
+          grid-template-columns: 1fr;
+          gap: 34px;
+        }
+
+        .author-copy {
+          padding-top: 22px;
+        }
+
         .case-card:first-child {
           grid-row: auto;
         }
@@ -1075,6 +1164,23 @@
             <strong>12–16</strong>
             <span>видео в месяц при регулярной работе</span>
           </div>
+        </div>
+      </section>
+
+      <section class="section wrap author-section fade-in" id="author">
+        <div class="author-media">
+          <h2>Лиза Ефрева, видеомонтажер и контентменеджер</h2>
+          <figure class="author-photo">
+            <img src="author-liza.png" alt="Портрет Лизы Ефремовой" loading="lazy" />
+          </figure>
+        </div>
+        <div class="author-copy">
+          <p>Собирает ролики в понятный ритм: монтаж, субтитры, обложки, публикации и единый визуальный стиль для регулярного контента.</p>
+          <ul class="author-list">
+            <li><span>01</span>Reels, TikTok, Shorts и YouTube-выпуски под задачу бренда.</li>
+            <li><span>02</span>Быстрый старт без длинных ТЗ: бриф, исходники, готовый ролик.</li>
+            <li><span>03</span>Контент выходит стабильно, а не остаётся в черновиках.</li>
+          </ul>
         </div>
       </section>
 
