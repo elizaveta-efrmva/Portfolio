@@ -428,12 +428,14 @@
         display: grid;
         grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1fr);
         align-items: end;
-        gap: 58px;
+        column-gap: 58px;
+        row-gap: 34px;
       }
 
-      .author-media h2 {
-        max-width: 520px;
-        margin-bottom: 28px;
+      .author-title {
+        grid-column: 1 / -1;
+        max-width: none;
+        margin-bottom: 0;
       }
 
       .author-photo {
@@ -1157,8 +1159,8 @@
       </section>
 
       <section class="section wrap author-section fade-in" id="author">
+        <h2 class="author-title">Лиза Ефрева, видеомонтажер и контентменеджер</h2>
         <div class="author-media">
-          <h2>Лиза Ефрева, видеомонтажер и контентменеджер</h2>
           <figure class="author-photo">
             <img src="author-liza.png" alt="Портрет Лизы Ефремовой" loading="lazy" />
           </figure>
