@@ -95,17 +95,31 @@
       }
 
       .site-header {
-        position: sticky;
+        position: fixed;
+        right: 0;
+        left: 0;
         top: 0;
         z-index: 30;
         border-bottom: 1px solid rgba(246, 244, 238, 0.07);
         background: rgba(0, 0, 0, 0.82);
         backdrop-filter: blur(16px);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-100%);
+        transition:
+          opacity 220ms ease,
+          transform 220ms ease;
+      }
+
+      body.header-visible .site-header {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
       }
 
       .header-inner {
         display: grid;
-        grid-template-columns: minmax(190px, 1fr) auto auto;
+        grid-template-columns: auto minmax(0, 1fr) auto;
         min-height: 68px;
         align-items: center;
         gap: 24px;
@@ -115,7 +129,6 @@
         display: inline-flex;
         min-width: 0;
         align-items: center;
-        gap: 10px;
       }
 
       .brand-mark {
@@ -130,25 +143,10 @@
         font-weight: 950;
       }
 
-      .brand strong,
-      .brand span {
-        display: block;
-      }
-
-      .brand strong {
-        font-size: 14px;
-        line-height: 1.1;
-      }
-
-      .brand span {
-        margin-top: 2px;
-        color: var(--muted);
-        font-size: 11px;
-      }
-
       .site-nav {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 22px;
         color: var(--muted);
         font-size: 13px;
@@ -213,10 +211,10 @@
         position: relative;
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(420px, 0.96fr);
-        min-height: calc(100vh - 68px);
+        min-height: 100vh;
         align-items: center;
         gap: 46px;
-        padding: 64px 0 44px;
+        padding: 56px 0 44px;
       }
 
       .hero::before {
@@ -233,6 +231,14 @@
 
       .hero-copy {
         align-self: center;
+      }
+
+      .hero-year {
+        grid-column: 1 / -1;
+        justify-self: center;
+        color: rgba(246, 244, 238, 0.54);
+        font-size: 13px;
+        font-weight: 850;
       }
 
       .eyebrow {
@@ -1008,10 +1014,6 @@
       <div class="header-inner wrap">
         <a class="brand" href="#top" aria-label="К началу страницы">
           <span class="brand-mark">ЛЕ</span>
-          <span>
-            <strong>Лиза Ефремова</strong>
-            <span>Видео · Контент-менеджмент</span>
-          </span>
         </a>
         <nav class="site-nav" aria-label="Навигация">
           <a href="#cases">Работы</a>
@@ -1026,8 +1028,8 @@
 
     <main id="top">
       <section class="hero wrap">
+        <div class="hero-year fade-in">2026</div>
         <div class="hero-copy fade-in">
-          <span class="eyebrow">Видеомонтаж для регулярного контента</span>
           <h1>Твои видео выходят каждую неделю. Ты не тратишь на монтаж ни вечера.</h1>
           <p class="lead">
             Лиза Ефремова — видеомонтаж и контент-менеджмент для блогеров, экспертов и брендов: ролик готов за
@@ -1433,6 +1435,17 @@
       );
 
       document.querySelectorAll(".fade-in").forEach((element) => observer.observe(element));
+
+      const hero = document.querySelector(".hero");
+
+      function updateHeaderVisibility() {
+        const threshold = Math.max(0, hero.offsetTop + hero.offsetHeight - 120);
+        document.body.classList.toggle("header-visible", window.scrollY >= threshold);
+      }
+
+      updateHeaderVisibility();
+      window.addEventListener("scroll", updateHeaderVisibility, { passive: true });
+      window.addEventListener("resize", updateHeaderVisibility);
 
       const dialog = document.querySelector("#videoDialog");
       const dialogVideo = document.querySelector("#dialogVideo");
