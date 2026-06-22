@@ -549,23 +549,20 @@
       }
 
       .value-card:nth-child(2),
-      .service-card:nth-child(2),
-      .case-card:nth-child(2) {
+      .service-card:nth-child(2) {
         border-color: rgba(241, 239, 232, 0.92);
         background: var(--paper);
         color: #050505;
       }
 
       .value-card:nth-child(2) strong,
-      .service-card:nth-child(2) h3,
-      .case-card:nth-child(2) dd {
+      .service-card:nth-child(2) h3 {
         color: #050505;
       }
 
       .value-card:nth-child(2) p,
       .service-card:nth-child(2) p,
-      .service-card:nth-child(2) em,
-      .case-card:nth-child(2) dt {
+      .service-card:nth-child(2) em {
         color: var(--paper-muted);
       }
 
@@ -634,8 +631,8 @@
       .cases {
         display: grid;
         overflow-x: auto;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
+        grid-template-columns: repeat(4, minmax(374px, 374px));
+        gap: 18px;
         padding: 3px 0 10px;
         scroll-snap-type: x mandatory;
         scrollbar-width: thin;
@@ -663,6 +660,12 @@
         transform: translateY(-3px);
         border-color: var(--line-strong);
         box-shadow: 0 26px 70px rgba(0, 0, 0, 0.34);
+      }
+
+      .case-card-dentists,
+      .case-card-dentists:hover,
+      .case-card-dentists .case-video {
+        border-color: transparent;
       }
 
       .case-button {
@@ -709,23 +712,13 @@
         content: "";
       }
 
-      .case-caption {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 3;
-        display: flex;
-        min-height: 52px;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 14px;
-        background: var(--accent);
-        color: #061006;
-        font-size: 13px;
+      .case-description {
+        display: block;
+        padding: 14px 16px 16px;
+        color: var(--text);
+        font-size: 15px;
         font-weight: 900;
-        line-height: 1.2;
-        text-align: center;
+        line-height: 1.35;
       }
 
       .service-card h3 {
@@ -995,7 +988,7 @@
         }
 
         .cases {
-          grid-template-columns: repeat(4, minmax(210px, 1fr));
+          grid-template-columns: repeat(4, minmax(374px, 374px));
         }
 
         .author-section {
@@ -1068,7 +1061,7 @@
         .cases {
           display: grid;
           overflow-x: auto;
-          grid-template-columns: repeat(4, minmax(220px, 78vw));
+          grid-template-columns: repeat(4, minmax(280px, 78vw));
         }
 
         .site-footer {
@@ -1231,12 +1224,12 @@
                   <source src="case-ai-illustrations.mp4" type="video/mp4" />
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
-                <span class="case-caption">Обучающее видео с AI-иллюстрациями</span>
               </div>
+              <span class="case-description">Под замерился</span>
             </button>
           </article>
 
-          <article class="card case-card">
+          <article class="card case-card case-card-dentists">
             <button
               class="case-button"
               type="button"
@@ -1249,8 +1242,8 @@
                   <source src="case-dentists.mp4" type="video/mp4" />
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
-                <span class="case-caption">Стоматологи — тестовый дизайн</span>
               </div>
+              <span class="case-description">Под замерился</span>
             </button>
           </article>
 
@@ -1267,8 +1260,8 @@
                   <source src="case-typography.mp4" type="video/mp4" />
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
-                <span class="case-caption">Типографика Reels</span>
               </div>
+              <span class="case-description">Под замерился</span>
             </button>
           </article>
 
@@ -1285,8 +1278,8 @@
                   <source src="case-talking-head.mp4" type="video/mp4" />
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
-                <span class="case-caption">Говорящая голова + AI-вставки</span>
               </div>
+              <span class="case-description">Под замерился</span>
             </button>
           </article>
         </div>
@@ -1426,7 +1419,7 @@
       </div>
       <div class="dialog-body">
         <div class="video-shell ratio-9x16">
-          <video id="dialogVideo" controls playsinline preload="metadata" poster="poster.jpg"></video>
+          <video id="dialogVideo" controls loop playsinline preload="metadata" poster="poster.jpg"></video>
           <div class="video-placeholder" aria-hidden="true">
             <div>
               <span class="play"></span>

@@ -1,16 +1,27 @@
-import { copyFileSync, existsSync, mkdirSync, readdirSync, rmSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const outDir = join(root, "out");
 
+function copyFile(src, dest) {
+  try {
+    copyFileSync(src, dest);
+  } catch (error) {
+    if (error?.code !== "ETIMEDOUT") {
+      throw error;
+    }
+    writeFileSync(dest, readFileSync(src));
+  }
+}
+
 console.log("clean out");
 rmSync(outDir, { force: true, maxRetries: 5, recursive: true, retryDelay: 100 });
 mkdirSync(outDir, { recursive: true });
 
 console.log("copy html");
-copyFileSync(join(root, "static", "index.html"), join(outDir, "index.html"));
+copyFile(join(root, "static", "index.html"), join(outDir, "index.html"));
 
 console.log("copy posters");
 const posterSrcDir = join(root, "public", "posters");
@@ -20,7 +31,7 @@ if (existsSync(posterSrcDir)) {
   for (const file of readdirSync(posterSrcDir)) {
     if (file.endsWith(".svg") || file.endsWith(".jpg") || file.endsWith(".jpeg") || file.endsWith(".png") || file.endsWith(".webp")) {
       console.log(`copy poster ${file}`);
-      copyFileSync(join(posterSrcDir, file), join(posterOutDir, file));
+      copyFile(join(posterSrcDir, file), join(posterOutDir, file));
     }
   }
 }
@@ -43,7 +54,7 @@ for (const asset of [
   const src = join(root, "public", asset);
   if (existsSync(src)) {
     console.log(`copy asset ${asset}`);
-    copyFileSync(src, join(outDir, asset));
+    copyFile(src, join(outDir, asset));
   }
 }
 
