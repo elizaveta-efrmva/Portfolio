@@ -170,6 +170,13 @@
         color: #061006;
       }
 
+      .button-primary:hover {
+        transform: none;
+        border-color: transparent;
+        background: #3fa943;
+        color: #061006;
+      }
+
       .header-button {
         min-height: 38px;
         padding-inline: 18px;
@@ -351,7 +358,7 @@
         justify-self: center;
       }
 
-      .showreel::after {
+      .showreel-link {
         position: absolute;
         right: 0;
         bottom: 0;
@@ -364,9 +371,13 @@
         padding: 0 24px;
         background: var(--accent);
         color: #061006;
-        content: "Смотреть все работы";
         font-size: 13px;
         font-weight: 900;
+        transition: background 160ms ease;
+      }
+
+      .showreel-link:hover {
+        background: #3fa943;
       }
 
       .showreel::before {
@@ -1124,6 +1135,7 @@
               <span>Заменить на showreel.mp4</span>
             </div>
           </div>
+          <a class="showreel-link" href="#cases">Смотреть все работы</a>
         </div>
 
         <div class="hero-stats fade-in" aria-label="Ключевые параметры работы">
