@@ -425,8 +425,8 @@
 
       .author-section {
         display: grid;
-        grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1fr);
-        align-items: end;
+        grid-template-columns: minmax(360px, 520px) minmax(0, 1fr);
+        align-items: center;
         column-gap: 58px;
         row-gap: 34px;
       }
@@ -452,22 +452,6 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-      }
-
-      .author-photo::after {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        min-height: 48px;
-        align-items: center;
-        padding: 0 20px;
-        background: rgba(0, 0, 0, 0.74);
-        color: var(--text);
-        content: "portrait / author / 2026";
-        font-size: 12px;
-        font-weight: 850;
       }
 
       .author-copy {
