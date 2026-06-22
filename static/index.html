@@ -636,15 +636,26 @@
         padding: 3px 0 10px;
         scroll-snap-type: x mandatory;
         scrollbar-width: thin;
+        scrollbar-color: rgba(72, 178, 76, 0.72) rgba(246, 244, 238, 0.06);
       }
 
       .cases::-webkit-scrollbar {
-        height: 6px;
+        height: 8px;
+      }
+
+      .cases::-webkit-scrollbar-track {
+        border-radius: 999px;
+        background: rgba(246, 244, 238, 0.06);
       }
 
       .cases::-webkit-scrollbar-thumb {
+        border: 2px solid rgba(5, 6, 7, 0.86);
         border-radius: 999px;
-        background: rgba(246, 244, 238, 0.18);
+        background: rgba(72, 178, 76, 0.72);
+      }
+
+      .cases::-webkit-scrollbar-thumb:hover {
+        background: rgba(72, 178, 76, 0.9);
       }
 
       .case-card {
@@ -698,8 +709,19 @@
         border: 1px solid rgba(246, 244, 238, 0.28);
         border-radius: 50%;
         background: rgba(0, 0, 0, 0.34);
-        transform: translate(-50%, -50%);
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.94);
+        transition:
+          opacity 160ms ease,
+          transform 160ms ease,
+          background 160ms ease;
         backdrop-filter: blur(10px);
+      }
+
+      .case-button:hover .case-play,
+      .case-button:focus-visible .case-play {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
       }
 
       .case-play::before {
@@ -1227,7 +1249,7 @@
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
               </div>
-              <span class="case-description">Под замерился</span>
+              <span class="case-description">Обучающий ролик с AI-иллюстрациями и визуальными вставками</span>
             </button>
           </article>
 
@@ -1245,7 +1267,7 @@
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
               </div>
-              <span class="case-description">Под замерился</span>
+              <span class="case-description">Промо для стоматологов с чистой подачей и акцентом на услугу</span>
             </button>
           </article>
 
@@ -1263,7 +1285,7 @@
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
               </div>
-              <span class="case-description">Под замерился</span>
+              <span class="case-description">Reels с крупной типографикой, субтитрами и четким ритмом</span>
             </button>
           </article>
 
@@ -1281,7 +1303,7 @@
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
               </div>
-              <span class="case-description">Под замерился</span>
+              <span class="case-description">Talking head с AI-вставками и смысловыми акцентами</span>
             </button>
           </article>
         </div>
