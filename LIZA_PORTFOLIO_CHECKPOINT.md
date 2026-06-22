@@ -3,6 +3,7 @@
 Checkpoint date: 2026-06-22
 
 This checkpoint preserves the restored landing page for Liza Efremova's video editing portfolio.
+Current page version: V3, rebuilt by the AJTBD / Next Move Theory specification.
 
 ## Main files
 
@@ -36,13 +37,14 @@ http://127.0.0.1:4173/
 
 ## Landing structure
 
-The page follows the technical specification for Liza Efremova:
+The page follows the V3 technical specification for Liza Efremova:
 
 1. Hero with showreel placeholder.
-2. Audience trigger block.
-3. Works/cases with video modal.
-4. Value/results block.
-5. Services block.
+2. Trigger block, "Это твоя ситуация?"
+3. Value block, "Что меняется, когда работаешь с Лизой"
+4. Works/cases with video modal.
+5. Services/formats block.
 6. Process block.
-7. FAQ.
-8. Final CTA.
+7. FAQ / fears and objections.
+8. State B reminder, "Как выглядит работа с Лизой через месяц"
+9. Final CTA.

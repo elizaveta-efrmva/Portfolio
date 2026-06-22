@@ -3,27 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Лиза Ефремова — монтаж Reels, TikTok, YouTube</title>
+    <title>Лиза Ефремова — видеомонтаж и контент-менеджмент</title>
     <meta
       name="description"
-      content="Монтаж Reels, TikTok, YouTube и контент-менеджмент для блогеров, экспертов и брендов."
+      content="Видеомонтаж и контент-менеджмент для блогеров, экспертов и брендов: ролик готов за 48 часов, публикации по расписанию."
     />
     <style>
       :root {
-        --bg: #090a0c;
-        --bg-2: #0f1115;
-        --panel: #151820;
-        --panel-2: #1b1f2a;
-        --text: #f7f7f2;
-        --muted: #b4b8c2;
-        --dim: #7e8492;
-        --line: rgba(255, 255, 255, 0.12);
-        --line-strong: rgba(255, 255, 255, 0.2);
-        --accent: #78e08f;
-        --accent-2: #b9ff66;
-        --accent-dark: #1f7a3b;
-        --danger: #ff7a7a;
-        --shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+        --bg: #070808;
+        --surface: #101214;
+        --surface-2: #171a1d;
+        --surface-3: #202226;
+        --text: #f6f4ee;
+        --muted: #b8b5ad;
+        --dim: #7f817d;
+        --line: rgba(246, 244, 238, 0.13);
+        --line-strong: rgba(246, 244, 238, 0.24);
+        --accent: #65d46e;
+        --accent-2: #f1c84b;
+        --accent-dark: #173f21;
+        --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
         --radius: 12px;
         --max: 1160px;
       }
@@ -39,8 +38,8 @@
       body {
         margin: 0;
         background:
-          radial-gradient(circle at 70% 0%, rgba(120, 224, 143, 0.12), transparent 34rem),
-          linear-gradient(180deg, #050607 0%, var(--bg) 42%, #050607 100%);
+          linear-gradient(180deg, rgba(101, 212, 110, 0.08), transparent 440px),
+          var(--bg);
         color: var(--text);
         font-family:
           Inter, Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -77,24 +76,24 @@
         position: sticky;
         top: 0;
         z-index: 30;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        background: rgba(9, 10, 12, 0.82);
+        border-bottom: 1px solid rgba(246, 244, 238, 0.08);
+        background: rgba(7, 8, 8, 0.84);
         backdrop-filter: blur(16px);
       }
 
       .header-inner {
         display: grid;
         grid-template-columns: minmax(190px, 1fr) auto auto;
+        min-height: 68px;
         align-items: center;
         gap: 24px;
-        min-height: 68px;
       }
 
       .brand {
         display: inline-flex;
+        min-width: 0;
         align-items: center;
         gap: 10px;
-        min-width: 0;
       }
 
       .brand-mark {
@@ -103,7 +102,7 @@
         height: 38px;
         place-items: center;
         border-radius: 10px;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        background: var(--accent);
         color: #071007;
         font-size: 13px;
         font-weight: 950;
@@ -145,19 +144,22 @@
         padding: 0 20px;
         border: 1px solid var(--line);
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(246, 244, 238, 0.05);
         color: var(--text);
         cursor: pointer;
         font-weight: 850;
         transition:
           transform 160ms ease,
           border-color 160ms ease,
-          background 160ms ease;
+          background 160ms ease,
+          box-shadow 160ms ease;
+        white-space: nowrap;
       }
 
       .button:hover {
         transform: translateY(-1px);
         border-color: var(--line-strong);
+        box-shadow: 0 14px 38px rgba(0, 0, 0, 0.2);
       }
 
       .button-primary {
@@ -166,11 +168,13 @@
         color: #061006;
       }
 
-      .button-secondary {
+      .button-link {
+        min-height: 46px;
+        padding-inline: 4px;
         border-color: transparent;
         background: transparent;
         color: var(--text);
-        padding-inline: 4px;
+        box-shadow: none;
       }
 
       .header-button {
@@ -180,28 +184,28 @@
       }
 
       .section {
-        padding: 96px 0;
+        padding: 92px 0;
       }
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(420px, 0.95fr);
-        gap: 56px;
-        align-items: center;
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
         min-height: calc(100vh - 68px);
-        padding: 72px 0;
+        align-items: center;
+        gap: 56px;
+        padding: 58px 0;
       }
 
       .eyebrow {
         display: inline-flex;
-        align-items: center;
         min-height: 28px;
+        align-items: center;
         margin-bottom: 18px;
         padding: 0 12px;
-        border: 1px solid rgba(120, 224, 143, 0.32);
+        border: 1px solid rgba(101, 212, 110, 0.34);
         border-radius: 999px;
+        background: rgba(101, 212, 110, 0.1);
         color: var(--accent);
-        background: rgba(120, 224, 143, 0.08);
         font-size: 12px;
         font-weight: 900;
         text-transform: uppercase;
@@ -215,24 +219,25 @@
       }
 
       h1 {
-        max-width: 720px;
+        max-width: 700px;
         margin-bottom: 22px;
-        font-size: clamp(44px, 6.8vw, 84px);
-        line-height: 0.96;
-        letter-spacing: -0.04em;
+        font-size: clamp(42px, 6.1vw, 78px);
+        line-height: 0.98;
+        letter-spacing: 0;
       }
 
       h2 {
         margin-bottom: 18px;
-        font-size: clamp(34px, 4.4vw, 58px);
-        line-height: 1;
-        letter-spacing: -0.035em;
+        font-size: clamp(32px, 4vw, 56px);
+        line-height: 1.02;
+        letter-spacing: 0;
       }
 
       h3 {
         margin-bottom: 10px;
         font-size: 20px;
         line-height: 1.25;
+        letter-spacing: 0;
       }
 
       p {
@@ -241,7 +246,7 @@
       }
 
       .lead {
-        max-width: 610px;
+        max-width: 660px;
         margin-bottom: 30px;
         font-size: 20px;
       }
@@ -258,22 +263,22 @@
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: var(--radius);
-        background:
-          linear-gradient(135deg, rgba(120, 224, 143, 0.2), transparent 45%),
-          #050607;
+        background: #050607;
         box-shadow: var(--shadow);
       }
 
-      .video-shell.ratio-16x9 {
+      .ratio-16x9 {
         aspect-ratio: 16 / 9;
       }
 
-      .video-shell.ratio-9x16 {
+      .ratio-9x16 {
         aspect-ratio: 9 / 16;
       }
 
       .showreel {
-        min-height: 310px;
+        width: min(100%, 420px);
+        min-height: 560px;
+        justify-self: center;
       }
 
       .video-placeholder {
@@ -288,13 +293,13 @@
 
       .play {
         display: grid;
-        width: 72px;
-        height: 72px;
+        width: 68px;
+        height: 68px;
         place-items: center;
-        margin: 0 auto 16px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin: 0 auto 14px;
+        border: 1px solid rgba(246, 244, 238, 0.22);
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.08);
+        background: rgba(246, 244, 238, 0.1);
         backdrop-filter: blur(12px);
       }
 
@@ -302,9 +307,9 @@
         width: 0;
         height: 0;
         margin-left: 5px;
-        border-top: 13px solid transparent;
-        border-bottom: 13px solid transparent;
-        border-left: 19px solid var(--accent);
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 18px solid var(--accent);
         content: "";
       }
 
@@ -321,9 +326,15 @@
       }
 
       .section-head {
-        max-width: 760px;
+        max-width: 780px;
         margin: 0 auto 36px;
         text-align: center;
+      }
+
+      .section-head p {
+        max-width: 660px;
+        margin-right: auto;
+        margin-left: auto;
       }
 
       .grid {
@@ -342,7 +353,7 @@
       .card {
         border: 1px solid var(--line);
         border-radius: var(--radius);
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(246, 244, 238, 0.045);
       }
 
       .trigger-card,
@@ -352,15 +363,23 @@
         padding: 24px;
       }
 
-      .icon {
+      .trigger-card p {
+        margin-bottom: 0;
+        color: var(--text);
+        font-size: 18px;
+      }
+
+      .card-number {
         display: inline-grid;
-        width: 42px;
-        height: 42px;
-        margin-bottom: 18px;
+        width: 36px;
+        height: 36px;
         place-items: center;
-        border-radius: 12px;
-        background: rgba(120, 224, 143, 0.12);
-        font-size: 22px;
+        margin-bottom: 18px;
+        border-radius: 10px;
+        background: rgba(101, 212, 110, 0.13);
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 950;
       }
 
       .italic-note {
@@ -370,10 +389,23 @@
         text-align: center;
       }
 
+      .value-card strong {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--text);
+        font-size: 20px;
+      }
+
+      .value-card p,
+      .service-card p,
+      .step-card p {
+        margin-bottom: 0;
+      }
+
       .cases {
-        overflow-x: auto;
         display: grid;
-        grid-auto-columns: minmax(300px, 380px);
+        overflow-x: auto;
+        grid-auto-columns: minmax(320px, 390px);
         grid-auto-flow: column;
         gap: 18px;
         padding: 3px 3px 18px;
@@ -385,11 +417,13 @@
         scroll-snap-align: start;
         transition:
           transform 160ms ease,
-          box-shadow 160ms ease;
+          box-shadow 160ms ease,
+          border-color 160ms ease;
       }
 
       .case-card:hover {
         transform: scale(1.02);
+        border-color: var(--line-strong);
         box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
       }
 
@@ -419,7 +453,7 @@
         margin-bottom: 14px;
         padding: 0 10px;
         border-radius: 999px;
-        background: rgba(120, 224, 143, 0.12);
+        background: rgba(101, 212, 110, 0.12);
         color: var(--accent);
         font-size: 12px;
         font-weight: 900;
@@ -445,18 +479,17 @@
         margin: 0;
         color: var(--text);
         font-size: 14px;
+        line-height: 1.45;
       }
 
-      .value-card strong {
-        display: block;
-        margin-bottom: 10px;
-        font-size: 19px;
+      .service-card h3 {
+        min-height: 52px;
       }
 
       .service-card em {
         display: block;
         margin-top: 16px;
-        color: var(--accent);
+        color: #f3d36a;
         font-style: normal;
         line-height: 1.5;
       }
@@ -475,8 +508,8 @@
         display: inline-grid;
         width: 34px;
         height: 34px;
-        margin-bottom: 36px;
         place-items: center;
+        margin-bottom: 30px;
         border-radius: 50%;
         background: var(--accent);
         color: #061006;
@@ -485,7 +518,7 @@
 
       .step-card:not(:last-child)::after {
         position: absolute;
-        top: 40px;
+        top: 38px;
         right: -21px;
         color: var(--accent);
         content: "→";
@@ -501,7 +534,7 @@
       details {
         border: 1px solid var(--line);
         border-radius: var(--radius);
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(246, 244, 238, 0.045);
       }
 
       summary {
@@ -522,6 +555,7 @@
       }
 
       summary::after {
+        flex: 0 0 auto;
         color: var(--accent);
         content: "+";
         font-size: 24px;
@@ -536,17 +570,39 @@
         padding: 0 22px 22px;
       }
 
+      .state-panel,
+      .cta-panel {
+        border: 1px solid rgba(101, 212, 110, 0.24);
+        border-radius: 24px;
+        background:
+          linear-gradient(135deg, rgba(101, 212, 110, 0.13), transparent 38%),
+          var(--surface-2);
+      }
+
+      .state-panel {
+        padding: clamp(30px, 6vw, 64px);
+        text-align: center;
+      }
+
+      .state-copy {
+        display: grid;
+        max-width: 760px;
+        gap: 14px;
+        margin: 0 auto;
+      }
+
+      .state-copy p {
+        margin-bottom: 0;
+        color: var(--text);
+        font-size: 19px;
+      }
+
       .final-cta {
-        margin-bottom: 80px;
+        padding-bottom: 80px;
       }
 
       .cta-panel {
         padding: clamp(34px, 7vw, 72px);
-        border: 1px solid rgba(120, 224, 143, 0.24);
-        border-radius: 24px;
-        background:
-          radial-gradient(circle at 100% 0%, rgba(185, 255, 102, 0.16), transparent 28rem),
-          var(--panel-2);
         text-align: center;
       }
 
@@ -652,16 +708,22 @@
         .hero {
           grid-template-columns: 1fr;
           min-height: auto;
+          gap: 38px;
         }
 
         .showreel {
-          min-height: 240px;
+          width: min(100%, 390px);
+          min-height: 500px;
         }
 
         .grid-2,
         .grid-3,
         .process {
           grid-template-columns: 1fr;
+        }
+
+        .service-card h3 {
+          min-height: 0;
         }
 
         .step-card:not(:last-child)::after {
@@ -684,11 +746,11 @@
         }
 
         .section {
-          padding: 70px 0;
+          padding: 68px 0;
         }
 
         .hero {
-          padding-top: 48px;
+          padding-top: 44px;
         }
 
         .lead {
@@ -702,12 +764,20 @@
 
         .button {
           width: 100%;
+          white-space: normal;
+          text-align: center;
+        }
+
+        .showreel {
+          width: min(100%, 320px);
+          min-height: 440px;
         }
 
         .cases {
           display: grid;
-          grid-auto-flow: row;
+          overflow-x: visible;
           grid-auto-columns: unset;
+          grid-auto-flow: row;
         }
 
         .site-footer {
@@ -723,7 +793,7 @@
           <span class="brand-mark">ЛЕ</span>
           <span>
             <strong>Лиза Ефремова</strong>
-            <span>Монтаж видео · Контент-менеджмент</span>
+            <span>Видео · Контент-менеджмент</span>
           </span>
         </a>
         <nav class="site-nav" aria-label="Навигация">
@@ -740,17 +810,20 @@
     <main id="top">
       <section class="hero wrap">
         <div class="fade-in">
-          <span class="eyebrow">Портфолио фрилансера</span>
-          <h1>Твой контент будет выходить стабильно — ты занимаешься делом, Лиза занимается видео</h1>
-          <p class="lead">Монтаж Reels, TikTok, YouTube и контент-менеджмент для блогеров, экспертов и брендов</p>
+          <span class="eyebrow">Видеомонтаж для регулярного контента</span>
+          <h1>Твои видео выходят каждую неделю. Ты не тратишь на монтаж ни вечера.</h1>
+          <p class="lead">
+            Лиза Ефремова — видеомонтаж и контент-менеджмент для блогеров, экспертов и брендов: ролик готов за
+            48 часов, публикуется по расписанию, ты в процесс не встроен.
+          </p>
           <div class="actions">
             <!-- ЗАМЕНИТЬ: https://t.me/username -->
             <a class="button button-primary" href="https://t.me/username">Написать в Telegram</a>
-            <a class="button button-secondary" href="#cases">Смотреть работы ↓</a>
+            <a class="button button-link" href="#cases">Смотреть работы ↓</a>
           </div>
         </div>
 
-        <div class="video-shell showreel ratio-16x9 fade-in">
+        <div class="video-shell showreel ratio-9x16 fade-in">
           <video autoplay muted loop playsinline poster="poster.jpg" aria-label="Шоурил Лизы Ефремовой">
             <!-- ЗАМЕНИТЬ: showreel.mp4 -->
             <!-- ЗАМЕНИТЬ: poster.jpg -->
@@ -760,7 +833,7 @@
             <div>
               <span class="play"></span>
               <strong>Showreel</strong>
-              <span>Заглушка: заменить на showreel.mp4</span>
+              <span>Заменить на showreel.mp4</span>
             </div>
           </div>
         </div>
@@ -773,30 +846,63 @@
         </div>
         <div class="grid grid-2">
           <article class="card trigger-card">
-            <span class="icon">📱</span>
-            <p>Видео снято, но лежит в черновиках — некогда монтировать или непонятно кому отдать</p>
+            <span class="card-number">01</span>
+            <p>Видео снято ещё в прошлую среду. Лежит в черновиках. Открываешь CapCut — закрываешь CapCut.</p>
           </article>
           <article class="card trigger-card">
-            <span class="icon">😤</span>
-            <p>Монтажёр подвёл: пропал, сдал не то, пришлось переделывать самому</p>
+            <span class="card-number">02</span>
+            <p>Монтажёр снова пропал. Уже второй за полгода. Дедлайн послезавтра — делаешь всё сам.</p>
           </article>
           <article class="card trigger-card">
-            <span class="icon">📅</span>
-            <p>Контент выходит хаотично — то три поста за неделю, то тишина на месяц</p>
+            <span class="card-number">03</span>
+            <p>Три ролика за январь, потом тишина на месяц. Алгоритм просел. Снова начинать с нуля.</p>
           </article>
           <article class="card trigger-card">
-            <span class="icon">🎬</span>
-            <p>Хочешь запустить YouTube или Reels, но производство тормозит всё остальное</p>
+            <span class="card-number">04</span>
+            <p>Идея для YouTube-канала есть уже год. Производство тормозит запуск — так и не случилось.</p>
           </article>
         </div>
         <p class="italic-note">Если хотя бы один пункт — про тебя, дальше будет полезно.</p>
       </section>
 
+      <section class="section wrap fade-in" id="value">
+        <div class="section-head">
+          <span class="eyebrow">Что меняется</span>
+          <h2>Что меняется, когда работаешь с Лизой</h2>
+        </div>
+        <div class="grid grid-2">
+          <article class="card value-card">
+            <strong>📤 Контент выходит по расписанию — без пропусков</strong>
+            <p>
+              Ты присылаешь исходники — Лиза монтирует, добавляет субтитры, делает обложки, публикует.
+              Ни одного пропущенного поста без причины.
+            </p>
+          </article>
+          <article class="card value-card">
+            <strong>⚡ Первый готовый ролик — через 48 часов</strong>
+            <p>
+              С момента брифа до видео, готового к публикации — двое суток. Не «жди неделю» и не «ещё пара дней».
+            </p>
+          </article>
+          <article class="card value-card">
+            <strong>🎯 Ноль часов монтажа с твоей стороны</strong>
+            <p>
+              Твоя работа — снять и прислать. Бриф занимает 15 минут. Дальше — Лиза. Твоё время — на контент,
+              не на производство.
+            </p>
+          </article>
+          <article class="card value-card">
+            <strong>🎨 Единый стиль на всех платформах</strong>
+            <p>Reels, YouTube, TikTok, Stories — один визуальный голос. Аудитория узнаёт тебя с первого кадра.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="section wrap fade-in" id="cases">
         <div class="section-head">
-          <span class="eyebrow">Портфолио</span>
+          <span class="eyebrow">Доказательство</span>
           <h2>Работы</h2>
-          <p>Видео — главный элемент, а контекст под каждым кейсом объясняет задачу и результат.</p>
+          <p>Видео — главное доказательство. Контекст под каждым кейсом показывает задачу, работу и результат.</p>
         </div>
 
         <div class="cases" aria-label="Видеокейсы">
@@ -805,11 +911,11 @@
               class="case-button"
               type="button"
               data-video="case_1.mp4"
-              data-title="Reels для эксперта"
+              data-title="Reels: запуск с нуля"
               data-type="Reels"
             >
               <div class="video-shell case-video ratio-9x16">
-                <video muted playsinline preload="none" poster="poster.jpg">
+                <video muted playsinline preload="none" loading="lazy" poster="poster.jpg">
                   <!-- ЗАМЕНИТЬ: case_1.mp4 -->
                   <!-- ЗАМЕНИТЬ: poster.jpg -->
                   <source src="case_1.mp4" type="video/mp4" />
@@ -821,15 +927,24 @@
             </button>
             <div class="case-body">
               <span class="badge">Reels</span>
-              <!-- ЗАМЕНИТЬ: контекст кейса 1 — тип/задача/что сделано -->
+              <!-- ЗАМЕНИТЬ: case_1.mp4 | Тип: Reels | Задача: запустить Reels с нуля | Что сделано: монтаж + субтитры + план на 4 недели | Результат: ... -->
+              <!-- ЗАМЕНИТЬ: контекст кейса 1: тип / задача / что сделано / результат -->
               <dl>
+                <div>
+                  <dt>Тип</dt>
+                  <dd>Reels</dd>
+                </div>
                 <div>
                   <dt>Задача</dt>
                   <dd>запустить Reels с нуля</dd>
                 </div>
                 <div>
                   <dt>Что сделано</dt>
-                  <dd>монтаж + субтитры + план на месяц</dd>
+                  <dd>монтаж + субтитры + план на 4 недели</dd>
+                </div>
+                <div>
+                  <dt>Результат</dt>
+                  <dd>регулярный выпуск коротких видео без ручного монтажа клиента</dd>
                 </div>
               </dl>
             </div>
@@ -840,30 +955,40 @@
               class="case-button"
               type="button"
               data-video="case_2.mp4"
-              data-title="TikTok для малого бизнеса"
-              data-type="TikTok"
+              data-title="YouTube: экспертный выпуск"
+              data-type="YouTube"
             >
-              <div class="video-shell case-video ratio-9x16">
-                <video muted playsinline preload="none" poster="poster.jpg">
+              <div class="video-shell case-video ratio-16x9">
+                <video muted playsinline preload="none" loading="lazy" poster="poster.jpg">
                   <!-- ЗАМЕНИТЬ: case_2.mp4 -->
                   <!-- ЗАМЕНИТЬ: poster.jpg -->
                   <source src="case_2.mp4" type="video/mp4" />
                 </video>
                 <div class="video-placeholder" aria-hidden="true">
-                  <div><span class="play"></span><strong>Case 2</strong><span>9:16 TikTok</span></div>
+                  <div><span class="play"></span><strong>Case 2</strong><span>16:9 YouTube</span></div>
                 </div>
               </div>
             </button>
             <div class="case-body">
-              <span class="badge">TikTok</span>
+              <span class="badge">YouTube</span>
+              <!-- ЗАМЕНИТЬ: case_2.mp4 | Тип: YouTube | Задача: ... | Что сделано: ... | Результат: ... -->
+              <!-- ЗАМЕНИТЬ: контекст кейса 2: тип / задача / что сделано / результат -->
               <dl>
                 <div>
+                  <dt>Тип</dt>
+                  <dd>YouTube</dd>
+                </div>
+                <div>
                   <dt>Задача</dt>
-                  <dd>упаковать короткие ролики для регулярного выхода</dd>
+                  <dd>собрать длинное экспертное видео в понятный выпуск</dd>
                 </div>
                 <div>
                   <dt>Что сделано</dt>
-                  <dd>динамичный монтаж + музыка + оформление</dd>
+                  <dd>нарезка, цветокоррекция, графика, субтитры, обложка</dd>
+                </div>
+                <div>
+                  <dt>Результат</dt>
+                  <dd>готовый выпуск 5–30 минут с оформлением под канал</dd>
                 </div>
               </dl>
             </div>
@@ -874,30 +999,40 @@
               class="case-button"
               type="button"
               data-video="case_3.mp4"
-              data-title="YouTube-видео"
-              data-type="YouTube"
+              data-title="TikTok: регулярная лента"
+              data-type="TikTok"
             >
-              <div class="video-shell case-video ratio-16x9">
-                <video muted playsinline preload="none" poster="poster.jpg">
+              <div class="video-shell case-video ratio-9x16">
+                <video muted playsinline preload="none" loading="lazy" poster="poster.jpg">
                   <!-- ЗАМЕНИТЬ: case_3.mp4 -->
                   <!-- ЗАМЕНИТЬ: poster.jpg -->
                   <source src="case_3.mp4" type="video/mp4" />
                 </video>
                 <div class="video-placeholder" aria-hidden="true">
-                  <div><span class="play"></span><strong>Case 3</strong><span>16:9 YouTube</span></div>
+                  <div><span class="play"></span><strong>Case 3</strong><span>9:16 TikTok</span></div>
                 </div>
               </div>
             </button>
             <div class="case-body">
-              <span class="badge">YouTube</span>
+              <span class="badge">TikTok</span>
+              <!-- ЗАМЕНИТЬ: case_3.mp4 | Тип: TikTok | Задача: ... | Что сделано: ... | Результат: ... -->
+              <!-- ЗАМЕНИТЬ: контекст кейса 3: тип / задача / что сделано / результат -->
               <dl>
                 <div>
+                  <dt>Тип</dt>
+                  <dd>TikTok</dd>
+                </div>
+                <div>
                   <dt>Задача</dt>
-                  <dd>собрать длинное экспертное видео</dd>
+                  <dd>упаковать короткие ролики для регулярного выхода</dd>
                 </div>
                 <div>
                   <dt>Что сделано</dt>
-                  <dd>нарезка + цвет + графика + обложка</dd>
+                  <dd>динамичный монтаж, субтитры, музыка, переходы</dd>
+                </div>
+                <div>
+                  <dt>Результат</dt>
+                  <dd>единый визуальный ритм и ролики, готовые к публикации</dd>
                 </div>
               </dl>
             </div>
@@ -905,54 +1040,29 @@
         </div>
       </section>
 
-      <section class="section wrap fade-in" id="value">
-        <div class="section-head">
-          <span class="eyebrow">Ценность</span>
-          <h2>Что происходит, когда ты работаешь с Лизой</h2>
-        </div>
-        <div class="grid grid-2">
-          <article class="card value-card">
-            <strong>📤 Контент выходит по плану — без твоего участия в монтаже</strong>
-            <p>Ты присылаешь исходники — Лиза делает всё остальное: монтаж, субтитры, обложки, публикацию. Время на правки и переписку с фрилансерами — ноль.</p>
-          </article>
-          <article class="card value-card">
-            <strong>🎨 Единый стиль на всех платформах</strong>
-            <p>Reels, YouTube, TikTok, Stories — один визуальный голос, без разнобоя. Аудитория узнаёт тебя с первого кадра.</p>
-          </article>
-          <article class="card value-card">
-            <strong>🗓️ Контент-план на месяц вперёд</strong>
-            <p>Больше нет вопроса «что сегодня постить». Лиза планирует темы и форматы под твои цели — охваты, продажи, подписчики.</p>
-          </article>
-          <article class="card value-card">
-            <strong>⚡ Первый результат — за 48 часов</strong>
-            <p>С момента брифа до готового ролика — двое суток. Без «жди неделю».</p>
-          </article>
-        </div>
-      </section>
-
       <section class="section wrap fade-in" id="services">
         <div class="section-head">
-          <span class="eyebrow">Услуги</span>
+          <span class="eyebrow">Форматы</span>
           <h2>Что именно делает Лиза</h2>
         </div>
         <div class="grid grid-3">
           <article class="card service-card">
-            <span class="icon">🎬</span>
-            <h3>Монтаж Reels / TikTok / YouTube Shorts</h3>
-            <p>Вертикальный формат до 90 секунд. Динамика, субтитры, музыка, переходы. Готово к публикации.</p>
-            <em>Для блогеров, экспертов и брендов, которым нужен стабильный поток коротких видео.</em>
+            <span class="card-number">01</span>
+            <h3>🎬 Монтаж Reels / TikTok / Shorts</h3>
+            <p>Вертикальный формат до 90 секунд: динамичный монтаж, субтитры, музыка, переходы, обложка. Готово к публикации.</p>
+            <em>Для кого: блогеры и эксперты, которым нужен стабильный поток коротких видео</em>
           </article>
           <article class="card service-card">
-            <span class="icon">📹</span>
-            <h3>Монтаж YouTube-видео</h3>
-            <p>Полный монтаж: нарезка, цветокоррекция, графика, субтитры, обложка.</p>
-            <em>Для экспертов и блогеров, строящих канал на YouTube.</em>
+            <span class="card-number">02</span>
+            <h3>📹 Монтаж YouTube</h3>
+            <p>Полный монтаж: нарезка, цветокоррекция, графика, субтитры, обложка. Формат 5–30 минут.</p>
+            <em>Для кого: эксперты и блогеры, строящие канал</em>
           </article>
           <article class="card service-card">
-            <span class="icon">📋</span>
-            <h3>Контент-менеджмент</h3>
-            <p>Контент-план + монтаж + публикации + оформление. Ты снимаешь — Лиза ведёт всё остальное.</p>
-            <em>Для тех, кто хочет делегировать соцсети целиком.</em>
+            <span class="card-number">03</span>
+            <h3>📋 Контент-менеджмент</h3>
+            <p>Контент-план + монтаж + публикации + оформление профиля. Ты снимаешь — Лиза ведёт всё производство.</p>
+            <em>Для кого: те, кто хочет делегировать производство целиком</em>
           </article>
         </div>
       </section>
@@ -966,17 +1076,17 @@
           <article class="card step-card">
             <span class="step-number">1</span>
             <h3>Бриф — 15 минут</h3>
-            <p>Пишешь в Telegram, Лиза задаёт 5–7 вопросов: про стиль, аудиторию, примеры что нравится. Никаких длинных ТЗ.</p>
+            <p>Пишешь в Telegram, Лиза задаёт 5–7 вопросов: стиль, аудитория, 2–3 референса. Никаких длинных ТЗ.</p>
           </article>
           <article class="card step-card">
             <span class="step-number">2</span>
             <h3>Присылаешь исходники</h3>
-            <p>Сырое видео, фото, голосовые — всё что есть. Лиза сама разбирается что с этим делать.</p>
+            <p>Сырое видео, фото, голосовые — что есть. Лиза сама разбирается, что с этим делать.</p>
           </article>
           <article class="card step-card">
             <span class="step-number">3</span>
             <h3>Получаешь готовый контент</h3>
-            <p>Через 48 часов — смонтированный ролик или первая неделя постов. Одна итерация правок включена.</p>
+            <p>Через 48 часов — смонтированный ролик. Одна итерация правок включена.</p>
           </article>
         </div>
       </section>
@@ -988,21 +1098,50 @@
         </div>
         <div class="faq-list">
           <details>
-            <summary>А вдруг стиль не совпадёт?</summary>
-            <p>Перед стартом Лиза делает тестовый монтаж одного ролика — ты смотришь, решаешь. Никаких обязательств до «окей, поехали».</p>
+            <summary>— А вдруг стиль не совпадёт с моим брендом?</summary>
+            <p>Перед стартом Лиза делает тестовый монтаж одного ролика — ты смотришь и решаешь. Деньги только если сказал «окей, поехали».</p>
           </details>
           <details>
-            <summary>Нужно долго объяснять, что хочу?</summary>
-            <p>Нет. Бриф — 15 минут в переписке. Если есть 2–3 референса — отлично, если нет — Лиза предложит варианты сама.</p>
+            <summary>— Ты не исчезнешь через месяц, как мой прошлый монтажёр?</summary>
+            <p>
+              Лиза работает с клиентами долгосрочно — большинство проектов 3+ месяца. Кейсы выше — реальные проекты,
+              не разовые. Если что-то идёт не так — ты узнаешь первым, не когда дедлайн уже горит.
+            </p>
           </details>
           <details>
-            <summary>Я не знаю, сколько это стоит.</summary>
-            <p>Стоимость зависит от объёма — обсуждается индивидуально. Напиши в Telegram, Лиза ответит с конкретными цифрами под твою задачу за 2 часа.</p>
+            <summary>— Нужно долго объяснять, что я хочу?</summary>
+            <p>
+              Нет. Бриф — 15 минут в переписке. Если есть 2–3 референса — отлично. Нет — Лиза предложит варианты сама.
+              Со временем объяснять будет нужно всё меньше: стиль фиксируется после первых двух роликов.
+            </p>
           </details>
           <details>
-            <summary>Я уже работал с монтажёрами — всегда приходилось всё переделывать.</summary>
-            <p>Включена одна итерация правок. Если после неё что-то не так — разберём почему и исправим.</p>
+            <summary>— Я монтирую сам в CapCut, зачем мне кто-то ещё?</summary>
+            <p>
+              Самостоятельный монтаж — это 4–6 часов с твоей стороны на каждый ролик. Умножь на 4 ролика в месяц:
+              16–24 часа твоего времени. Часто именно это время отъедает стабильность публикаций. Вопрос не «умеешь ли
+              монтировать», а «хочешь ли тратить на это своё время».
+            </p>
           </details>
+          <details>
+            <summary>— Сколько это стоит?</summary>
+            <p>
+              Зависит от объёма и форматов — обсуждается индивидуально. Напиши в Telegram, Лиза ответит с конкретными
+              цифрами под твою задачу за 2 часа.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section wrap fade-in" id="month">
+        <div class="state-panel">
+          <span class="eyebrow">Результат через месяц</span>
+          <h2>Как выглядит работа с Лизой через месяц</h2>
+          <div class="state-copy">
+            <p>Ты снимаешь в пятницу вечером — один ролик или три. Отправляешь Лизе. В воскресенье получаешь смонтированный контент на неделю вперёд.</p>
+            <p>В понедельник — пост выходит. Во вторник — следующий. В пятницу — ещё один. Ты не открывал CapCut ни разу.</p>
+            <p>Через месяц у тебя 12–16 видео, единый стиль, аудитория растёт — и ты потратил на производство ноль часов своего времени.</p>
+          </div>
         </div>
       </section>
 
@@ -1010,10 +1149,13 @@
         <div class="cta-panel">
           <span class="eyebrow">Бесплатный разбор</span>
           <h2>Разберём твою задачу — бесплатно</h2>
-          <p>Напиши Лизе в Telegram — она спросит про твои задачи и скажет, можно ли помочь. Без презентаций и менеджеров по продажам.</p>
+          <p>
+            Напиши Лизе в Telegram — расскажи про свой проект, она спросит несколько вопросов и скажет, как можно помочь.
+            Без презентаций и менеджеров по продажам.
+          </p>
           <!-- ЗАМЕНИТЬ: https://t.me/username -->
           <a class="button button-primary" href="https://t.me/username">Написать Лизе в Telegram →</a>
-          <div class="microcopy">Отвечу за 2 часа · Без обязательств · Первый ролик — тестовый</div>
+          <div class="microcopy">Отвечу за 2 часа · Первый ролик — тестовый · Без обязательств</div>
         </div>
       </section>
     </main>
@@ -1100,6 +1242,7 @@
       });
 
       dialog.addEventListener("close", () => {
+        dialogVideo.pause();
         document.body.classList.remove("modal-open");
       });
     </script>
