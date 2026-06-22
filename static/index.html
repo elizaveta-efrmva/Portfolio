@@ -14,6 +14,9 @@
         --surface: #080908;
         --surface-2: #10110f;
         --surface-3: #171814;
+        --paper: #f1efe8;
+        --paper-muted: #5f625b;
+        --steel: #23262a;
         --text: #f6f4ee;
         --muted: #b9b8b1;
         --dim: #777873;
@@ -35,12 +38,34 @@
       }
 
       body {
+        position: relative;
         margin: 0;
-        background: var(--bg);
+        background:
+          linear-gradient(90deg, rgba(246, 244, 238, 0.055) 1px, transparent 1px) 50% 0 / 82px 82px,
+          linear-gradient(rgba(246, 244, 238, 0.035) 1px, transparent 1px) 0 0 / 100% 82px,
+          var(--bg);
         color: var(--text);
         font-family:
           Inter, Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         font-size: 16px;
+      }
+
+      body::before {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 78% 18%, rgba(72, 178, 76, 0.14), transparent 22rem),
+          radial-gradient(circle at 18% 70%, rgba(241, 239, 232, 0.07), transparent 28rem);
+        content: "";
+      }
+
+      .site-header,
+      main,
+      .site-footer {
+        position: relative;
+        z-index: 1;
       }
 
       body.modal-open {
@@ -180,16 +205,34 @@
       }
 
       .section {
-        padding: 108px 0;
+        padding: 116px 0;
+        border-top: 1px solid rgba(246, 244, 238, 0.06);
       }
 
       .hero {
+        position: relative;
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(420px, 0.96fr);
         min-height: calc(100vh - 68px);
         align-items: center;
         gap: 46px;
-        padding: 64px 0 96px;
+        padding: 64px 0 44px;
+      }
+
+      .hero::before {
+        position: absolute;
+        right: 34px;
+        bottom: 116px;
+        z-index: -1;
+        color: rgba(246, 244, 238, 0.055);
+        content: "48H";
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(120px, 20vw, 260px);
+        line-height: 1;
+      }
+
+      .hero-copy {
+        align-self: center;
       }
 
       .eyebrow {
@@ -258,6 +301,39 @@
         gap: 14px;
       }
 
+      .hero-stats {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 36px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(246, 244, 238, 0.015);
+      }
+
+      .hero-stat {
+        min-height: 78px;
+        padding: 18px 22px;
+      }
+
+      .hero-stat + .hero-stat {
+        border-left: 1px solid var(--line);
+      }
+
+      .hero-stat strong {
+        display: block;
+        color: var(--text);
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .hero-stat span {
+        display: block;
+        margin-top: 9px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
       .video-shell {
         position: relative;
         overflow: hidden;
@@ -265,6 +341,17 @@
         border-radius: var(--radius);
         background: #050607;
         box-shadow: none;
+      }
+
+      .video-shell::before {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+          repeating-linear-gradient(90deg, transparent 0 18px, rgba(246, 244, 238, 0.035) 18px 19px),
+          linear-gradient(180deg, transparent 72%, rgba(72, 178, 76, 0.12));
+        content: "";
       }
 
       .ratio-16x9 {
@@ -301,6 +388,7 @@
       .video-placeholder {
         position: absolute;
         inset: 0;
+        z-index: 2;
         display: grid;
         place-items: center;
         padding: 24px;
@@ -343,15 +431,26 @@
       }
 
       .section-head {
-        max-width: 760px;
-        margin: 0 0 36px;
+        display: grid;
+        grid-template-columns: minmax(0, 0.72fr) minmax(260px, 0.48fr);
+        max-width: none;
+        margin: 0 0 38px;
+        align-items: end;
+        gap: 36px;
         text-align: left;
       }
 
+      .section-head::after {
+        min-height: 1px;
+        background: linear-gradient(90deg, var(--accent), transparent);
+        content: "";
+      }
+
       .section-head p {
-        max-width: 660px;
+        max-width: 420px;
         margin-right: 0;
         margin-left: 0;
+        margin-bottom: 0;
       }
 
       .grid {
@@ -371,6 +470,27 @@
         border: 1px solid var(--line);
         border-radius: var(--radius);
         background: rgba(246, 244, 238, 0.025);
+      }
+
+      .value-card:nth-child(2),
+      .service-card:nth-child(2),
+      .case-card:nth-child(2) {
+        border-color: rgba(241, 239, 232, 0.92);
+        background: var(--paper);
+        color: #050505;
+      }
+
+      .value-card:nth-child(2) strong,
+      .service-card:nth-child(2) h3,
+      .case-card:nth-child(2) dd {
+        color: #050505;
+      }
+
+      .value-card:nth-child(2) p,
+      .service-card:nth-child(2) p,
+      .service-card:nth-child(2) em,
+      .case-card:nth-child(2) dt {
+        color: var(--paper-muted);
       }
 
       .trigger-card,
@@ -402,6 +522,19 @@
         font-weight: 950;
       }
 
+      .value-card,
+      .service-card,
+      .step-card {
+        min-height: 236px;
+      }
+
+      .value-card strong,
+      .service-card h3,
+      .step-card h3 {
+        font-size: 22px;
+        line-height: 1.18;
+      }
+
       .italic-note {
         margin: 28px 0 0;
         color: var(--muted);
@@ -424,12 +557,16 @@
 
       .cases {
         display: grid;
-        overflow-x: auto;
-        grid-auto-columns: minmax(340px, 470px);
-        grid-auto-flow: column;
+        overflow: visible;
+        grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.74fr);
+        align-items: start;
         gap: 18px;
-        padding: 3px 3px 18px;
+        padding: 3px 0 0;
         scroll-snap-type: x mandatory;
+      }
+
+      .case-card:first-child {
+        grid-row: span 2;
       }
 
       .case-card {
@@ -463,8 +600,23 @@
       }
 
       .case-video.ratio-9x16 {
-        height: 520px;
+        height: 360px;
         aspect-ratio: auto;
+      }
+
+      .case-card:first-child .case-video {
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      .case-card:first-child .case-body {
+        display: grid;
+        grid-template-columns: 150px minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .case-card:first-child .badge {
+        align-self: start;
       }
 
       .case-body {
@@ -736,9 +888,44 @@
           gap: 38px;
         }
 
+        .hero::before {
+          right: 0;
+          bottom: 260px;
+        }
+
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-stat + .hero-stat {
+          border-top: 1px solid var(--line);
+          border-left: 0;
+        }
+
+        .section-head {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .section-head::after {
+          display: none;
+        }
+
         .showreel {
           width: min(100%, 560px);
           min-height: 0;
+        }
+
+        .cases {
+          grid-template-columns: 1fr;
+        }
+
+        .case-card:first-child {
+          grid-row: auto;
+        }
+
+        .case-card:first-child .case-body {
+          grid-template-columns: 1fr;
         }
 
         .grid-2,
@@ -839,7 +1026,7 @@
 
     <main id="top">
       <section class="hero wrap">
-        <div class="fade-in">
+        <div class="hero-copy fade-in">
           <span class="eyebrow">Видеомонтаж для регулярного контента</span>
           <h1>Твои видео выходят каждую неделю. Ты не тратишь на монтаж ни вечера.</h1>
           <p class="lead">
@@ -865,6 +1052,21 @@
               <strong>Showreel</strong>
               <span>Заменить на showreel.mp4</span>
             </div>
+          </div>
+        </div>
+
+        <div class="hero-stats fade-in" aria-label="Ключевые параметры работы">
+          <div class="hero-stat">
+            <strong>48 часов</strong>
+            <span>до первого готового ролика</span>
+          </div>
+          <div class="hero-stat">
+            <strong>15 минут</strong>
+            <span>на стартовый бриф в Telegram</span>
+          </div>
+          <div class="hero-stat">
+            <strong>12–16</strong>
+            <span>видео в месяц при регулярной работе</span>
           </div>
         </div>
       </section>
@@ -944,14 +1146,14 @@
               data-title="Reels: запуск с нуля"
               data-type="Reels"
             >
-              <div class="video-shell case-video ratio-9x16">
+              <div class="video-shell case-video ratio-16x9">
                 <video muted playsinline preload="none" loading="lazy" poster="poster.jpg">
                   <!-- ЗАМЕНИТЬ: case_1.mp4 -->
                   <!-- ЗАМЕНИТЬ: poster.jpg -->
                   <source src="case_1.mp4" type="video/mp4" />
                 </video>
                 <div class="video-placeholder" aria-hidden="true">
-                  <div><span class="play"></span><strong>Case 1</strong><span>9:16 Reels</span></div>
+                  <div><span class="play"></span><strong>Case 1</strong><span>Reels / launch</span></div>
                 </div>
               </div>
             </button>
@@ -988,14 +1190,14 @@
               data-title="YouTube: экспертный выпуск"
               data-type="YouTube"
             >
-              <div class="video-shell case-video ratio-16x9">
+              <div class="video-shell case-video ratio-9x16">
                 <video muted playsinline preload="none" loading="lazy" poster="poster.jpg">
                   <!-- ЗАМЕНИТЬ: case_2.mp4 -->
                   <!-- ЗАМЕНИТЬ: poster.jpg -->
                   <source src="case_2.mp4" type="video/mp4" />
                 </video>
                 <div class="video-placeholder" aria-hidden="true">
-                  <div><span class="play"></span><strong>Case 2</strong><span>16:9 YouTube</span></div>
+                  <div><span class="play"></span><strong>Case 2</strong><span>YouTube / expert</span></div>
                 </div>
               </div>
             </button>
