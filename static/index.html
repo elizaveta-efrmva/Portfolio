@@ -634,7 +634,7 @@
         overflow-x: auto;
         grid-template-columns: repeat(4, minmax(374px, 374px));
         gap: 18px;
-        padding: 3px 0 18px;
+        padding: 3px 0 72px;
         scroll-snap-type: x mandatory;
         scrollbar-width: thin;
         scrollbar-color: rgba(72, 178, 76, 0.72) rgba(246, 244, 238, 0.06);
@@ -659,71 +659,47 @@
         background: rgba(72, 178, 76, 0.9);
       }
 
-      .carousel-arrow {
+      .carousel-controls {
         position: absolute;
-        top: 50%;
+        right: 0;
+        bottom: 18px;
+        left: 0;
         z-index: 4;
-        display: grid;
-        width: 48px;
-        height: 48px;
-        place-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        pointer-events: none;
+      }
+
+      .carousel-button {
+        min-height: 38px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 18px;
         border: 1px solid transparent;
-        border-radius: 50%;
+        border-radius: 999px;
         background: var(--accent);
         color: #061006;
         cursor: pointer;
+        display: none;
+        font-size: 13px;
+        font-weight: 900;
         opacity: 0;
         pointer-events: none;
-        transform: translateY(-50%);
         transition:
           opacity 160ms ease,
-          background 160ms ease,
-          border-color 160ms ease;
-        backdrop-filter: blur(12px);
+          background 160ms ease;
       }
 
-      .carousel-arrow:hover,
-      .carousel-arrow:focus-visible {
-        border-color: transparent;
+      .carousel-button:hover,
+      .carousel-button:focus-visible {
         background: #3fa943;
       }
 
-      .carousel-arrow::before {
-        width: 12px;
-        height: 12px;
-        border-top: 2px solid currentColor;
-        border-right: 2px solid currentColor;
-        content: "";
-      }
-
-      .carousel-arrow-next {
-        right: -64px;
-      }
-
-      .carousel-arrow-next::before {
-        transform: rotate(45deg);
-      }
-
-      .carousel-arrow-prev {
-        left: -64px;
-      }
-
-      .carousel-arrow-prev::before {
-        transform: rotate(225deg);
-      }
-
-      .cases-wrap:hover .carousel-arrow.is-visible,
-      .cases-wrap:focus-within .carousel-arrow.is-visible,
-      .carousel-arrow.is-visible:focus-visible {
+      .carousel-button.is-visible {
+        display: inline-flex;
         opacity: 1;
         pointer-events: auto;
-      }
-
-      @media (hover: none) {
-        .carousel-arrow.is-visible {
-          opacity: 1;
-          pointer-events: auto;
-        }
       }
 
       .case-item {
@@ -1093,14 +1069,6 @@
           grid-template-columns: repeat(4, minmax(374px, 374px));
         }
 
-        .carousel-arrow-next {
-          right: 12px;
-        }
-
-        .carousel-arrow-prev {
-          left: 12px;
-        }
-
         .author-section {
           grid-template-columns: 1fr;
           gap: 34px;
@@ -1257,7 +1225,6 @@
         </div>
 
         <div class="cases-wrap">
-          <button class="carousel-arrow carousel-arrow-prev" type="button" aria-label="К первому ролику"></button>
           <div class="cases" aria-label="Карусель видеоработ">
             <article class="case-item">
               <div class="card case-card">
@@ -1339,7 +1306,10 @@
               <span class="case-description">Talking head с AI-вставками и смысловыми акцентами.</span>
             </article>
           </div>
-          <button class="carousel-arrow carousel-arrow-next" type="button" aria-label="К последнему ролику"></button>
+          <div class="carousel-controls" aria-label="Управление каруселью работ">
+            <button class="carousel-button carousel-button-prev" type="button">Назад</button>
+            <button class="carousel-button carousel-button-next" type="button">Вперед</button>
+          </div>
         </div>
       </section>
 
@@ -1533,10 +1503,10 @@
 
       const casesWrap = document.querySelector(".cases-wrap");
       const casesCarousel = document.querySelector(".cases");
-      const carouselPrev = document.querySelector(".carousel-arrow-prev");
-      const carouselNext = document.querySelector(".carousel-arrow-next");
+      const carouselPrev = document.querySelector(".carousel-button-prev");
+      const carouselNext = document.querySelector(".carousel-button-next");
 
-      function updateCarouselArrows() {
+      function updateCarouselButtons() {
         if (!casesCarousel) return;
 
         const maxScroll = casesCarousel.scrollWidth - casesCarousel.clientWidth;
@@ -1556,9 +1526,9 @@
           casesCarousel.scrollTo({ left: 0, behavior: "smooth" });
         });
 
-        casesCarousel.addEventListener("scroll", updateCarouselArrows, { passive: true });
-        window.addEventListener("resize", updateCarouselArrows);
-        updateCarouselArrows();
+        casesCarousel.addEventListener("scroll", updateCarouselButtons, { passive: true });
+        window.addEventListener("resize", updateCarouselButtons);
+        updateCarouselButtons();
       }
 
       const dialog = document.querySelector("#videoDialog");
