@@ -744,6 +744,10 @@
         text-align: left;
       }
 
+      .case-button video {
+        pointer-events: none;
+      }
+
       .case-video {
         aspect-ratio: 9 / 16;
         border-radius: 12px;
@@ -1296,7 +1300,7 @@
                   </div>
                 </button>
               </div>
-              <span class="case-description">Обучающий ролик с AI-иллюстрациями и визуальными вставками — под задачу эксперта.</span>
+              <span class="case-description">Обучающий ролик с AI-иллюстрациями и визуальными вставками — под задачу эксперта</span>
             </article>
 
             <article class="case-item">
@@ -1316,7 +1320,7 @@
                   </div>
                 </button>
               </div>
-              <span class="case-description">Промо для стоматологической клиники: чистая подача, акцент на услуге.</span>
+              <span class="case-description">Промо для стоматологической клиники: чистая подача, акцент на услуге</span>
             </article>
 
             <article class="case-item">
@@ -1336,7 +1340,7 @@
                   </div>
                 </button>
               </div>
-              <span class="case-description">Reels с крупной типографикой, субтитрами и чётким ритмом.</span>
+              <span class="case-description">Reels с крупной типографикой, субтитрами и чётким ритмом</span>
             </article>
 
             <article class="case-item">
@@ -1356,7 +1360,7 @@
                   </div>
                 </button>
               </div>
-              <span class="case-description">Talking head с AI-вставками и смысловыми акцентами.</span>
+              <span class="case-description">Talking head с AI-вставками и смысловыми акцентами</span>
             </article>
           </div>
           <div class="carousel-controls" aria-label="Управление каруселью работ">
@@ -1589,7 +1593,10 @@
 
       document.querySelectorAll(".case-button").forEach((button) => {
         button.addEventListener("click", () => {
-          dialogTitle.textContent = button.dataset.title || "Видео";
+          const caseItem = button.closest(".case-item");
+          const caseDescription = caseItem?.querySelector(".case-description")?.textContent?.trim();
+
+          dialogTitle.textContent = caseDescription || button.dataset.title || "Видео";
           dialogVideo.innerHTML = "";
           const source = document.createElement("source");
           source.src = button.dataset.video;
