@@ -634,7 +634,7 @@
         overflow-x: auto;
         grid-template-columns: repeat(4, minmax(374px, 374px));
         gap: 18px;
-        padding: 3px 0 10px;
+        padding: 3px 0 18px;
         scroll-snap-type: x mandatory;
         scrollbar-width: thin;
         scrollbar-color: rgba(72, 178, 76, 0.72) rgba(246, 244, 238, 0.06);
@@ -667,10 +667,10 @@
         width: 48px;
         height: 48px;
         place-items: center;
-        border: 1px solid rgba(246, 244, 238, 0.16);
+        border: 1px solid transparent;
         border-radius: 50%;
-        background: rgba(0, 0, 0, 0.68);
-        color: var(--text);
+        background: var(--accent);
+        color: #061006;
         cursor: pointer;
         opacity: 0;
         pointer-events: none;
@@ -684,8 +684,8 @@
 
       .carousel-arrow:hover,
       .carousel-arrow:focus-visible {
-        border-color: rgba(72, 178, 76, 0.72);
-        background: rgba(0, 0, 0, 0.84);
+        border-color: transparent;
+        background: #3fa943;
       }
 
       .carousel-arrow::before {
@@ -697,7 +697,7 @@
       }
 
       .carousel-arrow-next {
-        right: 14px;
+        right: -64px;
       }
 
       .carousel-arrow-next::before {
@@ -705,7 +705,7 @@
       }
 
       .carousel-arrow-prev {
-        left: 14px;
+        left: -64px;
       }
 
       .carousel-arrow-prev::before {
@@ -1091,6 +1091,14 @@
 
         .cases {
           grid-template-columns: repeat(4, minmax(374px, 374px));
+        }
+
+        .carousel-arrow-next {
+          right: 12px;
+        }
+
+        .carousel-arrow-prev {
+          left: 12px;
         }
 
         .author-section {
