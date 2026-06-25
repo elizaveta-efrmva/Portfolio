@@ -906,10 +906,14 @@
       }
 
       dialog {
-        width: min(920px, calc(100% - 32px));
+        width: 100vw;
+        max-width: none;
+        height: 100dvh;
+        max-height: none;
+        margin: 0;
         padding: 0;
-        border: 1px solid var(--line-strong);
-        border-radius: 18px;
+        border: 0;
+        border-radius: 0;
         background: #050607;
         color: var(--text);
         box-shadow: var(--shadow);
@@ -932,11 +936,6 @@
         display: block;
       }
 
-      .dialog-head span {
-        color: var(--muted);
-        font-size: 13px;
-      }
-
       .dialog-close {
         width: 38px;
         height: 38px;
@@ -951,12 +950,15 @@
 
       .dialog-body {
         display: grid;
+        min-height: calc(100dvh - 75px);
         justify-items: center;
+        align-items: center;
         padding: 18px;
       }
 
       .dialog-body .video-shell {
-        width: min(100%, 420px);
+        width: min(calc(100vw - 36px), calc((100dvh - 112px) * 9 / 16));
+        max-height: calc(100dvh - 112px);
       }
 
       .fade-in {
@@ -1386,20 +1388,12 @@
       <div class="dialog-head">
         <div>
           <strong id="dialogTitle">Видео</strong>
-          <span id="dialogType">Кейс</span>
         </div>
         <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
       </div>
       <div class="dialog-body">
         <div class="video-shell ratio-9x16">
           <video id="dialogVideo" controls loop playsinline preload="metadata" poster="poster.jpg"></video>
-          <div class="video-placeholder" aria-hidden="true">
-            <div>
-              <span class="play"></span>
-              <strong>Работа Лизы</strong>
-              <span>9:16 / reel</span>
-            </div>
-          </div>
         </div>
       </div>
     </dialog>
@@ -1433,13 +1427,11 @@
       const dialog = document.querySelector("#videoDialog");
       const dialogVideo = document.querySelector("#dialogVideo");
       const dialogTitle = document.querySelector("#dialogTitle");
-      const dialogType = document.querySelector("#dialogType");
       const closeButton = document.querySelector(".dialog-close");
 
       document.querySelectorAll(".case-button").forEach((button) => {
         button.addEventListener("click", () => {
           dialogTitle.textContent = button.dataset.title || "Видео";
-          dialogType.textContent = button.dataset.type || "Кейс";
           dialogVideo.innerHTML = "";
           const source = document.createElement("source");
           source.src = button.dataset.video;
