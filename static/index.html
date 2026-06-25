@@ -726,9 +726,13 @@
         }
       }
 
+      .case-item {
+        scroll-snap-align: start;
+      }
+
       .case-card {
         overflow: hidden;
-        scroll-snap-align: start;
+        border-radius: 12px;
         transition:
           transform 160ms ease,
           box-shadow 160ms ease,
@@ -761,7 +765,7 @@
 
       .case-video {
         aspect-ratio: 9 / 16;
-        border-radius: 0;
+        border-radius: 12px;
         box-shadow: none;
       }
 
@@ -808,7 +812,7 @@
 
       .case-description {
         display: block;
-        padding: 14px 16px 16px;
+        padding: 14px 0 0;
         color: var(--text);
         font-size: 15px;
         font-weight: 400;
@@ -1247,75 +1251,83 @@
         <div class="cases-wrap">
           <button class="carousel-arrow carousel-arrow-prev" type="button" aria-label="К первому ролику"></button>
           <div class="cases" aria-label="Карусель видеоработ">
-            <article class="card case-card">
-              <button
-                class="case-button"
-                type="button"
-                data-video="case-ai-illustrations.mp4"
-                data-title="Обучающее видео с ИИ-иллюстрациями"
-                data-type="9:16 / обучение / AI"
-              >
-                <div class="video-shell case-video ratio-9x16">
-                  <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Обучающее видео с ИИ-иллюстрациями">
-                    <source src="case-ai-illustrations.mp4" type="video/mp4" />
-                  </video>
-                  <span class="case-play" aria-hidden="true"></span>
-                </div>
-              </button>
+            <article class="case-item">
+              <div class="card case-card">
+                <button
+                  class="case-button"
+                  type="button"
+                  data-video="case-ai-illustrations.mp4"
+                  data-title="Обучающее видео с ИИ-иллюстрациями"
+                  data-type="9:16 / обучение / AI"
+                >
+                  <div class="video-shell case-video ratio-9x16">
+                    <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Обучающее видео с ИИ-иллюстрациями">
+                      <source src="case-ai-illustrations.mp4" type="video/mp4" />
+                    </video>
+                    <span class="case-play" aria-hidden="true"></span>
+                  </div>
+                </button>
+              </div>
               <span class="case-description">Обучающий ролик с AI-иллюстрациями и визуальными вставками — под задачу эксперта.</span>
             </article>
 
-            <article class="card case-card case-card-dentists">
-              <button
-                class="case-button"
-                type="button"
-                data-video="case-dentists.mp4"
-                data-title="Стоматологи — тестовый дизайн"
-                data-type="9:16 / промо / дизайн"
-              >
-                <div class="video-shell case-video ratio-9x16">
-                  <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Стоматологи — тестовый дизайн">
-                    <source src="case-dentists.mp4" type="video/mp4" />
-                  </video>
-                  <span class="case-play" aria-hidden="true"></span>
-                </div>
-              </button>
+            <article class="case-item">
+              <div class="card case-card case-card-dentists">
+                <button
+                  class="case-button"
+                  type="button"
+                  data-video="case-dentists.mp4"
+                  data-title="Стоматологи — тестовый дизайн"
+                  data-type="9:16 / промо / дизайн"
+                >
+                  <div class="video-shell case-video ratio-9x16">
+                    <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Стоматологи — тестовый дизайн">
+                      <source src="case-dentists.mp4" type="video/mp4" />
+                    </video>
+                    <span class="case-play" aria-hidden="true"></span>
+                  </div>
+                </button>
+              </div>
               <span class="case-description">Промо для стоматологической клиники: чистая подача, акцент на услуге.</span>
             </article>
 
-            <article class="card case-card">
-              <button
-                class="case-button"
-                type="button"
-                data-video="case-typography.mp4"
-                data-title="Типографика Reels"
-                data-type="9:16 / subtitles / rhythm"
-              >
-                <div class="video-shell case-video ratio-9x16">
-                  <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Типографика Reels">
-                    <source src="case-typography.mp4" type="video/mp4" />
-                  </video>
-                  <span class="case-play" aria-hidden="true"></span>
-                </div>
-              </button>
+            <article class="case-item">
+              <div class="card case-card">
+                <button
+                  class="case-button"
+                  type="button"
+                  data-video="case-typography.mp4"
+                  data-title="Типографика Reels"
+                  data-type="9:16 / subtitles / rhythm"
+                >
+                  <div class="video-shell case-video ratio-9x16">
+                    <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Типографика Reels">
+                      <source src="case-typography.mp4" type="video/mp4" />
+                    </video>
+                    <span class="case-play" aria-hidden="true"></span>
+                  </div>
+                </button>
+              </div>
               <span class="case-description">Reels с крупной типографикой, субтитрами и чётким ритмом.</span>
             </article>
 
-            <article class="card case-card">
-              <button
-                class="case-button"
-                type="button"
-                data-video="case-talking-head.mp4"
-                data-title="Говорящая голова + ИИ-вставки"
-                data-type="9:16 / talking head / AI"
-              >
-                <div class="video-shell case-video ratio-9x16">
-                  <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Говорящая голова плюс ИИ-вставки">
-                    <source src="case-talking-head.mp4" type="video/mp4" />
-                  </video>
-                  <span class="case-play" aria-hidden="true"></span>
-                </div>
-              </button>
+            <article class="case-item">
+              <div class="card case-card">
+                <button
+                  class="case-button"
+                  type="button"
+                  data-video="case-talking-head.mp4"
+                  data-title="Говорящая голова + ИИ-вставки"
+                  data-type="9:16 / talking head / AI"
+                >
+                  <div class="video-shell case-video ratio-9x16">
+                    <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Говорящая голова плюс ИИ-вставки">
+                      <source src="case-talking-head.mp4" type="video/mp4" />
+                    </video>
+                    <span class="case-play" aria-hidden="true"></span>
+                  </div>
+                </button>
+              </div>
               <span class="case-description">Talking head с AI-вставками и смысловыми акцентами.</span>
             </article>
           </div>
