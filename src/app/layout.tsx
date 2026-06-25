@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import { content } from "../../content.config";
 import "./globals.css";
-import { siteConfig } from '../../site.config';
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
+  title: content.meta.title,
+  description: content.meta.description,
 };
 
 export default function RootLayout({
@@ -14,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

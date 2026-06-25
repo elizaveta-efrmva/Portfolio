@@ -1,123 +1,100 @@
-# Портфолио Ильи Блошенко
+# Видеопортфолио
 
-Статический сайт-портфолио на базе Next.js, автоматически генерируемый из Notion страницы.
+Одностраничное портфолио видеомонтажера на Next.js static export, React 19 и Tailwind CSS v4. Сайт собирается в статическую папку `out/` и деплоится на GitHub Pages через GitHub Actions.
 
-## 🚀 Быстрый старт
+Контент не зависит от внешних CMS. Имя, тексты, список работ, контакты, постеры и источники видео редактируются в одном файле: `content.config.ts`.
 
-### 1. Установка зависимостей
+## Быстрый старт
 
 ```bash
 npm install
-```
-
-### 2. Локальная разработка
-
-```bash
 npm run dev
 ```
 
-Откройте [http://localhost:3000](http://localhost:3000) в браузере.
+Локально сайт откроется на `http://localhost:3000`.
 
-### 3. Сборка для продакшн
+## Сборка
 
 ```bash
 npm run build
 ```
 
-Статические файлы будут созданы в папке `out/`.
+Next.js создаст статический сайт в `out/`.
 
-## 📦 Как работает проект
+## Где менять контент
 
-### Архитектура
+Основной файл: `content.config.ts`.
 
-1. **Notion API** — при сборке проект подключается к Notion через unofficial API (`notion-client`)
-2. **Локальное скачивание изображений** — все изображения из Notion S3 скачиваются в `public/notion-images/` при билде
-3. **Статическая генерация** — Next.js создает полностью статический сайт (HTML + CSS + JS)
-4. **GitHub Actions** — автоматически деплоит на GitHub Pages при push в `main`
+В нем лежат:
 
-### Ключевые файлы
+- метаданные сайта;
+- навигация;
+- hero и шоурил;
+- список работ;
+- блок "Обо мне";
+- услуги;
+- контакты.
 
-- **`site.config.ts`** — ID Notion страницы, название сайта, описание
-- **`src/lib/notion.ts`** — клиент Notion API + скачивание изображений
-- **`src/components/NotionPage.tsx`** — компонент рендеринга Notion страницы
-- **`src/app/page.tsx`** — главная страница сайта
-- **`.github/workflows/deploy.yml`** — CI/CD для GitHub Pages
+Постеры лежат в `public/posters/`. Сейчас добавлены типографические SVG-заглушки. Когда появятся реальные кадры из видео, можно заменить файлы с теми же именами или поменять пути в `content.config.ts`.
 
-## 🔄 Обновление контента
+## Видеоисточники
 
-Когда обновляешь контент в Notion:
+`VideoPlayer` поддерживает четыре режима:
 
-1. **Автоматический деплой** — просто push в `main`:
-   ```bash
-   git add .
-   git commit -m "Update content"
-   git push
-   ```
-
-2. **Ручной деплой** без изменений кода:
-   - Зайди в GitHub → Actions
-   - Выбери "Deploy to GitHub Pages"
-   - Нажми "Run workflow"
-
-## ⚙️ Настройка GitHub Pages
-
-1. Создай репозиторий на GitHub (например, `portfolio`)
-2. Зайди в Settings → Pages
-3. Source: выбери **"GitHub Actions"**
-4. Push код в `main` — деплой запустится автоматически
-
-### Важно про basePath
-
-Если репозиторий называется **НЕ** `username.github.io`:
-
-1. Открой `next.config.ts`
-2. Раскомментируй строку:
-   ```typescript
-   basePath: "/portfolio",  // замени "portfolio" на имя твоего репозитория
-   ```
-3. Сайт будет доступен по `username.github.io/portfolio`
-
-Если репозиторий называется `username.github.io` — `basePath` не нужен.
-
-## 🎨 Кастомизация
-
-### Изменить Notion страницы
-
-Отредактируй `site.config.ts`:
-
-```typescript
-export const portfolioPages = {
-  main: {
-    path: '/',
-    rootNotionPageId: 'page-id-для-основного-портфолио',
-    name: 'Основное портфолио',
-    description: 'Описание основного портфолио',
-    author: 'Илья Блошенко',
-  },
-  portfolioV2: {
-    path: '/portfolio-v2',
-    rootNotionPageId: 'page-id-для-второго-варианта',
-    name: 'Portfolio v2',
-    description: 'Описание второго варианта',
-    author: 'Илья Блошенко',
-  },
-};
+```ts
+source: "PLACEHOLDER"
+source: { kind: "embed", provider: "vk", id: "..." }
+source: { kind: "file", src: "/videos/example.mp4", poster: "/posters/example.jpg" }
+source: { kind: "link", href: "https://...", label: "Смотреть" }
 ```
 
-Основное портфолио остаётся на `/`, второй вариант доступен на `/portfolio-v2/`.
+Для крупных роликов предпочтительнее внешний хостинг: VK Video, Kinescope, Rutube, YouTube или Vimeo. Self-host через GitHub Pages стоит использовать только для сильно сжатых файлов, потому что у GitHub есть лимит 100 МБ на файл.
 
-### Адаптивные стили
+## GitHub Pages
 
-Отредактируй `src/app/globals.css` — там настройки для мобильных экранов.
+Проект уже настроен под Pages:
 
-## 🛠️ Технологии
+- `next.config.ts` использует `output: "export"`;
+- изображения отключают оптимизацию через `images.unoptimized`;
+- `basePath` и `assetPrefix` берутся из переменной окружения `BASE_PATH`;
+- workflow `.github/workflows/deploy.yml` собирает сайт и публикует `out/`.
 
-- **Next.js 16** — App Router, Static Export
-- **react-notion-x** — рендеринг Notion блоков
-- **notion-client** — unofficial Notion API
-- **GitHub Pages** — хостинг (бесплатно, работает в РФ)
-- **GitHub Actions** — CI/CD
+Для репозитория вида `username.github.io/repo` задайте repository variable:
 
-## 📝 Лицензия
+```text
+BASE_PATH=/repo
+```
 
-MIT
+Для user-pages репозитория `username.github.io` оставьте `BASE_PATH` пустым.
+
+## Перенос на другой аккаунт
+
+1. Создать пустой репозиторий на аккаунте подруги.
+2. Поменять remote или добавить новый:
+
+```bash
+git remote set-url origin https://github.com/username/video-portfolio.git
+```
+
+3. Запушить ветку `main`.
+4. В Settings -> Pages выбрать Source: GitHub Actions.
+5. В Settings -> Secrets and variables -> Actions -> Variables задать `BASE_PATH` под имя репозитория, например `/video-portfolio`.
+6. Если репозиторий называется `username.github.io`, `BASE_PATH` не задавать.
+
+В коде нет хардкода аккаунта, репозитория или домена. Для кастомного домена можно добавить файл `public/CNAME`.
+
+## Скрипты
+
+```bash
+npm run dev
+npm run build
+npm run lint
+```
+
+## Технологии
+
+- Next.js 16, App Router, static export
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- GitHub Actions + GitHub Pages

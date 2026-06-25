@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Промо стоматологи">
+  <rect width="1600" height="900" fill="#0f1111"/>
+  <rect x="92" y="86" width="1416" height="728" fill="#192021" stroke="#f4f1ea" stroke-opacity=".14"/>
+  <circle cx="1190" cy="338" r="170" fill="#c7ff54"/>
+  <circle cx="1190" cy="338" r="92" fill="#0f1111"/>
+  <rect x="140" y="616" width="520" height="20" fill="#f15b2a"/>
+  <rect x="140" y="664" width="720" height="20" fill="#f4f1ea" opacity=".72"/>
+  <text x="140" y="344" fill="#f4f1ea" font-family="Arial, sans-serif" font-size="86" font-weight="900">PROMO</text>
+  <text x="140" y="430" fill="#a49f96" font-family="Arial, sans-serif" font-size="40">clean expert niche edit</text>
+</svg>

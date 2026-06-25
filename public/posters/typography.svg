@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1600" viewBox="0 0 900 1600" role="img" aria-label="Типографика reels">
+  <rect width="900" height="1600" fill="#090909"/>
+  <rect x="54" y="70" width="792" height="1460" fill="#171717" stroke="#f4f1ea" stroke-opacity=".16"/>
+  <text x="92" y="430" fill="#f4f1ea" font-family="Arial, sans-serif" font-size="142" font-weight="900">TYPE</text>
+  <text x="92" y="580" fill="#f15b2a" font-family="Arial, sans-serif" font-size="142" font-weight="900">BEAT</text>
+  <text x="92" y="730" fill="#c7ff54" font-family="Arial, sans-serif" font-size="142" font-weight="900">REELS</text>
+  <rect x="92" y="1040" width="520" height="22" fill="#f4f1ea" opacity=".72"/>
+  <rect x="92" y="1092" width="360" height="22" fill="#f15b2a"/>
+</svg>

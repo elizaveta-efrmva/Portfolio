@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-  # Ручной запуск (для обновления контента из Notion)
+  # Manual run for content or configuration updates
   workflow_dispatch:
 
 permissions:

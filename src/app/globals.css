@@ -1,9 +1,19 @@
-/* === Стили для адаптивной вёрстки Notion === */
+:root {
+  --bg: #090909;
+  --bg-soft: #121212;
+  --panel: #181818;
+  --panel-strong: #202020;
+  --text: #f4f1ea;
+  --muted: #a49f96;
+  --line: rgba(244, 241, 234, 0.14);
+  --accent: #f15b2a;
+  --accent-2: #c7ff54;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+  --max: 1180px;
+}
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -11,280 +21,566 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  background: #ffffff;
-  color: rgb(55, 53, 47);
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(241, 91, 42, 0.08), transparent 420px),
+    radial-gradient(circle at 80% 10%, rgba(199, 255, 84, 0.08), transparent 320px),
+    var(--bg);
+  color: var(--text);
+  font-family:
+    Manrope, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* === Ограничиваем ширину контента === */
-.notion-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 16px;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Align the hero avatar with the title/content left edge. */
-.notion-page-icon-hero {
-  left: 16px !important;
-  justify-content: flex-start !important;
+button,
+input,
+textarea {
+  font: inherit;
 }
 
-.notion-page-icon-hero.notion-page-icon-image,
-.notion-page-icon-hero.notion-page-icon-span {
-  margin-left: 0 !important;
-}
-
-/* Callouts: remove border and use 16px radius (incl. Hero "Senior Product Designer"). */
-.notion-callout {
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 16px !important;
-}
-
-/* Match Hero callout yellow closer to Notion screenshot. */
-.notion-callout.notion-block-93b86d584aea421ca077f76428e4cb23 {
-  background-color: #ece4c6 !important;
-}
-
-/* Center only selected captions from portfolio screenshots. */
-.notion-text.notion-block-305ca4341bfb80409185fbe5134701ec,
-.notion-text.notion-block-305ca4341bfb8072a772e6dd7ebac92e,
-.notion-text.notion-block-305ca4341bfb802aa95ce98de43842e5,
-.notion-text.notion-block-305ca4341bfb807c981ef1b65e5b647a,
-.notion-text.notion-block-305ca4341bfb80158a26de2d6078c08f,
-.notion-text.notion-block-305ca4341bfb80b7bcdbd3ecf1281989,
-.notion-text.notion-block-305ca4341bfb807cae60e5eae195e5b1 {
-  text-align: center !important;
-}
-
-.notion-text.notion-block-305ca4341bfb80409185fbe5134701ec .notion-gray,
-.notion-text.notion-block-305ca4341bfb8072a772e6dd7ebac92e .notion-gray,
-.notion-text.notion-block-305ca4341bfb802aa95ce98de43842e5 .notion-gray,
-.notion-text.notion-block-305ca4341bfb807c981ef1b65e5b647a .notion-gray,
-.notion-text.notion-block-305ca4341bfb80158a26de2d6078c08f .notion-gray,
-.notion-text.notion-block-305ca4341bfb80b7bcdbd3ecf1281989 .notion-gray,
-.notion-text.notion-block-305ca4341bfb807cae60e5eae195e5b1 .notion-gray {
+img,
+video,
+iframe {
   display: block;
-  text-align: center !important;
+  max-width: 100%;
 }
 
-/* This caption has trailing spaces in Notion content; collapse them to keep true centering. */
-.notion-text.notion-block-305ca4341bfb807c981ef1b65e5b647a .notion-gray {
-  white-space: normal !important;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: minmax(210px, 1fr) auto minmax(120px, 1fr);
+  align-items: center;
+  gap: 20px;
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+  padding: 18px 0;
+  backdrop-filter: blur(20px);
 }
 
-/* Add breathing room after "Коротко"-style gray callouts before the next text block. */
-.notion-callout.notion-gray_background_co + .notion-text {
-  margin-top: 24px !important;
+.brand,
+.site-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Guaranteed spacing under gray "Коротко"-style callouts regardless of next block type. */
-.notion-callout.notion-gray_background_co {
-  margin-bottom: 24px !important;
+.brand-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: var(--text);
+  color: var(--bg);
+  font-size: 13px;
+  font-weight: 900;
 }
 
-/* Hide legacy page links left at the bottom of portfolio v2. */
-.notion-blank.notion-block-338ca4341bfb816a98f1e0104868a5e9,
-.notion-blank.notion-block-338ca4341bfb81149dc3ed79aa9a0f31,
-.notion-blank.notion-block-338ca4341bfb8154aa8ff8f1925f70cf,
-.notion-page-link.notion-block-338ca4341bfb81a3a35bf592629399af,
-.notion-page-link.notion-block-338ca4341bfb8188b189d6696f30703b {
-  display: none !important;
+.brand strong,
+.brand small {
+  display: block;
 }
 
-/* Hide the same legacy links at the bottom of the main portfolio page. */
-.notion-blank.notion-block-304ca4341bfb8070bb76ee60c9ba0895,
-.notion-blank.notion-block-304ca4341bfb80f1a8f8d55da0165d90,
-.notion-blank.notion-block-304ca4341bfb800b852dc35575651e3d,
-.notion-page-link.notion-block-337ca4341bfb815d92afebbfb9b79c26,
-.notion-page-link.notion-block-337ca4341bfb81669a11e5508c2c0fad {
-  display: none !important;
+.brand small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
 }
 
-/* === Смещение для якорей (чтобы заголовок не прятался) === */
-[id] {
-  scroll-margin-top: 20px;
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  background: rgba(18, 18, 18, 0.76);
 }
 
-/* === Мобильная адаптация (до 768px) === */
-@media (max-width: 768px) {
-  /* Колонки — выстраиваем в одну колонку */
-  .notion-row {
-    flex-direction: column !important;
-    row-gap: 24px !important;
+.site-nav a,
+.header-cta,
+.filter {
+  min-height: 38px;
+  padding: 10px 14px;
+  border: 0;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+.site-nav a:hover,
+.header-cta:hover,
+.filter:hover,
+.filter-active {
+  color: var(--text);
+  background: rgba(244, 241, 234, 0.08);
+}
+
+.header-cta {
+  justify-self: end;
+  border: 1px solid var(--line);
+}
+
+.section {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+  padding: 92px 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  gap: 42px;
+  min-height: calc(100vh - 84px);
+  align-items: center;
+  padding-top: 54px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--accent-2);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 780px;
+  margin-bottom: 22px;
+  font-size: clamp(52px, 9vw, 112px);
+  line-height: 0.92;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: clamp(34px, 5vw, 68px);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 1.14;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero-subline {
+  max-width: 620px;
+  font-size: 19px;
+}
+
+.hero-actions,
+.contact-actions,
+.filters,
+.tag-row,
+.tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  font-weight: 800;
+}
+
+.button-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #160b07;
+}
+
+.button-secondary {
+  background: rgba(244, 241, 234, 0.04);
+}
+
+.hero-media {
+  position: relative;
+}
+
+.stats-strip {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.stats-strip div {
+  min-height: 92px;
+  padding: 20px 22px;
+  border-right: 1px solid var(--line);
+}
+
+.stats-strip div:last-child {
+  border-right: 0;
+}
+
+.stats-strip strong,
+.stats-strip span {
+  display: block;
+}
+
+.stats-strip strong {
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 25px;
+}
+
+.stats-strip span {
+  color: var(--muted);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.filters {
+  margin-bottom: 28px;
+}
+
+.filter {
+  border: 1px solid var(--line);
+  background: rgba(244, 241, 234, 0.03);
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+
+.video-card {
+  grid-column: span 6;
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.video-card-vertical {
+  grid-column: span 4;
+}
+
+.video-card-button {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: #050505;
+  cursor: pointer;
+}
+
+.video-card-horizontal .video-card-button {
+  aspect-ratio: 16 / 9;
+}
+
+.video-card-vertical .video-card-button {
+  aspect-ratio: 9 / 16;
+}
+
+.video-card-button img,
+.video-placeholder img,
+.video-link img,
+.about-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-card-button img {
+  opacity: 0.84;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.video-card:hover img {
+  opacity: 1;
+  transform: scale(1.035);
+}
+
+.play-button {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 58px;
+  height: 58px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(244, 241, 234, 0.5);
+  background: rgba(9, 9, 9, 0.68);
+  backdrop-filter: blur(12px);
+}
+
+.play-button::after {
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  width: 0;
+  height: 0;
+  transform: translate(-38%, -50%);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid var(--text);
+  content: "";
+}
+
+.video-card-body {
+  padding: 20px;
+}
+
+.video-card-body > span,
+.modal-header span {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--accent-2);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tag-row small,
+.tool-list span {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: rgba(244, 241, 234, 0.035);
+}
+
+.video-player {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #050505;
+  box-shadow: var(--shadow);
+}
+
+.video-player-horizontal {
+  aspect-ratio: 16 / 9;
+}
+
+.video-player-vertical {
+  max-height: min(76vh, 780px);
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+}
+
+.video-placeholder,
+.video-link {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.video-placeholder img,
+.video-link img {
+  position: absolute;
+  inset: 0;
+  opacity: 0.72;
+}
+
+.video-placeholder strong,
+.video-placeholder small,
+.video-link strong {
+  position: relative;
+  z-index: 2;
+}
+
+.video-placeholder strong,
+.video-link strong {
+  align-self: end;
+  padding: 0 22px 42px;
+  font-size: 24px;
+}
+
+.video-placeholder small {
+  align-self: start;
+  padding: 44px 22px 0;
+  color: var(--muted);
+}
+
+.about-section {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1fr);
+  gap: 42px;
+  align-items: center;
+}
+
+.about-media {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.service-item {
+  min-height: 220px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.contact-section {
+  padding: 72px;
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+}
+
+.contact-section p {
+  max-width: 620px;
+}
+
+.site-footer {
+  justify-content: space-between;
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 46px;
+  color: var(--muted);
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.modal-scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0, 0, 0, 0.78);
+  cursor: pointer;
+}
+
+.modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: #0c0c0c;
+  box-shadow: var(--shadow);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.modal-close {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.modal-panel p {
+  margin: 16px 0 0;
+}
+
+@media (max-width: 920px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
   }
 
-  .notion-column {
-    width: 100% !important;
-    padding: 0 !important;
+  .site-nav {
+    display: none;
   }
 
-  /* Убираем служебные спейсеры Notion при схлопывании колонок. */
-  .notion-row > .notion-spacer {
-    display: none !important;
+  .hero,
+  .about-section {
+    grid-template-columns: 1fr;
   }
 
-  /* Доп. воздух между подряд идущими скриншотами. */
-  .notion-asset-wrapper + .notion-asset-wrapper {
-    margin-top: 24px !important;
+  .hero {
+    min-height: auto;
   }
 
-  /* Split merged caption into two per-image captions for mobile only. */
-  .notion-text.notion-block-305ca4341bfb802aa95ce98de43842e5 {
-    display: none !important;
+  .works-grid,
+  .services-grid,
+  .stats-strip {
+    grid-template-columns: 1fr;
   }
 
-  .notion-asset-wrapper.notion-block-305ca4341bfb8086ba90f62d9c33277c::after {
-    content: "Главный экран подписок";
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-    color: var(--notion-gray);
-    font-size: 16px;
-    line-height: 1.4;
+  .video-card,
+  .video-card-vertical {
+    grid-column: span 1;
   }
 
-  .notion-asset-wrapper.notion-block-305ca4341bfb80a4b6e4e2012917cf88::after {
-    content: "Управление подпиской";
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-    color: var(--notion-gray);
-    font-size: 16px;
-    line-height: 1.4;
+  .stats-strip div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
-  /* Make this specific screenshot as wide as neighboring mobile screenshots. */
-  .notion-asset-wrapper.notion-block-305ca4341bfb8092af8fe786f7157c53 {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+  .stats-strip div:last-child {
+    border-bottom: 0;
   }
 
-  .notion-asset-wrapper.notion-block-305ca4341bfb8092af8fe786f7157c53 > div {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* Keep paired pet-club screenshots full width after column collapse. */
-  .notion-row.notion-block-305ca4341bfb8052bed6cecc16294811 .notion-asset-wrapper,
-  .notion-row.notion-block-305ca4341bfb80a98b36ecea2a6d6876 .notion-asset-wrapper {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .notion-row.notion-block-305ca4341bfb8052bed6cecc16294811 .notion-asset-wrapper > div,
-  .notion-row.notion-block-305ca4341bfb80a98b36ecea2a6d6876 .notion-asset-wrapper > div {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* Case-specific spacing in "Вариант B" section. */
-  .notion-row.notion-block-305ca4341bfb80b3a6d5f97f8813ac3e {
-    margin-bottom: 24px !important;
-  }
-
-  .notion-text.notion-block-305ca4341bfb80479a30ebc67cfc83e5 {
-    margin-bottom: 16px !important;
-  }
-
-  .notion-text.notion-block-305ca4341bfb808eb21ff6eb7c1527b4 + .notion-row.notion-block-305ca4341bfb802fba76c0f124cd55b0 {
-    margin-top: 16px !important;
-  }
-
-  /* Remove extra technical blank blocks in pet flow section on mobile. */
-  .notion-blank.notion-block-305ca4341bfb808e8610d4773565487f,
-  .notion-blank.notion-block-305ca4341bfb805aae2ac514ddecb6e2,
-  .notion-blank.notion-block-305ca4341bfb80cebd84ee79ae73986f {
-    display: none !important;
-  }
-
-  /* Exact spacing requested in pet-flow section. */
-  .notion-row.notion-block-305ca4341bfb8052bed6cecc16294811 {
-    margin-bottom: 0 !important;
-  }
-
-  .notion-text.notion-block-305ca4341bfb801f9086c2a55312f18f {
-    margin-top: 24px !important;
-  }
-
-  .notion-text.notion-block-305ca4341bfb801f9086c2a55312f18f + .notion-row.notion-block-305ca4341bfb80a98b36ecea2a6d6876 {
-    margin-top: 16px !important;
-  }
-
-  /* Изображения — полная ширина */
-  .notion-asset-wrapper {
-    max-width: 100% !important;
-  }
-
-  /* Normalize asset inner container widths (Notion may inject fixed widths like 336px). */
-  .notion-asset-wrapper > div {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .notion-asset-wrapper img {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Заголовки — уменьшаем размер */
-  .notion-h1 {
-    font-size: 1.6em !important;
-  }
-
-  .notion-h2 {
-    font-size: 1.3em !important;
-  }
-
-  .notion-h3 {
-    font-size: 1.1em !important;
-  }
-
-  /* Текст — удобный размер для чтения */
-  .notion-text {
-    font-size: 16px !important;
-    line-height: 1.6 !important;
-  }
-
-  /* Таблицы — горизонтальный скролл */
-  .notion-table {
-    overflow-x: auto !important;
-    display: block !important;
-  }
-
-  /* Callout-блоки — компактнее */
-  .notion-callout {
-    padding: 12px !important;
-  }
-
-  /* Обложка страницы */
-  .notion-page-cover-wrapper {
-    height: 200px !important;
-  }
-
-  /* Отступы для встроенных элементов */
-  .notion-bookmark,
-  .notion-embed {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+  .contact-section {
+    padding: 42px 24px;
   }
 }
 
-/* === Маленькие экраны (до 480px) === */
-@media (max-width: 480px) {
-  .notion-page {
-    padding: 0 12px;
+@media (max-width: 620px) {
+  .section {
+    padding: 64px 0;
   }
 
-  .notion-h1 {
-    font-size: 1.4em !important;
+  .brand small,
+  .header-cta {
+    display: none;
   }
 
-  .notion-page-cover-wrapper {
-    height: 150px !important;
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 36px;
   }
 }

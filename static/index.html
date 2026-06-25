@@ -1157,6 +1157,8 @@
 
         .dialog-title {
           align-self: center;
+          justify-self: start;
+          text-align: left;
           white-space: normal;
         }
       }
@@ -1240,10 +1242,15 @@
           width: min(100% - 28px, var(--max));
         }
 
+        .header-inner {
+          grid-template-columns: 1fr;
+        }
+
         .header-button {
           min-height: 38px;
           padding-inline: 16px;
           font-size: 12px;
+          width: 100%;
         }
 
         .section {
@@ -1284,6 +1291,7 @@
           display: grid;
           overflow-x: auto;
           grid-template-columns: repeat(4, minmax(280px, 78vw));
+          padding-bottom: 0;
         }
 
         .service-item {
@@ -1291,9 +1299,43 @@
           gap: 16px;
         }
 
-        .site-footer {
+        #cases .section-head {
           grid-template-columns: 1fr;
-          gap: 10px;
+          text-align: left;
+          gap: 8px;
+        }
+
+        #cases .section-head h2 {
+          justify-self: start;
+        }
+
+        #cases .section-head p {
+          justify-self: start;
+          text-align: left;
+        }
+
+        #trigger {
+          padding-top: 32px;
+        }
+
+        #trigger .section-head {
+          margin-bottom: 22px;
+        }
+
+        .carousel-controls {
+          display: none;
+        }
+
+        .site-footer {
+          grid-template-columns: 1fr auto;
+          gap: 6px 10px;
+        }
+
+        .site-footer span:last-child {
+          grid-column: 1 / -1;
+          justify-self: start;
+          text-align: left;
+          white-space: normal;
         }
       }
     </style>

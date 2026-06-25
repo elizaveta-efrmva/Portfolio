@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1600" viewBox="0 0 900 1600" role="img" aria-label="Talking head">
+  <rect width="900" height="1600" fill="#101010"/>
+  <rect x="58" y="78" width="784" height="1444" fill="#191919" stroke="#f4f1ea" stroke-opacity=".16"/>
+  <circle cx="450" cy="420" r="154" fill="#f15b2a"/>
+  <rect x="250" y="590" width="400" height="340" fill="#252525"/>
+  <rect x="104" y="1060" width="510" height="22" fill="#c7ff54"/>
+  <rect x="104" y="1112" width="650" height="22" fill="#f4f1ea" opacity=".72"/>
+  <text x="104" y="1260" fill="#f4f1ea" font-family="Arial, sans-serif" font-size="86" font-weight="900">TALKING</text>
+  <text x="104" y="1360" fill="#f4f1ea" font-family="Arial, sans-serif" font-size="86" font-weight="900">HEAD</text>
+</svg>

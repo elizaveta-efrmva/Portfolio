@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1250" viewBox="0 0 1000 1250" role="img" aria-label="Портрет-заглушка">
+  <rect width="1000" height="1250" fill="#111"/>
+  <rect x="70" y="70" width="860" height="1110" fill="#1b1b1b" stroke="#f4f1ea" stroke-opacity=".16"/>
+  <circle cx="500" cy="410" r="168" fill="#f15b2a"/>
+  <rect x="245" y="650" width="510" height="290" fill="#272727"/>
+  <rect x="160" y="1030" width="380" height="20" fill="#c7ff54"/>
+  <rect x="160" y="1080" width="610" height="20" fill="#f4f1ea" opacity=".72"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Обучающее видео">
+  <rect width="1600" height="900" fill="#101010"/>
+  <rect x="88" y="96" width="1424" height="708" fill="#1a1a1a" stroke="#f4f1ea" stroke-opacity=".14"/>
+  <rect x="132" y="144" width="880" height="460" fill="#252525"/>
+  <rect x="1060" y="144" width="320" height="320" fill="#f15b2a"/>
+  <rect x="1130" y="214" width="180" height="180" fill="#090909"/>
+  <rect x="132" y="660" width="420" height="20" fill="#c7ff54"/>
+  <rect x="132" y="706" width="690" height="20" fill="#f4f1ea" opacity=".72"/>
+  <text x="132" y="380" fill="#f4f1ea" font-family="Arial, sans-serif" font-size="78" font-weight="900">EDU + AI</text>
+</svg>

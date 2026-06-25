@@ -1,171 +1,92 @@
-# Инструкция по деплою на GitHub Pages
+# Деплой на GitHub Pages
 
-## 1. Создание GitHub репозитория
+## 1. Репозиторий
 
-### Вариант A: Репозиторий с кастомным именем (например, `portfolio`)
-
-1. Зайди на [GitHub](https://github.com) и создай новый публичный репозиторий
-2. Назови его `portfolio` (или любое другое имя)
-3. **НЕ** инициализируй README, .gitignore или лицензию (они уже есть локально)
-4. **ВАЖНО:** Открой `next.config.ts` и раскомментируй строку:
-   ```typescript
-   basePath: "/portfolio",  // замени "portfolio" на имя твоего репозитория
-   ```
-5. Пересобери проект: `npm run build`
-
-### Вариант B: Репозиторий с именем `username.github.io`
-
-1. Создай репозиторий с именем **точно** `username.github.io` (замени `username` на свой GitHub username)
-2. В этом случае `basePath` в `next.config.ts` **НЕ НУЖЕН** (можно оставить закомментированным)
-3. Сайт будет доступен напрямую по `username.github.io`
-
-## 2. Инициализация Git и первый коммит
-
-Выполни команды:
+Создайте публичный репозиторий на GitHub и отправьте туда код. Для тестового этапа можно использовать репозиторий `iliabloshenko-cpu/video-portfolio`.
 
 ```bash
-# Убедись, что git уже инициализирован (create-next-app делает это автоматически)
-git status
-
-# Если не инициализирован:
-# git init
-
-# Добавь все файлы
-git add .
-
-# Создай первый коммит
-git commit -m "Initial commit: Notion portfolio site"
-
-# Подключи удалённый репозиторий (замени username и portfolio на свои)
-git remote add origin https://github.com/username/portfolio.git
-
-# Переименуй ветку в main (если она называется master)
+git remote add origin https://github.com/iliabloshenko-cpu/video-portfolio.git
 git branch -M main
-
-# Отправь код в GitHub
 git push -u origin main
 ```
 
-## 3. Настройка GitHub Pages
+Если remote уже есть, используйте `git remote set-url origin <url>`.
 
-1. Зайди в свой репозиторий на GitHub
-2. Перейди в **Settings** (⚙️ справа вверху)
-3. В левом меню выбери **Pages**
-4. В разделе **Source** выбери **GitHub Actions** (НЕ Deploy from a branch!)
-5. Нажми **Save**
+## 2. Pages
 
-## 4. Автоматический деплой
+В репозитории откройте:
 
-GitHub Actions автоматически запустится при push в `main`:
-
-1. Перейди в **Actions** (вкладка вверху)
-2. Дождись завершения workflow "Deploy to GitHub Pages" (обычно 2-3 минуты)
-3. Зелёная галочка ✅ означает успешный деплой
-4. Сайт будет доступен по адресу:
-   - Если репозиторий `portfolio`: `https://username.github.io/portfolio/`
-   - Если репозиторий `username.github.io`: `https://username.github.io/`
-5. Второй вариант портфолио будет доступен по адресу:
-   - `https://username.github.io/portfolio/portfolio-v2/`
-   - или `https://username.github.io/portfolio-v2/` для репозитория `username.github.io`
-
-### Лендинг как отдельная страница
-
-- Папка `landing/` автоматически копируется в `public/landing/` при `npm run dev` и `npm run build`
-- После деплоя лендинг будет доступен по адресу:
-  - `https://username.github.io/portfolio/landing/`
-  - или `https://username.github.io/landing/` для репозитория `username.github.io`
-
-### Второй вариант портфолио как отдельная страница
-
-- Новый маршрут рендерится из второй опубликованной Notion-страницы
-- После деплоя он будет доступен по адресу:
-  - `https://username.github.io/portfolio/portfolio-v2/`
-  - или `https://username.github.io/portfolio-v2/` для репозитория `username.github.io`
-
-## 5. Обновление контента из Notion
-
-### Автоматическое обновление при изменении кода:
-
-```bash
-git add .
-git commit -m "Update content"
-git push
+```text
+Settings -> Pages -> Source -> GitHub Actions
 ```
 
-### Ручное обновление без изменения кода:
+После следующего push в `main` запустится workflow `Deploy to GitHub Pages`.
 
-1. Зайди в **Actions** на GitHub
-2. Выбери workflow "Deploy to GitHub Pages"
-3. Нажми **Run workflow** → **Run workflow**
-4. Дождись завершения (сайт пересоберётся с актуальными данными из Notion)
+## 3. BASE_PATH
 
-## 6. Проверка работы сайта
+Проект использует `BASE_PATH` из переменных GitHub Actions.
 
-После деплоя:
+Repo-pages:
 
-1. Открой URL сайта в браузере
-2. Проверь:
-   - ✅ Все изображения загружаются (из локальной папки `notion-images`)
-   - ✅ Внутренние ссылки (оглавление) работают
-   - ✅ Внешние ссылки на Behance открываются
-   - ✅ Мобильная вёрстка корректна (открой в DevTools → Toggle device toolbar)
+```text
+https://username.github.io/video-portfolio/
+BASE_PATH=/video-portfolio
+```
 
-## Troubleshooting
+User-pages:
 
-### Проблема: 404 при открытии сайта
+```text
+https://username.github.io/
+BASE_PATH пустой
+```
 
-**Решение:**
-1. Проверь, что в Settings → Pages выбран **GitHub Actions**
-2. Убедись, что workflow завершился успешно (зелёная галочка)
-3. Проверь правильность `basePath` в `next.config.ts`
+Где задать:
 
-### Проблема: Изображения не загружаются
+```text
+Settings -> Secrets and variables -> Actions -> Variables -> New repository variable
+```
 
-**Решение:**
-1. Проверь, что Notion-страница опубликована (Share → Publish to web)
-2. Перезапусти сборку (`npm run build`) и проверь, что в `public/notion-images/` появились файлы
-3. Если файлов нет, проверь логи билда на предупреждения `[notion] Failed to download image`
+Имя переменной: `BASE_PATH`.
 
-### Проблема: Контент не обновляется после изменений в Notion
+## 4. Как работает workflow
 
-**Решение:**
-1. Зайди в Actions → Run workflow (принудительный пересборка)
-2. Или сделай любой коммит (например, в README.md) и push
+Файл `.github/workflows/deploy.yml`:
 
-## Кастомный домен (опционально)
+1. устанавливает Node.js 20;
+2. выполняет `npm ci`;
+3. запускает `npm run build`;
+4. загружает папку `out/`;
+5. публикует ее через `actions/deploy-pages`.
 
-Если хочешь использовать свой домен (например, `myportfolio.com`):
-
-1. Купи домен (Reg.ru, Timeweb, Namecheap)
-2. Зайди в Settings → Pages → Custom domain
-3. Введи домен и нажми Save
-4. В настройках DNS домена добавь CNAME запись:
-   ```
-   CNAME  @  username.github.io.
-   ```
-5. Дождись обновления DNS (до 24 часов, обычно 1-2 часа)
-6. GitHub автоматически выпустит SSL-сертификат (HTTPS)
-
-## Отладка локально
-
-Перед пушем в GitHub всегда можно проверить сайт локально:
+## 5. Проверка перед push
 
 ```bash
-# Development (с hot-reload)
-npm run dev
-# Открыть http://localhost:3000
-
-# Production build (как на GitHub Pages)
+npm run lint
 npm run build
-# Статические файлы будут в папке out/
-
-# Просмотр статики локально
-npx serve out
-# Открыть http://localhost:3000
 ```
 
----
+После сборки можно посмотреть статическую версию локально:
 
-## Готово! 🎉
+```bash
+npx serve out
+```
 
-Теперь твоё портфолио доступно в интернете, работает из России без VPN, и обновляется одной кнопкой при изменении Notion-страницы.
+## 6. Перенос на аккаунт подруги
+
+1. Подруга создает пустой репозиторий.
+2. Вы меняете remote:
+
+```bash
+git remote set-url origin https://github.com/<username>/<repo>.git
+```
+
+3. Пушите `main`.
+4. Включаете Pages через GitHub Actions.
+5. Выставляете `BASE_PATH=/<repo>`, если это repo-pages.
+6. Оставляете `BASE_PATH` пустым, если репозиторий называется `<username>.github.io`.
+
+Дополнительных правок в коде для переноса не требуется.
+
+## 7. Кастомный домен
+
+Если нужен свой домен, добавьте файл `public/CNAME` с доменом внутри и настройте DNS по инструкции GitHub Pages.

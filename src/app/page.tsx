@@ -1,18 +1,23 @@
-import { getPage } from '@/lib/notion';
-import NotionPage from '@/components/NotionPage';
-import { siteConfig } from '../../site.config';
+import { About } from "../components/About";
+import { Contact } from "../components/Contact";
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
+import { Hero } from "../components/Hero";
+import { Services } from "../components/Services";
+import { VideoGallery } from "../components/VideoGallery";
 
-export default async function Home() {
-  const recordMap = await getPage(siteConfig.rootNotionPageId);
-
+export default function Home() {
   return (
-    <main>
-      <NotionPage recordMap={recordMap} />
-    </main>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <VideoGallery />
+        <About />
+        <Services />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
-
-export const metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
-};

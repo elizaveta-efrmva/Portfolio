@@ -1,21 +1,17 @@
 import type { NextConfig } from "next";
 
-const basePath = process.env.BASE_PATH?.trim();
+const basePath = process.env.BASE_PATH || "";
 
 const nextConfig: NextConfig = {
-  output: "export",           // Статическая генерация для GitHub Pages
+  output: "export",
+  basePath,
+  assetPrefix: basePath,
   images: {
-    unoptimized: true,        // GitHub Pages не поддерживает оптимизацию изображений
+    unoptimized: true,
   },
   env: {
-    NEXT_PUBLIC_BASE_PATH: basePath || "",
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
-  ...(basePath
-    ? {
-        basePath,
-        assetPrefix: basePath,
-      }
-    : {}),
 };
 
 export default nextConfig;

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Showreel poster">
+  <rect width="1600" height="900" fill="#0b0b0b"/>
+  <rect x="64" y="64" width="1472" height="772" fill="#171717" stroke="#f4f1ea" stroke-opacity=".16"/>
+  <circle cx="1240" cy="210" r="128" fill="#f15b2a"/>
+  <rect x="132" y="580" width="520" height="22" fill="#c7ff54"/>
+  <rect x="132" y="628" width="780" height="22" fill="#f4f1ea" opacity=".78"/>
+  <text x="132" y="260" fill="#f4f1ea" font-family="Arial, sans-serif" font-size="104" font-weight="900">SHOWREEL</text>
+  <text x="132" y="350" fill="#a49f96" font-family="Arial, sans-serif" font-size="42">video editing portfolio</text>
+</svg>
