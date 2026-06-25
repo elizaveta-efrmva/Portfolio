@@ -6,7 +6,7 @@
     <title>Лиза Ефремова — видеомонтаж и контент-менеджмент</title>
     <meta
       name="description"
-      content="Видеомонтаж и контент-менеджмент для блогеров, экспертов и брендов: ролик готов за 48 часов, публикации по расписанию."
+      content="Видеомонтаж и ведение контента под ключ для блогеров, экспертов и брендов: монтаж, оформление и публикация по расписанию."
     />
     <style>
       :root {
@@ -277,39 +277,6 @@
         flex-wrap: wrap;
         align-items: center;
         gap: 14px;
-      }
-
-      .hero-stats {
-        display: grid;
-        grid-column: 1 / -1;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        margin-top: 36px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        background: rgba(246, 244, 238, 0.015);
-      }
-
-      .hero-stat {
-        min-height: 78px;
-        padding: 18px 22px;
-      }
-
-      .hero-stat + .hero-stat {
-        border-left: 1px solid var(--line);
-      }
-
-      .hero-stat strong {
-        display: block;
-        color: var(--text);
-        font-size: 22px;
-        line-height: 1;
-      }
-
-      .hero-stat span {
-        display: block;
-        margin-top: 9px;
-        color: var(--muted);
-        font-size: 13px;
       }
 
       .video-shell {
@@ -869,6 +836,17 @@
         font-size: 13px;
       }
 
+      .verify {
+        color: var(--accent);
+        font-size: 0.78em;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .state-panel + .cta-panel {
+        margin-top: 18px;
+      }
+
       .site-footer {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -968,15 +946,6 @@
           grid-template-columns: 1fr;
           min-height: auto;
           gap: 38px;
-        }
-
-        .hero-stats {
-          grid-template-columns: 1fr;
-        }
-
-        .hero-stat + .hero-stat {
-          border-top: 1px solid var(--line);
-          border-left: 0;
         }
 
         .section-head {
@@ -1083,7 +1052,7 @@
           <a href="#cases">Работы</a>
           <a href="#services">Услуги</a>
           <a href="#process">Процесс</a>
-          <a href="#faq">FAQ</a>
+          <a href="#concerns">Что если</a>
         </nav>
         <a class="button button-primary header-button" href="https://t.me/ziggy_stardust">Написать в Telegram</a>
       </div>
@@ -1092,11 +1061,15 @@
     <main id="top">
       <section class="hero wrap">
         <div class="hero-copy fade-in">
-          <h1>Монтаж и ведение блога, от которых растут просмотры и подписчики</h1>
-          <p class="lead">Удержание и охваты растут пока вы снимаете новое видео</p>
+          <h1>Контент выходит стабильно и быстро — а монтаж больше не на тебе</h1>
+          <p class="lead">
+            Присылаешь исходник — Лиза монтирует, оформляет, публикует. Первый готовый ролик — через 48 часов
+            <span class="verify">[VERIFY]</span>. Твой блог растёт как цель, пока ты снимаешь новое, а не сидишь в CapCut.
+          </p>
           <div class="actions">
             <a class="button button-primary" href="https://t.me/ziggy_stardust">Написать в Telegram</a>
           </div>
+          <div class="microcopy">Разберём твою задачу бесплатно, без долгого ТЗ.</div>
         </div>
 
         <div class="video-shell showreel ratio-9x16 fade-in">
@@ -1114,47 +1087,11 @@
           </div>
           <a class="showreel-link" href="#cases">Смотреть все работы</a>
         </div>
-
-        <div class="hero-stats fade-in" aria-label="Ключевые параметры работы">
-          <div class="hero-stat">
-            <strong>48 часов</strong>
-            <span>до первого готового ролика</span>
-          </div>
-          <div class="hero-stat">
-            <strong>15 минут</strong>
-            <span>на стартовый бриф в Telegram</span>
-          </div>
-          <div class="hero-stat">
-            <strong>12–16</strong>
-            <span>видео в месяц при регулярной работе</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section wrap author-section fade-in" id="author">
-        <h2 class="author-title">Лиза Ефремова, видеомонтажер<br />и контентменеджер</h2>
-        <div class="author-media">
-          <figure class="author-photo">
-            <img src="author-liza.png" alt="Портрет Лизы Ефремовой" loading="lazy" />
-          </figure>
-        </div>
-        <div class="author-copy">
-          <p>
-            Лиза Ефремова — видеомонтаж и контент-менеджмент для блогеров, экспертов и брендов: ролик готов за
-            48 часов, публикуется по расписанию, ты в процесс не встроен.
-          </p>
-          <p>Собирает ролики в понятный ритм: монтаж, субтитры, обложки, публикации и единый визуальный стиль для регулярного контента.</p>
-          <ul class="author-list">
-            <li><span>01</span>Reels, TikTok, Shorts и YouTube-выпуски под задачу бренда.</li>
-            <li><span>02</span>Быстрый старт без длинных ТЗ: бриф, исходники, готовый ролик.</li>
-            <li><span>03</span>Контент выходит стабильно, а не остаётся в черновиках.</li>
-          </ul>
-        </div>
       </section>
 
       <section class="section wrap fade-in" id="trigger">
         <div class="section-head">
-          <h2>Это твоя ситуация?</h2>
+          <h2>Это про тебя?</h2>
         </div>
         <div class="grid grid-2">
           <article class="card trigger-card">
@@ -1167,52 +1104,20 @@
           </article>
           <article class="card trigger-card">
             <span class="card-number">03</span>
-            <p>Три ролика за январь, потом тишина на месяц. Алгоритм просел. Снова начинать с нуля.</p>
+            <p>Три ролика за месяц, потом тишина. Алгоритм просел. Снова разгонять с нуля.</p>
           </article>
           <article class="card trigger-card">
             <span class="card-number">04</span>
-            <p>Идея для YouTube-канала есть уже год. Производство тормозит запуск — так и не случилось.</p>
+            <p>Ведёшь блог, чтобы приходили клиенты, — но на сам контент времени не остаётся.</p>
           </article>
         </div>
         <p class="italic-note">Если хотя бы один пункт — про тебя, дальше будет полезно.</p>
       </section>
 
-      <section class="section wrap fade-in" id="value">
-        <div class="section-head">
-          <h2>Что меняется, когда работаешь с Лизой</h2>
-        </div>
-        <div class="grid grid-2">
-          <article class="card value-card">
-            <strong>Контент выходит по расписанию — без пропусков</strong>
-            <p>
-              Ты присылаешь исходники — Лиза монтирует, добавляет субтитры, делает обложки, публикует.
-              Ни одного пропущенного поста без причины.
-            </p>
-          </article>
-          <article class="card value-card">
-            <strong>Первый готовый ролик — через 48 часов</strong>
-            <p>
-              С момента брифа до видео, готового к публикации — двое суток. Не «жди неделю» и не «ещё пара дней».
-            </p>
-          </article>
-          <article class="card value-card">
-            <strong>Ноль часов монтажа с твоей стороны</strong>
-            <p>
-              Твоя работа — снять и прислать. Бриф занимает 15 минут. Дальше — Лиза. Твоё время — на контент,
-              не на производство.
-            </p>
-          </article>
-          <article class="card value-card">
-            <strong>Единый стиль на всех платформах</strong>
-            <p>Reels, YouTube, TikTok, Stories — один визуальный голос. Аудитория узнаёт тебя с первого кадра.</p>
-          </article>
-        </div>
-      </section>
-
       <section class="section wrap fade-in" id="cases">
         <div class="section-head">
           <h2>Работы</h2>
-          <p>Четыре вертикальных ролика в формате Reels. Нажмите на любой, чтобы открыть просмотр.</p>
+          <p>Вертикальные ролики в формате Reels. Нажми на любой, чтобы посмотреть.</p>
         </div>
 
         <div class="cases" aria-label="Карусель видеоработ">
@@ -1230,7 +1135,7 @@
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
               </div>
-              <span class="case-description">Обучающий ролик с AI-иллюстрациями и визуальными вставками</span>
+              <span class="case-description">Обучающий ролик с AI-иллюстрациями и визуальными вставками — под задачу эксперта.</span>
             </button>
           </article>
 
@@ -1248,7 +1153,7 @@
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
               </div>
-              <span class="case-description">Промо для стоматологов с чистой подачей и акцентом на услугу</span>
+              <span class="case-description">Промо для стоматологической клиники: чистая подача, акцент на услуге.</span>
             </button>
           </article>
 
@@ -1266,7 +1171,7 @@
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
               </div>
-              <span class="case-description">Reels с крупной типографикой, субтитрами и четким ритмом</span>
+              <span class="case-description">Reels с крупной типографикой, субтитрами и чётким ритмом.</span>
             </button>
           </article>
 
@@ -1284,125 +1189,150 @@
                 </video>
                 <span class="case-play" aria-hidden="true"></span>
               </div>
-              <span class="case-description">Talking head с AI-вставками и смысловыми акцентами</span>
+              <span class="case-description">Talking head с AI-вставками и смысловыми акцентами. <span class="verify">[VERIFY: для кого / задача]</span></span>
             </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap author-section fade-in" id="author">
+        <h2 class="author-title">Лиза Ефремова — видеомонтаж и контент-менеджмент</h2>
+        <div class="author-media">
+          <figure class="author-photo">
+            <img src="author-liza.png" alt="Портрет Лизы Ефремовой" loading="lazy" />
+          </figure>
+        </div>
+        <div class="author-copy">
+          <p>
+            Монтаж и ведение контента для блогеров, экспертов и брендов. Собираю ролики в понятный ритм: монтаж,
+            субтитры, обложки, публикация и единый визуальный стиль.
+          </p>
+          <p>Ты в продакшен не встроен — присылаешь исходник, дальше я. На связи в Telegram на каждом шаге, отвечаю в течение дня <span class="verify">[VERIFY]</span>.</p>
+          <ul class="author-list">
+            <li><span>01</span>Reels, TikTok, Shorts и YouTube-выпуски под задачу.</li>
+            <li><span>02</span>Субтитры, обложки, оформление и публикация.</li>
+            <li><span>03</span>Один человек отвечает за монтаж, стиль и выпуск.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section wrap fade-in" id="value">
+        <div class="section-head">
+          <h2>Что меняется</h2>
+        </div>
+        <div class="grid grid-2">
+          <article class="card value-card">
+            <strong>Первый ролик — через 48 часов <span class="verify">[VERIFY]</span></strong>
+            <p>С момента брифа до видео, готового к публикации, — двое суток. Не «жди неделю» и не «ещё пара дней».</p>
+          </article>
+          <article class="card value-card">
+            <strong>Ноль часов монтажа с твоей стороны</strong>
+            <p>Твоя работа — снять и прислать. Бриф занимает 15 минут <span class="verify">[VERIFY]</span>. Дальше — Лиза.</p>
+          </article>
+          <article class="card value-card">
+            <strong>Контент выходит по расписанию, без пропусков</strong>
+            <p>Монтаж, субтитры, обложки, публикация. Ни одного пропущенного поста без причины.</p>
+          </article>
+          <article class="card value-card">
+            <strong>Единый стиль на всех платформах</strong>
+            <p>Reels, YouTube, TikTok, Stories — один визуальный голос. Аудитория узнаёт тебя с первого кадра.</p>
           </article>
         </div>
       </section>
 
       <section class="section wrap fade-in" id="services">
         <div class="section-head">
-          <span class="eyebrow">Форматы</span>
-          <h2>Что именно делает Лиза</h2>
+          <h2>Что входит</h2>
         </div>
-        <div class="grid grid-3">
+        <div class="grid grid-2">
           <article class="card service-card">
             <span class="card-number">01</span>
-            <h3>Монтаж Reels / TikTok / Shorts</h3>
-            <p>Вертикальный формат до 90 секунд: динамичный монтаж, субтитры, музыка, переходы, обложка. Готово к публикации.</p>
-            <em>Для кого: блогеры и эксперты, которым нужен стабильный поток коротких видео</em>
+            <h3>Reels, TikTok, Shorts и YouTube</h3>
+            <p>Выпуски под задачу: короткие ролики, экспертные фрагменты, talking head и промо.</p>
           </article>
           <article class="card service-card">
             <span class="card-number">02</span>
-            <h3>Монтаж YouTube</h3>
-            <p>Полный монтаж: нарезка, цветокоррекция, графика, субтитры, обложка. Формат 5–30 минут.</p>
-            <em>Для кого: эксперты и блогеры, строящие канал</em>
+            <h3>Субтитры, обложки, оформление</h3>
+            <p>Ролик выглядит собранно: читаемые титры, визуальные акценты и готовая упаковка.</p>
           </article>
           <article class="card service-card">
             <span class="card-number">03</span>
-            <h3>Контент-менеджмент</h3>
-            <p>Контент-план + монтаж + публикации + оформление профиля. Ты снимаешь — Лиза ведёт всё производство.</p>
-            <em>Для кого: те, кто хочет делегировать производство целиком</em>
+            <h3>Публикация по расписанию</h3>
+            <p>Контент выходит не когда получится, а по заранее согласованному плану.</p>
           </article>
+          <article class="card service-card">
+            <span class="card-number">04</span>
+            <h3>Единый визуальный стиль</h3>
+            <p>Один голос для регулярного контента на всех площадках.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap fade-in" id="concerns">
+        <div class="section-head">
+          <h2>А что если…</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>…исполнитель пропадёт, как прошлые?</summary>
+            <p>Лиза на связи в Telegram на каждом шаге, статус ролика виден всегда. Формат апдейтов, договор и оплату по этапам нужно зафиксировать <span class="verify">[VERIFY]</span>.</p>
+          </details>
+          <details>
+            <summary>…не попадёт в мой стиль?</summary>
+            <p>Первый ролик согласуем по референсам; правки идут в рамках работы, а не как внезапная доплата. Политику правок нужно подтвердить <span class="verify">[VERIFY]</span>.</p>
+          </details>
+          <details>
+            <summary>…придётся всё переделывать самой?</summary>
+            <p>Бриф фиксируем заранее, поэтому переделок с нуля не бывает; правим точечно.</p>
+          </details>
+          <details>
+            <summary>…будет долго?</summary>
+            <p>Срок называем заранее: 48 часов на первый ролик <span class="verify">[VERIFY]</span>. Если что-то сдвигает срок, ты узнаёшь сразу, а не постфактум.</p>
+          </details>
         </div>
       </section>
 
       <section class="section wrap fade-in" id="process">
         <div class="section-head">
-          <span class="eyebrow">Процесс</span>
-          <h2>Как начать работу</h2>
+          <h2>Как начать</h2>
         </div>
         <div class="process">
           <article class="card step-card">
             <span class="step-number">1</span>
-            <h3>Бриф — 15 минут</h3>
-            <p>Пишешь в Telegram, Лиза задаёт 5–7 вопросов: стиль, аудитория, 2–3 референса. Никаких длинных ТЗ.</p>
+            <h3>Пишешь в Telegram</h3>
+            <p>Разберём задачу бесплатно: что снимаешь, где публикуешь, какой результат нужен.</p>
           </article>
           <article class="card step-card">
             <span class="step-number">2</span>
-            <h3>Присылаешь исходники</h3>
-            <p>Сырое видео, фото, голосовые — что есть. Лиза сама разбирается, что с этим делать.</p>
+            <h3>Короткий бриф</h3>
+            <p>15 минут <span class="verify">[VERIFY]</span>, исходники и 2–3 референса, если они есть.</p>
           </article>
           <article class="card step-card">
             <span class="step-number">3</span>
-            <h3>Получаешь готовый контент</h3>
-            <p>Через 48 часов — смонтированный ролик. Одна итерация правок включена.</p>
+            <h3>Получаешь ролик</h3>
+            <p>Через 48 часов <span class="verify">[VERIFY]</span> — готовое видео для публикации.</p>
           </article>
         </div>
-      </section>
-
-      <section class="section wrap fade-in" id="faq">
-        <div class="section-head">
-          <h2>Частые вопросы</h2>
-        </div>
-        <div class="faq-list">
-          <details>
-            <summary>— А вдруг стиль не совпадёт с моим брендом?</summary>
-            <p>Перед стартом Лиза делает тестовый монтаж одного ролика — ты смотришь и решаешь. Деньги только если сказал «окей, поехали».</p>
-          </details>
-          <details>
-            <summary>— Ты не исчезнешь через месяц, как мой прошлый монтажёр?</summary>
-            <p>
-              Лиза работает с клиентами долгосрочно — большинство проектов 3+ месяца. Кейсы выше — реальные проекты,
-              не разовые. Если что-то идёт не так — ты узнаешь первым, не когда дедлайн уже горит.
-            </p>
-          </details>
-          <details>
-            <summary>— Нужно долго объяснять, что я хочу?</summary>
-            <p>
-              Нет. Бриф — 15 минут в переписке. Если есть 2–3 референса — отлично. Нет — Лиза предложит варианты сама.
-              Со временем объяснять будет нужно всё меньше: стиль фиксируется после первых двух роликов.
-            </p>
-          </details>
-          <details>
-            <summary>— Я монтирую сам в CapCut, зачем мне кто-то ещё?</summary>
-            <p>
-              Самостоятельный монтаж — это 4–6 часов с твоей стороны на каждый ролик. Умножь на 4 ролика в месяц:
-              16–24 часа твоего времени. Часто именно это время отъедает стабильность публикаций. Вопрос не «умеешь ли
-              монтировать», а «хочешь ли тратить на это своё время».
-            </p>
-          </details>
-          <details>
-            <summary>— Сколько это стоит?</summary>
-            <p>
-              Зависит от объёма и форматов — обсуждается индивидуально. Напиши в Telegram, Лиза ответит с конкретными
-              цифрами под твою задачу за 2 часа.
-            </p>
-          </details>
-        </div>
+        <p class="italic-note">
+          Формат работы: разовый ролик или ведение помесячно. 12–16 видео в месяц при регулярной работе <span class="verify">[VERIFY]</span>.
+        </p>
       </section>
 
       <section class="section wrap fade-in" id="month">
         <div class="state-panel">
-          <span class="eyebrow">Результат через месяц</span>
-          <h2>Как выглядит работа с Лизой через месяц</h2>
+          <h2>Через месяц работы с Лизой</h2>
           <div class="state-copy">
-            <p>Ты снимаешь в пятницу вечером — один ролик или три. Отправляешь Лизе. В воскресенье получаешь смонтированный контент на неделю вперёд.</p>
-            <p>В понедельник — пост выходит. Во вторник — следующий. В пятницу — ещё один. Ты не открывал CapCut ни разу.</p>
-            <p>Через месяц у тебя 12–16 видео, единый стиль, аудитория растёт — и ты потратил на производство ноль часов своего времени.</p>
+            <p>Контент выходит по расписанию, без пропусков. Все платформы — в одном стиле.</p>
+            <p>Твоё время уходит на съёмку и идеи, а не на монтаж. Ты больше не открываешь CapCut в ночь перед дедлайном.</p>
           </div>
         </div>
-      </section>
-
-      <section class="final-cta wrap fade-in" id="contact">
-        <div class="cta-panel">
-          <h2>Разберём твою задачу — бесплатно</h2>
+        <div class="cta-panel" id="contact">
+          <h2>Разобрать твою задачу бесплатно</h2>
           <p>
-            Напиши Лизе в Telegram — расскажи про свой проект, она спросит несколько вопросов и скажет, как можно помочь.
-            Без презентаций и менеджеров по продажам.
+            Напиши Лизе в Telegram — расскажи про проект, исходники и площадки. В ответ можно быстро понять объём,
+            собрать план и предложить следующий шаг.
           </p>
-          <a class="button button-primary" href="https://t.me/ziggy_stardust">Написать Лизе в Telegram →</a>
-          <div class="microcopy">Отвечу за 2 часа · Первый ролик — тестовый · Без обязательств</div>
+          <a class="button button-primary" href="https://t.me/ziggy_stardust">Написать в Telegram →</a>
         </div>
       </section>
     </main>
