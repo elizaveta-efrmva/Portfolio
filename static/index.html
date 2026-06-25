@@ -823,6 +823,48 @@
         line-height: 1.5;
       }
 
+      #services .section-head::after {
+        display: none;
+      }
+
+      .services-list {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .service-item {
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 24px;
+        padding: 24px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .service-item:first-child {
+        border-top: 0;
+      }
+
+      .service-number {
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      .service-item h3 {
+        min-height: 0;
+        margin-bottom: 8px;
+        font-size: 22px;
+        line-height: 1.18;
+      }
+
+      .service-item p {
+        max-width: 720px;
+        margin-bottom: 0;
+      }
+
       .process {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1208,6 +1250,11 @@
           grid-template-columns: repeat(4, minmax(280px, 78vw));
         }
 
+        .service-item {
+          grid-template-columns: 48px minmax(0, 1fr);
+          gap: 16px;
+        }
+
         .site-footer {
           flex-direction: column;
         }
@@ -1423,30 +1470,38 @@
 
       <section class="section wrap fade-in" id="services">
         <div class="section-head">
-          <h2>Что входит</h2>
+          <h2>Услуги</h2>
         </div>
-        <div class="grid grid-2">
-          <article class="card service-card">
-            <span class="card-number">01</span>
-            <h3>Reels, TikTok, Shorts и YouTube</h3>
-            <p>Выпуски под задачу: короткие ролики, экспертные фрагменты, talking head и промо.</p>
-          </article>
-          <article class="card service-card">
-            <span class="card-number">02</span>
-            <h3>Субтитры, обложки, оформление</h3>
-            <p>Ролик выглядит собранно: читаемые титры, визуальные акценты и готовая упаковка.</p>
-          </article>
-          <article class="card service-card">
-            <span class="card-number">03</span>
-            <h3>Публикация по расписанию</h3>
-            <p>Контент выходит не когда получится, а по заранее согласованному плану.</p>
-          </article>
-          <article class="card service-card">
-            <span class="card-number">04</span>
-            <h3>Единый визуальный стиль</h3>
-            <p>Один голос для регулярного контента на всех площадках.</p>
-          </article>
-        </div>
+        <ol class="services-list">
+          <li class="service-item">
+            <span class="service-number">01</span>
+            <div>
+              <h3>Reels, TikTok, Shorts и YouTube</h3>
+              <p>Выпуски под задачу: короткие ролики, экспертные фрагменты, talking head и промо.</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <span class="service-number">02</span>
+            <div>
+              <h3>Субтитры, обложки, оформление</h3>
+              <p>Ролик выглядит собранно: читаемые титры, визуальные акценты и готовая упаковка.</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <span class="service-number">03</span>
+            <div>
+              <h3>Публикация по расписанию</h3>
+              <p>Контент выходит не когда получится, а по заранее согласованному плану.</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <span class="service-number">04</span>
+            <div>
+              <h3>Единый визуальный стиль</h3>
+              <p>Один голос для регулярного контента на всех площадках.</p>
+            </div>
+          </li>
+        </ol>
       </section>
 
       <section class="section wrap fade-in" id="concerns">
