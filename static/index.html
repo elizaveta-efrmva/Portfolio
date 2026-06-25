@@ -625,6 +625,10 @@
         margin-bottom: 0;
       }
 
+      .cases-wrap {
+        position: relative;
+      }
+
       .cases {
         display: grid;
         overflow-x: auto;
@@ -653,6 +657,73 @@
 
       .cases::-webkit-scrollbar-thumb:hover {
         background: rgba(72, 178, 76, 0.9);
+      }
+
+      .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 4;
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        border: 1px solid rgba(246, 244, 238, 0.16);
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.68);
+        color: var(--text);
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-50%);
+        transition:
+          opacity 160ms ease,
+          background 160ms ease,
+          border-color 160ms ease;
+        backdrop-filter: blur(12px);
+      }
+
+      .carousel-arrow:hover,
+      .carousel-arrow:focus-visible {
+        border-color: rgba(72, 178, 76, 0.72);
+        background: rgba(0, 0, 0, 0.84);
+      }
+
+      .carousel-arrow::before {
+        width: 12px;
+        height: 12px;
+        border-top: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        content: "";
+      }
+
+      .carousel-arrow-next {
+        right: 14px;
+      }
+
+      .carousel-arrow-next::before {
+        transform: rotate(45deg);
+      }
+
+      .carousel-arrow-prev {
+        left: 14px;
+      }
+
+      .carousel-arrow-prev::before {
+        transform: rotate(225deg);
+      }
+
+      .cases-wrap:hover .carousel-arrow.is-visible,
+      .cases-wrap:focus-within .carousel-arrow.is-visible,
+      .carousel-arrow.is-visible:focus-visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      @media (hover: none) {
+        .carousel-arrow.is-visible {
+          opacity: 1;
+          pointer-events: auto;
+        }
       }
 
       .case-card {
@@ -1169,78 +1240,82 @@
           <p>Вертикальные ролики в формате Reels</p>
         </div>
 
-        <div class="cases" aria-label="Карусель видеоработ">
-          <article class="card case-card">
-            <button
-              class="case-button"
-              type="button"
-              data-video="case-ai-illustrations.mp4"
-              data-title="Обучающее видео с ИИ-иллюстрациями"
-              data-type="9:16 / обучение / AI"
-            >
-              <div class="video-shell case-video ratio-9x16">
-                <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Обучающее видео с ИИ-иллюстрациями">
-                  <source src="case-ai-illustrations.mp4" type="video/mp4" />
-                </video>
-                <span class="case-play" aria-hidden="true"></span>
-              </div>
-              <span class="case-description">Обучающий ролик с AI-иллюстрациями и визуальными вставками — под задачу эксперта.</span>
-            </button>
-          </article>
+        <div class="cases-wrap">
+          <button class="carousel-arrow carousel-arrow-prev" type="button" aria-label="К первому ролику"></button>
+          <div class="cases" aria-label="Карусель видеоработ">
+            <article class="card case-card">
+              <button
+                class="case-button"
+                type="button"
+                data-video="case-ai-illustrations.mp4"
+                data-title="Обучающее видео с ИИ-иллюстрациями"
+                data-type="9:16 / обучение / AI"
+              >
+                <div class="video-shell case-video ratio-9x16">
+                  <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Обучающее видео с ИИ-иллюстрациями">
+                    <source src="case-ai-illustrations.mp4" type="video/mp4" />
+                  </video>
+                  <span class="case-play" aria-hidden="true"></span>
+                </div>
+                <span class="case-description">Обучающий ролик с AI-иллюстрациями и визуальными вставками — под задачу эксперта.</span>
+              </button>
+            </article>
 
-          <article class="card case-card case-card-dentists">
-            <button
-              class="case-button"
-              type="button"
-              data-video="case-dentists.mp4"
-              data-title="Стоматологи — тестовый дизайн"
-              data-type="9:16 / промо / дизайн"
-            >
-              <div class="video-shell case-video ratio-9x16">
-                <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Стоматологи — тестовый дизайн">
-                  <source src="case-dentists.mp4" type="video/mp4" />
-                </video>
-                <span class="case-play" aria-hidden="true"></span>
-              </div>
-              <span class="case-description">Промо для стоматологической клиники: чистая подача, акцент на услуге.</span>
-            </button>
-          </article>
+            <article class="card case-card case-card-dentists">
+              <button
+                class="case-button"
+                type="button"
+                data-video="case-dentists.mp4"
+                data-title="Стоматологи — тестовый дизайн"
+                data-type="9:16 / промо / дизайн"
+              >
+                <div class="video-shell case-video ratio-9x16">
+                  <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Стоматологи — тестовый дизайн">
+                    <source src="case-dentists.mp4" type="video/mp4" />
+                  </video>
+                  <span class="case-play" aria-hidden="true"></span>
+                </div>
+                <span class="case-description">Промо для стоматологической клиники: чистая подача, акцент на услуге.</span>
+              </button>
+            </article>
 
-          <article class="card case-card">
-            <button
-              class="case-button"
-              type="button"
-              data-video="case-typography.mp4"
-              data-title="Типографика Reels"
-              data-type="9:16 / subtitles / rhythm"
-            >
-              <div class="video-shell case-video ratio-9x16">
-                <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Типографика Reels">
-                  <source src="case-typography.mp4" type="video/mp4" />
-                </video>
-                <span class="case-play" aria-hidden="true"></span>
-              </div>
-              <span class="case-description">Reels с крупной типографикой, субтитрами и чётким ритмом.</span>
-            </button>
-          </article>
+            <article class="card case-card">
+              <button
+                class="case-button"
+                type="button"
+                data-video="case-typography.mp4"
+                data-title="Типографика Reels"
+                data-type="9:16 / subtitles / rhythm"
+              >
+                <div class="video-shell case-video ratio-9x16">
+                  <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Типографика Reels">
+                    <source src="case-typography.mp4" type="video/mp4" />
+                  </video>
+                  <span class="case-play" aria-hidden="true"></span>
+                </div>
+                <span class="case-description">Reels с крупной типографикой, субтитрами и чётким ритмом.</span>
+              </button>
+            </article>
 
-          <article class="card case-card">
-            <button
-              class="case-button"
-              type="button"
-              data-video="case-talking-head.mp4"
-              data-title="Говорящая голова + ИИ-вставки"
-              data-type="9:16 / talking head / AI"
-            >
-              <div class="video-shell case-video ratio-9x16">
-                <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Говорящая голова плюс ИИ-вставки">
-                  <source src="case-talking-head.mp4" type="video/mp4" />
-                </video>
-                <span class="case-play" aria-hidden="true"></span>
-              </div>
-              <span class="case-description">Talking head с AI-вставками и смысловыми акцентами.</span>
-            </button>
-          </article>
+            <article class="card case-card">
+              <button
+                class="case-button"
+                type="button"
+                data-video="case-talking-head.mp4"
+                data-title="Говорящая голова + ИИ-вставки"
+                data-type="9:16 / talking head / AI"
+              >
+                <div class="video-shell case-video ratio-9x16">
+                  <video autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-label="Говорящая голова плюс ИИ-вставки">
+                    <source src="case-talking-head.mp4" type="video/mp4" />
+                  </video>
+                  <span class="case-play" aria-hidden="true"></span>
+                </div>
+                <span class="case-description">Talking head с AI-вставками и смысловыми акцентами.</span>
+              </button>
+            </article>
+          </div>
+          <button class="carousel-arrow carousel-arrow-next" type="button" aria-label="К последнему ролику"></button>
         </div>
       </section>
 
@@ -1431,6 +1506,36 @@
       updateHeaderVisibility();
       window.addEventListener("scroll", updateHeaderVisibility, { passive: true });
       window.addEventListener("resize", updateHeaderVisibility);
+
+      const casesWrap = document.querySelector(".cases-wrap");
+      const casesCarousel = document.querySelector(".cases");
+      const carouselPrev = document.querySelector(".carousel-arrow-prev");
+      const carouselNext = document.querySelector(".carousel-arrow-next");
+
+      function updateCarouselArrows() {
+        if (!casesCarousel) return;
+
+        const maxScroll = casesCarousel.scrollWidth - casesCarousel.clientWidth;
+        const isScrollable = maxScroll > 4;
+        const isAtEnd = casesCarousel.scrollLeft >= maxScroll - 4;
+
+        carouselPrev.classList.toggle("is-visible", isScrollable && isAtEnd);
+        carouselNext.classList.toggle("is-visible", isScrollable && !isAtEnd);
+      }
+
+      if (casesWrap && casesCarousel && carouselPrev && carouselNext) {
+        carouselNext.addEventListener("click", () => {
+          casesCarousel.scrollTo({ left: casesCarousel.scrollWidth, behavior: "smooth" });
+        });
+
+        carouselPrev.addEventListener("click", () => {
+          casesCarousel.scrollTo({ left: 0, behavior: "smooth" });
+        });
+
+        casesCarousel.addEventListener("scroll", updateCarouselArrows, { passive: true });
+        window.addEventListener("resize", updateCarouselArrows);
+        updateCarouselArrows();
+      }
 
       const dialog = document.querySelector("#videoDialog");
       const dialogVideo = document.querySelector("#dialogVideo");
