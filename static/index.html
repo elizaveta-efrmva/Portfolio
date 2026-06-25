@@ -239,7 +239,7 @@
 
       h1 {
         max-width: 520px;
-        margin-bottom: 22px;
+        margin-bottom: 30px;
         font-family: Georgia, "Times New Roman", serif;
         font-size: clamp(38px, 4.5vw, 58px);
         line-height: 1.03;
@@ -270,7 +270,7 @@
 
       .lead {
         max-width: 500px;
-        margin-bottom: 30px;
+        margin-bottom: 38px;
         font-size: 17px;
       }
 
@@ -531,6 +531,27 @@
         margin-bottom: 0;
         color: var(--text);
         font-size: 18px;
+      }
+
+      #trigger {
+        padding-top: 72px;
+      }
+
+      #trigger .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      #trigger .section-head::after {
+        display: none;
+      }
+
+      #trigger .trigger-card {
+        background: rgba(246, 244, 238, 0.125);
+      }
+
+      #trigger .italic-note {
+        margin-top: 30px;
+        font-style: normal;
       }
 
       .card-number {
@@ -1094,27 +1115,27 @@
 
       <section class="section wrap fade-in" id="trigger">
         <div class="section-head">
-          <h2>Это про тебя?</h2>
+          <h2>Узнаешь себя?</h2>
         </div>
         <div class="grid grid-2">
           <article class="card trigger-card">
             <span class="card-number">01</span>
-            <p>Видео снято ещё в прошлую среду. Лежит в черновиках. Открываешь CapCut — закрываешь CapCut.</p>
+            <p>Видео снято еще в прошлую среду, лежит в черновиках. Открываете, закрываете капкат.</p>
           </article>
           <article class="card trigger-card">
             <span class="card-number">02</span>
-            <p>Монтажёр снова пропал. Уже второй за полгода. Дедлайн послезавтра — делаешь всё сам.</p>
+            <p>Монтажер снова пропал, уже второй за полгода. Дедлайн послезавтра. Делаете все сами.</p>
           </article>
           <article class="card trigger-card">
             <span class="card-number">03</span>
-            <p>Три ролика за месяц, потом тишина. Алгоритм просел. Снова разгонять с нуля.</p>
+            <p>Три ролика за месяц, потом тишина. Алгоритм просел, снова разгонять с нуля.</p>
           </article>
           <article class="card trigger-card">
             <span class="card-number">04</span>
-            <p>Ведёшь блог, чтобы приходили клиенты, — но на сам контент времени не остаётся.</p>
+            <p>Ведете блог, чтобы приходили клиенты, но на сам контент времени не остается.</p>
           </article>
         </div>
-        <p class="italic-note">Если хотя бы один пункт — про тебя, дальше будет полезно.</p>
+        <p class="italic-note">Если хотя бы один пункт про вас отозвался, то я смогу вам помочь.</p>
       </section>
 
       <section class="section wrap fade-in" id="cases">
