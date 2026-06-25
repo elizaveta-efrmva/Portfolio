@@ -952,9 +952,11 @@
       }
 
       .faq-cta {
-        display: inline-flex;
+        display: flex;
+        width: max-content;
         min-height: 58px;
-        margin-top: 28px;
+        max-width: 100%;
+        margin: 44px auto 0;
         padding-inline: 32px;
         font-size: 17px;
       }
@@ -1037,6 +1039,17 @@
 
       .site-footer span {
         justify-self: center;
+        white-space: nowrap;
+      }
+
+      .site-footer span:first-child {
+        justify-self: start;
+        text-align: left;
+      }
+
+      .site-footer span:last-child {
+        justify-self: end;
+        text-align: right;
       }
 
       dialog {
