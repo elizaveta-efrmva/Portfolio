@@ -995,23 +995,26 @@
       }
 
       .dialog-close {
-        min-height: 38px;
+        width: 38px;
+        height: 38px;
         align-self: start;
-        padding: 0 18px;
-        border: 1px solid transparent;
-        border-radius: 999px;
-        background: var(--accent);
-        color: #061006;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--text);
         cursor: pointer;
-        font-size: 13px;
-        font-weight: 900;
+        font-size: 24px;
         line-height: 1;
-        transition: background 160ms ease;
+        transition:
+          border-color 160ms ease,
+          color 160ms ease;
       }
 
       .dialog-close:hover,
       .dialog-close:focus-visible {
-        background: #3fa943;
+        border-color: rgba(72, 178, 76, 0.72);
+        color: var(--accent);
       }
 
       .dialog-body {
@@ -1036,11 +1039,16 @@
         padding-top: 2px;
         font-size: 16px;
         line-height: 1.3;
+        white-space: nowrap;
       }
 
       .dialog-body .video-shell {
         width: min(calc(100vw - 430px), calc((100dvh - 56px) * 9 / 16));
         max-height: calc(100dvh - 56px);
+      }
+
+      .dialog-body .video-shell::before {
+        display: none;
       }
 
       @media (max-width: 760px) {
@@ -1063,6 +1071,7 @@
 
         .dialog-title {
           align-self: center;
+          white-space: normal;
         }
       }
 
@@ -1511,7 +1520,7 @@
           <div class="video-shell ratio-9x16">
             <video id="dialogVideo" controls loop playsinline preload="metadata" poster="poster.jpg"></video>
           </div>
-          <button class="dialog-close" type="button">Закрыть</button>
+          <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
         </div>
       </div>
     </dialog>
