@@ -555,10 +555,10 @@
       }
 
       #cases .section-head {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 0.72fr) minmax(260px, 0.48fr);
         align-items: center;
-        justify-items: start;
-        text-align: left;
+        justify-items: stretch;
+        text-align: right;
       }
 
       #cases .section-head::after {
@@ -568,6 +568,7 @@
       #cases .section-head p {
         max-width: 360px;
         align-self: center;
+        justify-self: end;
       }
 
       .card-number {
@@ -1158,7 +1159,8 @@
 
       <section class="section wrap fade-in" id="cases">
         <div class="section-head">
-          <p>Вертикальные ролики в формате рилз</p>
+          <h2>Работы</h2>
+          <p>Вертикальные ролики в формате Reels</p>
         </div>
 
         <div class="cases" aria-label="Карусель видеоработ">
