@@ -1025,21 +1025,18 @@
 
       .site-footer {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         align-items: center;
-        gap: 20px;
+        gap: 24px;
         padding: 24px 0 40px;
         border-top: 1px solid var(--line);
         color: var(--dim);
         font-size: 13px;
+        text-align: center;
       }
 
-      .site-footer span:nth-child(2) {
+      .site-footer span {
         justify-self: center;
-      }
-
-      .site-footer span:last-child {
-        justify-self: end;
       }
 
       dialog {
@@ -1273,7 +1270,8 @@
         }
 
         .site-footer {
-          flex-direction: column;
+          grid-template-columns: 1fr;
+          gap: 10px;
         }
       }
     </style>
@@ -1544,7 +1542,7 @@
     </main>
 
     <footer class="site-footer wrap">
-      <span>Лиза Ефремова</span>
+      <span>Елизавета Ефремова</span>
       <span>2026</span>
       <span>Монтаж Reels / TikTok / YouTube · Контент-менеджмент</span>
     </footer>
