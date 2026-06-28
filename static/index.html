@@ -9,6 +9,7 @@
       content="Видеомонтаж и ведение контента под ключ для блогеров, экспертов и брендов: монтаж, оформление и публикация по расписанию."
     />
     <!-- POSTHOG_ANALYTICS -->
+    <!-- YANDEX_METRIKA_SCRIPT -->
     <style>
       :root {
         --bg: #000000;
@@ -1343,6 +1344,7 @@
     </style>
   </head>
   <body>
+    <!-- YANDEX_METRIKA_NOSCRIPT -->
     <header class="site-header">
       <div class="header-inner wrap">
         <nav class="site-nav" aria-label="Навигация">
@@ -1654,6 +1656,13 @@
     <script>
       function captureAnalytics(eventName, properties = {}) {
         window.posthog?.capture(eventName, properties);
+
+        if (window.__YANDEX_METRIKA_ID__ && typeof window.ym === "function") {
+          const goalProperties = Object.fromEntries(
+            Object.entries(properties).filter(([, value]) => value !== undefined && value !== null),
+          );
+          window.ym(window.__YANDEX_METRIKA_ID__, "reachGoal", eventName, goalProperties);
+        }
       }
 
       document.querySelectorAll("[data-analytics-event]").forEach((element) => {

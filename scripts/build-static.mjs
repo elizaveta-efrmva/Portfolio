@@ -6,6 +6,7 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const outDir = join(root, "out");
 const posthogProjectToken = process.env.POSTHOG_PROJECT_TOKEN?.trim();
 const posthogHost = (process.env.POSTHOG_HOST?.trim() || "https://eu.i.posthog.com").replace(/\/+$/, "");
+const yandexMetrikaId = process.env.YANDEX_METRIKA_ID?.trim();
 
 function createPosthogSnippet() {
   if (!posthogProjectToken) {
@@ -75,6 +76,58 @@ function createPosthogSnippet() {
     </script>`;
 }
 
+function createYandexMetrikaScript() {
+  if (!yandexMetrikaId) {
+    return "";
+  }
+
+  if (!/^\d+$/.test(yandexMetrikaId)) {
+    throw new Error("YANDEX_METRIKA_ID must contain digits only.");
+  }
+
+  return `    <!-- Yandex Metrika tag -->
+    <script>
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) return;
+        }
+        k = e.createElement(t);
+        a = e.getElementsByTagName(t)[0];
+        k.async = 1;
+        k.src = r;
+        a.parentNode.insertBefore(k, a);
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=${yandexMetrikaId}", "ym");
+
+      window.__YANDEX_METRIKA_ID__ = ${yandexMetrikaId};
+      ym(${yandexMetrikaId}, "init", {
+        ssr: true,
+        webvisor: false,
+        clickmap: true,
+        accurateTrackBounce: true,
+        trackLinks: true,
+      });
+    </script>
+    <!-- /Yandex Metrika tag -->`;
+}
+
+function createYandexMetrikaNoscript() {
+  if (!yandexMetrikaId) {
+    return "";
+  }
+
+  return `    <noscript>
+      <div>
+        <img src="https://mc.yandex.ru/watch/${yandexMetrikaId}" style="position: absolute; left: -9999px" alt="" />
+      </div>
+    </noscript>`;
+}
+
 function copyFile(src, dest) {
   try {
     copyFileSync(src, dest);
@@ -92,17 +145,27 @@ mkdirSync(outDir, { recursive: true });
 
 console.log("copy html");
 const htmlTemplate = readFileSync(join(root, "static", "index.html"), "utf8");
-const analyticsMarker = "    <!-- POSTHOG_ANALYTICS -->";
+const posthogMarker = "    <!-- POSTHOG_ANALYTICS -->";
+const yandexScriptMarker = "    <!-- YANDEX_METRIKA_SCRIPT -->";
+const yandexNoscriptMarker = "    <!-- YANDEX_METRIKA_NOSCRIPT -->";
 
-if (!htmlTemplate.includes(analyticsMarker)) {
-  throw new Error(`Missing ${analyticsMarker.trim()} marker in static/index.html.`);
+for (const marker of [posthogMarker, yandexScriptMarker, yandexNoscriptMarker]) {
+  if (!htmlTemplate.includes(marker)) {
+    throw new Error(`Missing ${marker.trim()} marker in static/index.html.`);
+  }
 }
+
+const builtHtml = htmlTemplate
+  .replace(posthogMarker, createPosthogSnippet())
+  .replace(yandexScriptMarker, createYandexMetrikaScript())
+  .replace(yandexNoscriptMarker, createYandexMetrikaNoscript());
 
 writeFileSync(
   join(outDir, "index.html"),
-  htmlTemplate.replace(analyticsMarker, createPosthogSnippet()),
+  builtHtml,
 );
 console.log(`PostHog analytics ${posthogProjectToken ? "enabled" : "disabled (POSTHOG_PROJECT_TOKEN is not set)"}`);
+console.log(`Yandex Metrika ${yandexMetrikaId ? "enabled" : "disabled (YANDEX_METRIKA_ID is not set)"}`);
 
 console.log("copy posters");
 const posterSrcDir = join(root, "public", "posters");

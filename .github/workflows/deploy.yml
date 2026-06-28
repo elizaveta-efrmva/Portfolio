@@ -43,6 +43,7 @@ jobs:
           BASE_PATH: ${{ vars.BASE_PATH }}
           POSTHOG_PROJECT_TOKEN: ${{ vars.POSTHOG_PROJECT_TOKEN }}
           POSTHOG_HOST: ${{ vars.POSTHOG_HOST }}
+          YANDEX_METRIKA_ID: ${{ vars.YANDEX_METRIKA_ID }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -50,6 +50,22 @@ npm run build
 
 Если токен не задан, сайт собирается и работает без аналитики.
 
+## Яндекс Метрика
+
+При наличии `YANDEX_METRIKA_ID` сборка подключает Метрику с картой кликов,
+отслеживанием ссылок и точным показателем отказов. События PostHog дублируются
+как JavaScript-цели Метрики с теми же идентификаторами:
+
+- `telegram_click`;
+- `works_gallery_opened`;
+- `portfolio_reel_opened`;
+- `portfolio_carousel_navigated`;
+- `faq_opened`.
+
+Вебвизор отключён, потому что запись сессий уже выполняет PostHog. Для GitHub
+Pages добавьте repository variable `YANDEX_METRIKA_ID` с числовым ID счётчика.
+Если ID не задан, сайт собирается без Метрики.
+
 ## Где менять контент
 
 Основной файл: `content.config.ts`.
