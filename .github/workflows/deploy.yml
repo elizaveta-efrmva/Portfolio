@@ -41,6 +41,8 @@ jobs:
           # For repo pages set repository variable BASE_PATH, e.g. "/portfolio"
           # For user pages (<username>.github.io) leave BASE_PATH empty.
           BASE_PATH: ${{ vars.BASE_PATH }}
+          POSTHOG_PROJECT_TOKEN: ${{ vars.POSTHOG_PROJECT_TOKEN }}
+          POSTHOG_HOST: ${{ vars.POSTHOG_HOST }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

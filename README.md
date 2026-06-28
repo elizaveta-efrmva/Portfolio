@@ -21,6 +21,34 @@ npm run build
 
 Next.js создаст статический сайт в `out/`.
 
+## Аналитика PostHog
+
+При наличии `POSTHOG_PROJECT_TOKEN` сборка подключает PostHog Web Analytics.
+Отслеживаются просмотры и автособираемые взаимодействия, а также события:
+
+- `telegram_click` — клик по кнопке Telegram;
+- `works_gallery_opened` — переход к работам с первого экрана;
+- `portfolio_reel_opened` — открытие ролика в модальном окне;
+- `portfolio_carousel_navigated` — навигация карусели;
+- `faq_opened` — открытие вопроса.
+
+Запись сессий и опросы пока отключены. Для локальной сборки:
+
+```bash
+cp .env.example .env.local
+set -a
+source .env.local
+set +a
+npm run build
+```
+
+Для GitHub Pages добавьте repository variables:
+
+- `POSTHOG_PROJECT_TOKEN` — публичный project token вида `phc_...`;
+- `POSTHOG_HOST` — `https://eu.i.posthog.com` или `https://us.i.posthog.com`.
+
+Если токен не задан, сайт собирается и работает без аналитики.
+
 ## Где менять контент
 
 Основной файл: `content.config.ts`.

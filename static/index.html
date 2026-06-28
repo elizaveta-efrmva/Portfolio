@@ -8,6 +8,7 @@
       name="description"
       content="Видеомонтаж и ведение контента под ключ для блогеров, экспертов и брендов: монтаж, оформление и публикация по расписанию."
     />
+    <!-- POSTHOG_ANALYTICS -->
     <style>
       :root {
         --bg: #000000;
@@ -1349,7 +1350,12 @@
           <a href="#services">Услуги</a>
           <a href="#concerns">Частые вопросы</a>
         </nav>
-        <a class="button button-primary header-button" href="https://t.me/ziggy_stardust">Написать в Telegram</a>
+        <a
+          class="button button-primary header-button"
+          href="https://t.me/ziggy_stardust"
+          data-analytics-event="telegram_click"
+          data-analytics-placement="header"
+        >Написать в Telegram</a>
       </div>
     </header>
 
@@ -1361,7 +1367,12 @@
             Присылайте исходные материалы. Разберём задачу, оформлю результат под ключ.
           </p>
           <div class="actions">
-            <a class="button button-primary" href="https://t.me/ziggy_stardust">Написать в Telegram</a>
+            <a
+              class="button button-primary"
+              href="https://t.me/ziggy_stardust"
+              data-analytics-event="telegram_click"
+              data-analytics-placement="hero"
+            >Написать в Telegram</a>
           </div>
         </div>
 
@@ -1378,7 +1389,12 @@
               <span>Заменить на showreel.mp4</span>
             </div>
           </div>
-          <a class="showreel-link" href="#cases">Смотреть все работы</a>
+          <a
+            class="showreel-link"
+            href="#cases"
+            data-analytics-event="works_gallery_opened"
+            data-analytics-placement="hero_showreel"
+          >Смотреть все работы</a>
         </div>
       </section>
 
@@ -1607,7 +1623,12 @@
             <p>Сроки оговариваем заранее. Среднее время от заказа до готового ролика — 48 часов.</p>
           </details>
         </div>
-        <a class="button button-primary faq-cta" href="https://t.me/ziggy_stardust">Написать в Telegram</a>
+        <a
+          class="button button-primary faq-cta"
+          href="https://t.me/ziggy_stardust"
+          data-analytics-event="telegram_click"
+          data-analytics-placement="faq"
+        >Написать в Telegram</a>
       </section>
 
     </main>
@@ -1631,6 +1652,29 @@
     </dialog>
 
     <script>
+      function captureAnalytics(eventName, properties = {}) {
+        window.posthog?.capture(eventName, properties);
+      }
+
+      document.querySelectorAll("[data-analytics-event]").forEach((element) => {
+        element.addEventListener("click", () => {
+          captureAnalytics(element.dataset.analyticsEvent, {
+            placement: element.dataset.analyticsPlacement,
+            label: element.textContent.trim(),
+          });
+        });
+      });
+
+      document.querySelectorAll(".faq-list details").forEach((details) => {
+        details.addEventListener("toggle", () => {
+          if (details.open) {
+            captureAnalytics("faq_opened", {
+              question: details.querySelector("summary")?.textContent?.trim(),
+            });
+          }
+        });
+      });
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -1674,10 +1718,12 @@
 
       if (casesWrap && casesCarousel && carouselPrev && carouselNext) {
         carouselNext.addEventListener("click", () => {
+          captureAnalytics("portfolio_carousel_navigated", { direction: "forward" });
           casesCarousel.scrollTo({ left: casesCarousel.scrollWidth, behavior: "smooth" });
         });
 
         carouselPrev.addEventListener("click", () => {
+          captureAnalytics("portfolio_carousel_navigated", { direction: "back" });
           casesCarousel.scrollTo({ left: 0, behavior: "smooth" });
         });
 
@@ -1697,6 +1743,10 @@
           const caseDescription = caseItem?.querySelector(".case-description")?.textContent?.trim();
 
           dialogTitle.textContent = caseDescription || button.dataset.title || "Видео";
+          captureAnalytics("portfolio_reel_opened", {
+            title: dialogTitle.textContent,
+            video: button.dataset.video,
+          });
           dialogVideo.innerHTML = "";
           const source = document.createElement("source");
           source.src = button.dataset.video;
