@@ -67,7 +67,9 @@ function createPosthogSnippet() {
         api_host: ${JSON.stringify(posthogHost)},
         defaults: "2026-05-30",
         person_profiles: "identified_only",
-        disable_session_recording: true,
+        session_recording: {
+          maskAllInputs: true,
+        },
         disable_surveys: true,
       });
     </script>`;
