@@ -167,6 +167,30 @@ writeFileSync(
 console.log(`PostHog analytics ${posthogProjectToken ? "enabled" : "disabled (POSTHOG_PROJECT_TOKEN is not set)"}`);
 console.log(`Yandex Metrika ${yandexMetrikaId ? "enabled" : "disabled (YANDEX_METRIKA_ID is not set)"}`);
 
+// index.html references these by relative path, so a missing directory is a
+// broken build rather than a warning.
+for (const [dir, ext] of [
+  ["css", ".css"],
+  ["js", ".js"],
+]) {
+  const srcDir = join(root, "static", dir);
+  if (!existsSync(srcDir)) {
+    throw new Error(`Missing static/${dir}/ — index.html links to ${dir}/ assets.`);
+  }
+
+  const files = readdirSync(srcDir).filter((file) => file.endsWith(ext));
+  if (files.length === 0) {
+    throw new Error(`No ${ext} files in static/${dir}/.`);
+  }
+
+  const destDir = join(outDir, dir);
+  mkdirSync(destDir, { recursive: true });
+  for (const file of files) {
+    console.log(`copy ${dir}/${file}`);
+    copyFile(join(srcDir, file), join(destDir, file));
+  }
+}
+
 console.log("copy posters");
 const posterSrcDir = join(root, "public", "posters");
 if (existsSync(posterSrcDir)) {

@@ -1,0 +1,91 @@
+/* Список услуг */
+
+.service-card h3 {
+  min-height: 52px;
+}
+
+.service-card em {
+  display: block;
+  margin-top: 16px;
+  color: var(--accent);
+  font-style: normal;
+  line-height: 1.5;
+}
+
+#services .section-head::after {
+  display: none;
+}
+
+.services-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* S2 — штрих линейки вместо номера; порядок несёт сам <ol> */
+.service-item {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 20px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+.service-item::before {
+  width: 14px;
+  height: 1px;
+  margin-top: 15px;
+  background: var(--line-strong);
+  content: "";
+}
+
+.service-item:first-child {
+  border-top: 0;
+}
+
+.service-item h3 {
+  min-height: 0;
+  margin-bottom: 8px;
+  font-size: 22px;
+  line-height: 1.18;
+}
+
+.service-item p {
+  max-width: 720px;
+  margin-bottom: 0;
+}
+
+.process {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+}
+
+.step-card {
+  position: relative;
+}
+
+.step-number {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--accent-rgb), 0.34);
+  background: rgba(var(--accent-rgb), 0.08);
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.step-card:not(:last-child)::after {
+  position: absolute;
+  top: 38px;
+  right: -21px;
+  color: var(--accent);
+  content: "→";
+  font-size: 24px;
+  font-weight: 800;
+}

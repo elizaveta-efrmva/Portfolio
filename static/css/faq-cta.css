@@ -1,0 +1,146 @@
+/* FAQ, CTA-панели, футер */
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+details {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(246, 244, 238, 0.025);
+}
+
+summary {
+  display: flex;
+  min-height: 66px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 0 22px;
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 700;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  flex: 0 0 auto;
+  color: var(--accent);
+  content: "+";
+  font-size: 24px;
+}
+
+details[open] summary::after {
+  content: "−";
+}
+
+details p {
+  margin: 0;
+  padding: 0 22px 22px;
+}
+
+.faq-cta {
+  display: flex;
+  width: max-content;
+  min-height: 58px;
+  max-width: 100%;
+  margin: 44px auto 0;
+  padding-inline: 32px;
+  font-size: 17px;
+}
+
+.state-panel,
+.cta-panel {
+  border: 1px solid rgba(var(--accent-rgb), 0.24);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.state-panel {
+  padding: clamp(30px, 6vw, 64px);
+  text-align: left;
+}
+
+.state-copy {
+  display: grid;
+  max-width: 760px;
+  gap: 14px;
+  margin: 0;
+}
+
+.state-copy p {
+  margin-bottom: 0;
+  color: var(--text);
+  font-size: 19px;
+}
+
+.final-cta {
+  padding-bottom: 80px;
+}
+
+.cta-panel {
+  padding: clamp(34px, 7vw, 72px);
+  text-align: left;
+}
+
+.cta-panel p {
+  max-width: 680px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.cta-panel .button {
+  min-height: 56px;
+  margin-top: 14px;
+  padding-inline: 28px;
+  font-size: 17px;
+}
+
+.microcopy {
+  margin-top: 16px;
+  color: var(--dim);
+  font-size: 13px;
+}
+
+.verify {
+  color: var(--accent);
+  font-size: 0.78em;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.state-panel + .cta-panel {
+  margin-top: 18px;
+}
+
+.site-footer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0 40px;
+  border-top: 1px solid var(--line);
+  color: var(--dim);
+  font-size: 13px;
+  text-align: center;
+}
+
+.site-footer span {
+  justify-self: center;
+  white-space: nowrap;
+}
+
+.site-footer span:first-child {
+  justify-self: start;
+  text-align: left;
+}
+
+.site-footer span:last-child {
+  justify-self: end;
+  text-align: right;
+}

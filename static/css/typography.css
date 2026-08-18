@@ -1,0 +1,102 @@
+/* Обёртки секций, hero-copy, eyebrow, заголовки, .lead, .actions */
+
+/* Ритм задаётся промежутком между соседями, а не паддингами с двух сторон:
+   иначе каждая граница получает удвоенное значение и любое исключение
+   расходится по двум секциям сразу. */
+.section {
+  padding: 0;
+}
+
+.section + .section {
+  margin-top: var(--section-gap);
+}
+
+.hero + .section {
+  margin-top: var(--section-gap-hero);
+}
+
+main {
+  padding-bottom: var(--section-gap);
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.96fr);
+  min-height: 100vh;
+  align-items: center;
+  gap: 46px;
+  margin-bottom: -80px;
+  padding: 100px 0 44px;
+  transform: translateY(-80px);
+}
+
+.hero-copy {
+  align-self: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 0 12px;
+  border: 1px solid rgba(var(--accent-rgb), 0.34);
+  border-radius: 999px;
+  background: rgba(var(--accent-rgb), 0.08);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 520px;
+  margin-bottom: 30px;
+  font-family: var(--serif);
+  font-size: clamp(38px, 4.5vw, 58px);
+  line-height: 1.03;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.2vw, 54px);
+  line-height: 1.02;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.lead {
+  max-width: 500px;
+  margin-bottom: 38px;
+  font-size: 17px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}

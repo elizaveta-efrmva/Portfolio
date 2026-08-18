@@ -1,0 +1,252 @@
+/* Автор, шапки секций, сетки, карточки, оверрайды секций */
+
+.author-section {
+  display: grid;
+  grid-template-columns: minmax(360px, 520px) minmax(0, 1fr);
+  align-items: center;
+  column-gap: 58px;
+  row-gap: 34px;
+}
+
+.author-title {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin-bottom: 0;
+}
+
+.author-photo {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  aspect-ratio: 1 / 1;
+}
+
+.author-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-copy {
+  padding-top: 0;
+}
+
+.author-copy p {
+  max-width: 560px;
+  margin-bottom: 24px;
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.author-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.author-list li {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 18px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.author-list span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(260px, 0.48fr);
+  max-width: none;
+  margin: 0 0 38px;
+  align-items: end;
+  gap: 36px;
+  text-align: left;
+}
+
+.section-head::after {
+  min-height: 1px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  content: "";
+}
+
+.section-head p {
+  max-width: 420px;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.grid {
+  display: grid;
+  gap: 0;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(246, 244, 238, 0.025);
+}
+
+.service-card:nth-child(2) {
+  border-color: rgba(241, 239, 232, 0.92);
+  background: var(--paper);
+  color: #050505;
+}
+
+.service-card:nth-child(2) h3 {
+  color: #050505;
+}
+
+.service-card:nth-child(2) p,
+.service-card:nth-child(2) em {
+  color: var(--paper-muted);
+}
+
+.trigger-card,
+.value-card,
+.service-card,
+.step-card {
+  padding: 28px;
+  margin: -1px 0 0 -1px;
+}
+
+.trigger-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.trigger-card p {
+  position: relative;
+  margin-bottom: 0;
+  color: var(--text);
+  font-size: 18px;
+}
+
+#trigger .section-head {
+  grid-template-columns: 1fr;
+}
+
+#trigger .section-head::after {
+  display: none;
+}
+
+#trigger .trigger-card {
+  background: rgba(246, 244, 238, 0.125);
+}
+
+#trigger .italic-note {
+  margin-top: 30px;
+  font-style: normal;
+}
+
+#cases .section-head {
+  grid-template-columns: minmax(0, 0.72fr) minmax(260px, 0.48fr);
+  align-items: center;
+  justify-items: stretch;
+  text-align: right;
+}
+
+#cases .section-head::after {
+  display: none;
+}
+
+#cases .section-head h2 {
+  justify-self: start;
+  padding-top: 8px;
+  text-align: left;
+}
+
+#cases .section-head p {
+  max-width: 360px;
+  align-self: center;
+  justify-self: end;
+}
+
+#value .section-head::after {
+  display: none;
+}
+
+#value .value-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(246, 244, 238, 0.125);
+}
+
+#concerns .section-head::after {
+  display: none;
+}
+
+#concerns h2,
+#concerns summary {
+  font-weight: 500;
+}
+
+/* N4 — контурная цифра уходит в графику карточки */
+.card-number {
+  position: absolute;
+  top: -18px;
+  right: 4px;
+  color: transparent;
+  font-family: var(--serif);
+  font-size: 82px;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+  -webkit-text-stroke: 1px rgba(var(--accent-rgb), 0.24);
+}
+
+.value-card,
+.service-card,
+.step-card {
+  min-height: 236px;
+}
+
+.value-card strong,
+.service-card h3,
+.step-card h3 {
+  font-size: 22px;
+  line-height: 1.18;
+}
+
+.italic-note {
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+}
+
+.value-card strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 19px;
+}
+
+.value-card p,
+.service-card p,
+.step-card p {
+  margin-bottom: 0;
+}

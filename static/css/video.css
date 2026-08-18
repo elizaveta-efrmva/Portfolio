@@ -1,0 +1,112 @@
+/* Видео-контейнеры, пропорции, шоурил, плейсхолдер */
+
+.video-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #050607;
+  box-shadow: none;
+}
+
+.video-shell::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 18px, rgba(246, 244, 238, 0.035) 18px 19px),
+    linear-gradient(180deg, transparent 72%, rgba(var(--accent-rgb), 0.12));
+  content: "";
+}
+
+.ratio-16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.ratio-9x16 {
+  aspect-ratio: 9 / 16;
+}
+
+.showreel {
+  width: min(100%, 520px);
+  min-height: 0;
+  max-height: calc(100vh - 180px);
+  border-radius: 12px;
+  justify-self: center;
+}
+
+.showreel-link {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  background: rgba(0, 0, 0, 0.74);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+  transition: background 160ms ease;
+}
+
+.showreel-link:hover {
+  background: rgba(0, 0, 0, 0.86);
+}
+
+.showreel::before {
+  content: none;
+}
+
+.showreel .video-placeholder {
+  display: none;
+}
+
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  pointer-events: none;
+  text-align: center;
+}
+
+.play {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  margin: 0 auto 14px;
+  border: 1px solid rgba(246, 244, 238, 0.22);
+  border-radius: 50%;
+  background: rgba(246, 244, 238, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.play::before {
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 16px solid var(--accent);
+  content: "";
+}
+
+.video-placeholder strong {
+  display: block;
+  color: var(--text);
+}
+
+.video-placeholder span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
