@@ -75,14 +75,14 @@ export const content = {
     },
     {
       id: "talking-head-ai",
-      title: "Talking head + AI-вставки",
+      title: "Talking head с акцентными вставками",
       category: "Talking head",
       orientation: "vertical",
       poster: "/posters/talking-head.svg",
       source: { kind: "placeholder" },
       description:
-        "Монтаж говорящей головы с визуальными перебивками, AI-иллюстрациями и субтитрами под соцсети.",
-      tags: ["talking head", "AI", "subtitles"],
+        "Монтаж говорящей головы с визуальными перебивками, акцентными вставками и субтитрами под соцсети.",
+      tags: ["talking head", "accents", "subtitles"],
     },
   ] satisfies Work[],
   about: {
