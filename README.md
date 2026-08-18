@@ -142,4 +142,4 @@ npm run lint
 - React 19
 - TypeScript
 - Tailwind CSS v4
-- GitHub Actions + GitHub Pages
+- GitHub Actions + GitHub Pages.
