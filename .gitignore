@@ -46,3 +46,6 @@ public/notion-images/
 
 # Generated from landing/ before dev/build
 public/landing/
+.agents
+.claude
+.windsurf
